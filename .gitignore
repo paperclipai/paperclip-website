@@ -1,6 +1,7 @@
 node_modules/
 dist/
 build/
+.astro/
 .env
 .env.local
 .DS_Store
