@@ -1,0 +1,90 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Define the goal.',
+    example: '"Build the #1 AI note-taking app to $1M MRR."',
+  },
+  {
+    number: '02',
+    title: 'Hire the team.',
+    example: 'CEO, CTO, engineers, designers, marketers — all agents, all configured to your spec.',
+  },
+  {
+    number: '03',
+    title: 'Approve and run.',
+    example: 'Review the CEO\'s strategy. Set budgets. Hit go. Monitor from the dashboard.',
+  },
+];
+---
+
+<section class="how-it-works section">
+  <div class="container">
+    <div class="how-it-works-header">
+      <span class="section-badge">How it works</span>
+      <h2 class="heading-serif how-it-works-heading">Three steps to an<br />autonomous company.</h2>
+    </div>
+    <div class="steps-grid">
+      {steps.map((step) => (
+        <div class="step-card">
+          <span class="step-number">{step.number}</span>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-example">{step.example}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-it-works-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .how-it-works-heading {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .step-card {
+    padding: var(--space-lg) var(--space-md);
+    background: var(--color-bg);
+  }
+
+  .step-number {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .step-example {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

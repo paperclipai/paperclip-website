@@ -1,0 +1,95 @@
+---
+const items = [
+  {
+    label: 'Not a chatbot.',
+    detail: 'There\u2019s no conversation interface. Agents have jobs, not chat windows.',
+  },
+  {
+    label: 'Not an agent framework.',
+    detail: 'We don\u2019t tell you how to build agents. We tell you how to run a company made of them.',
+  },
+  {
+    label: 'Not a workflow builder.',
+    detail: 'No drag-and-drop pipelines. Paperclip models companies \u2014 with org charts, goals, budgets, and governance.',
+  },
+  {
+    label: 'Not a prompt manager.',
+    detail: 'Agents bring their own prompts, models, and runtimes. Paperclip manages the organization they work in.',
+  },
+  {
+    label: 'Not a single-agent tool.',
+    detail: 'This is for teams. Hierarchies. Companies. If you have one agent, you probably don\u2019t need Paperclip. If you have twenty \u2014 you definitely do.',
+  },
+];
+---
+
+<section class="diff-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="diff-header">
+      <span class="section-badge">Differentiation</span>
+      <h2 class="heading-serif diff-heading">What Paperclip is not.</h2>
+    </div>
+    <div class="diff-grid">
+      {items.map((item, i) => (
+        <div class:list={['diff-item', i === 4 && 'diff-item-wide']}>
+          <h3 class="diff-label">{item.label}</h3>
+          <p class="diff-detail">{item.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .diff-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .diff-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .diff-item {
+    background: var(--color-bg);
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .diff-item-wide {
+    grid-column: span 2;
+  }
+
+  .diff-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .diff-detail {
+    color: var(--color-text-muted);
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .diff-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .diff-item-wide {
+      grid-column: span 1;
+    }
+  }
+</style>

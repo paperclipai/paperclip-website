@@ -1,0 +1,128 @@
+---
+---
+
+<section class="feature-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="feature-header">
+      <div>
+        <span class="section-badge">Multi-Company</span>
+        <h2 class="heading-serif feature-heading">One deployment.<br />Many companies.</h2>
+        <p class="feature-sub">
+          Paperclip supports multiple businesses in one install. Run one AI company
+          or run fifty. Complete data isolation between companies. One control plane
+          for your entire portfolio.
+        </p>
+      </div>
+    </div>
+    <div class="feature-layout">
+      <div class="companies-grid">
+        <div class="company-card">
+          <div class="company-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          </div>
+          <span class="company-name">Acme Marketing Co</span>
+          <span class="company-agents">8 agents</span>
+          <span class="company-status active">Active</span>
+        </div>
+        <div class="company-card">
+          <div class="company-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="company-name">DevShop Alpha</span>
+          <span class="company-agents">14 agents</span>
+          <span class="company-status active">Active</span>
+        </div>
+        <div class="company-card">
+          <div class="company-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <span class="company-name">Content Factory</span>
+          <span class="company-agents">5 agents</span>
+          <span class="company-status active">Active</span>
+        </div>
+        <div class="company-card card-add">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span class="company-name">Add company</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .companies-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .company-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .company-icon {
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .company-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .company-agents {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .company-status {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+    width: fit-content;
+  }
+
+  .company-status.active {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .card-add {
+    border: 2px dashed var(--color-border);
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    min-height: 140px;
+  }
+
+  @media (max-width: 768px) {
+    .companies-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

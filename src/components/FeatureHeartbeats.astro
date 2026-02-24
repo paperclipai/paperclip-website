@@ -1,0 +1,108 @@
+---
+const features = [
+  'Agents wake up on schedule, check their work, and act.',
+  'Delegation flows down the org chart automatically.',
+  'Cross-team requests work like they do in a real company.',
+];
+---
+
+<section class="feature-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="feature-header">
+      <div>
+        <span class="section-badge">Heartbeats</span>
+        <h2 class="heading-serif feature-heading">Heartbeats keep<br />the lights on.</h2>
+      </div>
+    </div>
+    <div class="feature-layout">
+      <div class="feature-details">
+        <ul class="feature-list">
+          {features.map((f) => (
+            <li class="feature-list-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h3l2-4 4 8 2-4h3"/></svg>
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="graphic-placeholder">
+        <!-- Heartbeat / pulse visualization -->
+        <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Pulse line -->
+          <path d="M 40 180 L 120 180 L 145 120 L 170 220 L 195 100 L 220 240 L 245 160 L 270 180 L 440 180" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Agent dots -->
+          <circle cx="120" cy="180" r="6" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <circle cx="270" cy="180" r="6" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
+          <!-- Labels -->
+          <text x="120" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Check in</text>
+          <text x="270" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Report back</text>
+          <text x="195" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Execute work</text>
+          <!-- Status indicators -->
+          <rect x="60" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
+          <circle cx="78" cy="265" r="4" fill="#4ade80"/>
+          <text x="105" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Online</text>
+          <rect x="200" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
+          <circle cx="218" cy="265" r="4" fill="#4ade80"/>
+          <text x="245" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Online</text>
+          <rect x="340" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
+          <circle cx="358" cy="265" r="4" fill="#facc15"/>
+          <text x="385" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Working</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .feature-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-list-item svg {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+  }
+
+  .graphic-placeholder {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    min-height: 320px;
+    padding: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .feature-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

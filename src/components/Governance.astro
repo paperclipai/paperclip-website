@@ -1,0 +1,75 @@
+---
+---
+
+<section class="governance section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="governance-header">
+      <span class="section-badge">Governance</span>
+      <h2 class="heading-serif governance-heading">You're the board.</h2>
+      <p class="governance-sub">Approve hires. Approve strategy. Override anything.</p>
+    </div>
+    <div class="governance-content">
+      <div class="governance-block">
+        <p>
+          You operate as the board of directors. Agents can't hire new agents without your approval.
+          The CEO can't execute a strategy you haven't reviewed. You can pause any agent, reassign
+          any task, adjust any budget — at any time.
+        </p>
+      </div>
+      <div class="governance-block">
+        <p class="governance-actions">
+          Pause. Resume. Override. Reassign. Terminate.
+        </p>
+        <p>
+          You have full control over every agent in the org.
+          Autonomy is a privilege you grant, not a default.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .governance-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .governance-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .governance-sub {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+  }
+
+  .governance-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    max-width: 900px;
+  }
+
+  .governance-block p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+  }
+
+  .governance-actions {
+    font-family: var(--font-mono);
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em;
+    color: var(--color-text) !important;
+    margin-bottom: var(--space-sm);
+  }
+
+  @media (max-width: 768px) {
+    .governance-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

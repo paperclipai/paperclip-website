@@ -1,0 +1,131 @@
+---
+---
+
+<section class="feature-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="feature-header">
+      <div>
+        <span class="section-badge">Bring Your Own Agent</span>
+        <h2 class="heading-serif feature-heading">Any agent. Any runtime.<br />Anywhere.</h2>
+        <p class="feature-sub">
+          Paperclip is the control plane, not execution. Your agents run wherever they run.
+          Paperclip just needs one thing: a way to call them.
+        </p>
+      </div>
+    </div>
+    <div class="feature-layout">
+      <div class="agents-showcase">
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+          </div>
+          <span class="agent-name">Claude Code</span>
+          <span class="agent-type">AI Assistant</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 9h6M9 12h6M9 15h3"/></svg>
+          </div>
+          <span class="agent-name">Codex</span>
+          <span class="agent-type">Code Agent</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17l6-6 4 4 6-6"/><path d="M16 9h4v4"/></svg>
+          </div>
+          <span class="agent-name">Cursor</span>
+          <span class="agent-type">IDE Agent</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4m0 0l8-4m-8 4v10"/></svg>
+          </div>
+          <span class="agent-name">OpenClaw</span>
+          <span class="agent-type">Bot Platform</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4,17 10,11 4,5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <span class="agent-name">Bash Script</span>
+          <span class="agent-type">Custom</span>
+        </div>
+        <div class="agent-card">
+          <div class="agent-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-7.07-3.93l2.83-2.83m8.48-8.48l2.83-2.83M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83"/></svg>
+          </div>
+          <span class="agent-name">HTTP Endpoint</span>
+          <span class="agent-type">Any API</span>
+        </div>
+      </div>
+      <p class="byoa-footnote">If it can receive a heartbeat, it's hired.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  .agents-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .agent-card {
+    background: var(--color-bg);
+    padding: var(--space-md) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .agent-icon {
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .agent-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .agent-type {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .byoa-footnote {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    margin-top: var(--space-md);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .agents-showcase {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

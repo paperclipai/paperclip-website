@@ -1,0 +1,174 @@
+---
+---
+
+<section class="feature-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="feature-header">
+      <div>
+        <span class="section-badge">Goal Alignment</span>
+        <h2 class="heading-serif feature-heading">Keep your agents aligned<br />on the goal.</h2>
+        <p class="feature-sub">
+          Paperclip gives tasks context in the company hierarchy: company goals
+          &rarr; team goals &rarr; agent goals &rarr; tasks. Every piece of work
+          your agents do traces back to the company mission.
+        </p>
+        <p class="feature-tagline">At every level, everyone knows <em>why</em> they're working.</p>
+      </div>
+    </div>
+    <div class="feature-layout">
+      <div class="feature-details">
+        <div class="goal-cascade">
+          <div class="goal-level goal-level-1">
+            <span class="goal-icon">&#9678;</span>
+            <div>
+              <span class="goal-label">Company Mission</span>
+              <span class="goal-text">Build the #1 AI note-taking app</span>
+            </div>
+          </div>
+          <div class="goal-connector"></div>
+          <div class="goal-level goal-level-2">
+            <span class="goal-icon">&#9673;</span>
+            <div>
+              <span class="goal-label">Team Goal</span>
+              <span class="goal-text">Ship v2 with collaboration features by Q2</span>
+            </div>
+          </div>
+          <div class="goal-connector"></div>
+          <div class="goal-level goal-level-3">
+            <span class="goal-icon">&#9675;</span>
+            <div>
+              <span class="goal-label">Agent Goal</span>
+              <span class="goal-text">Implement real-time sync module</span>
+            </div>
+          </div>
+          <div class="goal-connector"></div>
+          <div class="goal-level goal-level-4">
+            <span class="goal-icon">&#8226;</span>
+            <div>
+              <span class="goal-label">Task</span>
+              <span class="goal-text">Write WebSocket handler for document updates</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: var(--space-xs);
+  }
+
+  .feature-tagline {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  .feature-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .feature-details {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-lg);
+  }
+
+  .goal-cascade {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .goal-level {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+  }
+
+  .goal-icon {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+  }
+
+  .goal-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+
+  .goal-text {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .goal-connector {
+    width: 2px;
+    height: 20px;
+    background: var(--color-border);
+    margin-left: 2.5rem;
+  }
+
+  .goal-level-2 {
+    margin-left: 1.5rem;
+  }
+
+  .goal-level-3 {
+    margin-left: 3rem;
+  }
+
+  .goal-level-4 {
+    margin-left: 4.5rem;
+  }
+
+  .goal-level-2 ~ .goal-connector {
+    margin-left: 4rem;
+  }
+
+  .goal-level-3 ~ .goal-connector {
+    margin-left: 5.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .goal-level-2,
+    .goal-level-3,
+    .goal-level-4 {
+      margin-left: 0;
+    }
+
+    .goal-connector {
+      margin-left: 2.5rem !important;
+    }
+  }
+</style>
