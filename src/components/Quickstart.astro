@@ -1,4 +1,5 @@
 ---
+import Terminal from './Terminal.astro';
 ---
 
 <section class="quickstart section">
@@ -18,21 +19,7 @@
       </div>
     </div>
     <div class="quickstart-right">
-      <div class="terminal">
-        <div class="terminal-header">
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-        </div>
-        <div class="terminal-body">
-          <span class="terminal-prompt">$</span>
-          <span class="terminal-cmd">npx paperclip onboard</span>
-          <button class="copy-btn" onclick="var b=this;var c=b.getAttribute('data-cmd');if(navigator.clipboard)navigator.clipboard.writeText(c).catch(function(){});b.classList.add('copied');setTimeout(function(){b.classList.remove('copied')},1500)" data-cmd="npx paperclip onboard" aria-label="Copy command">
-            <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </button>
-        </div>
-      </div>
+      <Terminal />
     </div>
   </div>
 </section>
@@ -93,83 +80,6 @@
 
   .quickstart-link:hover {
     color: var(--color-text);
-  }
-
-  .terminal {
-    background: #1a1a1a;
-    border-radius: var(--radius);
-    overflow: hidden;
-    text-align: left;
-  }
-
-  .terminal-header {
-    display: flex;
-    gap: 6px;
-    padding: 10px 14px;
-    background: #222;
-  }
-
-  .terminal-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #3a3a3a;
-  }
-
-  .terminal-body {
-    display: flex;
-    align-items: center;
-    padding: 1.1rem 1.25rem;
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: #f0f0f0;
-  }
-
-  .terminal-prompt {
-    color: #888;
-    margin-right: 0.6rem;
-  }
-
-  .terminal-cmd {
-    flex: 1;
-  }
-
-  .copy-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    color: #666;
-    cursor: pointer;
-    padding: 4px;
-    border-radius: 4px;
-    transition: color 0.2s;
-    flex-shrink: 0;
-  }
-
-  .copy-btn:hover {
-    color: #aaa;
-  }
-
-  .copy-btn :global(.check-icon) {
-    display: none;
-    color: #4ade80;
-  }
-
-  .copy-btn.copied :global(.copy-icon) {
-    display: none;
-  }
-
-  .copy-btn.copied :global(.check-icon) {
-    display: block;
-    animation: copy-pop 0.3s ease;
-  }
-
-  @keyframes copy-pop {
-    0% { transform: scale(0.5); opacity: 0; }
-    60% { transform: scale(1.15); }
-    100% { transform: scale(1); opacity: 1; }
   }
 
   @media (max-width: 768px) {

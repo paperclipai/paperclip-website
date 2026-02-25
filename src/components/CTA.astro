@@ -1,4 +1,5 @@
 ---
+import Terminal from './Terminal.astro';
 ---
 
 <section id="get-started" class="cta-section">
@@ -6,20 +7,12 @@
     <div class="container cta-inner">
       <span class="section-badge cta-badge">Get started</span>
       <h2 class="heading-serif cta-heading">From zero to autonomous company<br />in one command.</h2>
-      <div class="terminal">
-        <div class="terminal-header">
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-        </div>
-        <div class="terminal-body">
-          <span class="terminal-prompt">$</span>
-          <span class="terminal-cmd">npx paperclip onboard</span>
-        </div>
+      <div class="cta-terminal">
+        <Terminal />
       </div>
       <p class="cta-sub">
-        Open source. Self-hosted. Yours. Interactive setup walks you through database, auth,
-        and your first company. No cloud account required.
+        Open source. Self-hosted. Interactive setup walks you through installation
+        and first company. No Paperclip account required. No agents installed automatically.
       </p>
       <div class="cta-links">
         <a href="https://github.com/paperclip-ai/paperclip" class="cta-btn">
@@ -57,39 +50,9 @@
     margin-bottom: var(--space-lg);
   }
 
-  .terminal {
-    background: #1a1a1a;
-    border-radius: var(--radius);
-    overflow: hidden;
+  .cta-terminal {
     max-width: 420px;
-    margin: 0 auto var(--space-lg);
-    text-align: left;
-  }
-
-  .terminal-header {
-    display: flex;
-    gap: 6px;
-    padding: 10px 14px;
-    background: #222;
-  }
-
-  .terminal-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #3a3a3a;
-  }
-
-  .terminal-body {
-    padding: 1.1rem 1.25rem;
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: #f0f0f0;
-  }
-
-  .terminal-prompt {
-    color: #888;
-    margin-right: 0.6rem;
+    margin: 0 auto var(--space-xl);
   }
 
   .cta-sub {
