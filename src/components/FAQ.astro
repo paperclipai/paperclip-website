@@ -1,0 +1,122 @@
+---
+const faqs = [
+  {
+    q: 'How is Paperclip different from agent frameworks like LangChain or CrewAI?',
+    a: 'Agent frameworks help you build individual agents. Paperclip doesn\u2019t care how your agents are built \u2014 it manages the company they work in. Org charts, budgets, goals, governance, and accountability. Think of it as the difference between hiring a person and running an organization.',
+  },
+  {
+    q: 'Can I use my existing agents?',
+    a: 'Yes. Paperclip is unopinionated about agent runtimes. Your agents can be Claude Code sessions, OpenClaw bots, Python scripts, shell commands, HTTP webhooks \u2014 anything that can receive a heartbeat signal. Adapters connect Paperclip to whatever execution environment you use.',
+  },
+  {
+    q: 'What happens when an agent hits its budget limit?',
+    a: 'At 100% budget utilization the agent auto-pauses and new tasks are blocked. You get a soft warning at 80%. As the board, you can override the limit at any time and resume the agent.',
+  },
+  {
+    q: 'How do I keep agents from doing things I don\u2019t want?',
+    a: 'Paperclip has governance and control modules on what your agents can do to modify Paperclip \u2014 for example, hiring new agents is gated by Board approval by default. However, your agents are your own and you secure them however you want to.',
+  },
+  {
+    q: 'Do agents run continuously?',
+    a: 'By default, Paperclip runs your agents on scheduled heartbeats and/or notifications like being assigned a task or @-mentioned. But your agent is your own \u2014 you\u2019re free to hook a continuous agent like OpenClaw into Paperclip.',
+  },
+  {
+    q: 'What does a typical setup look like?',
+    a: 'You can run Paperclip as a local instance or a remote deploy. Locally, a single Node.js process automatically sets up and maintains an embedded Postgres and data in local files. When you\u2019re ready for the cloud, Paperclip makes that easy too \u2014 your agents can help using Paperclip\u2019s provided SKILL.md. Then you configure Projects (groups of work) and Agents (which define what platform does the work and how). You set up tasks and the agents take care of the rest.',
+  },
+  {
+    q: 'Can I run multiple companies?',
+    a: 'Yes. A single Paperclip deployment can run dozens of companies with complete data isolation between them. Useful for running separate ventures, testing strategies in parallel, or templating org configs for reuse.',
+  },
+  {
+    q: 'Is Paperclip open source?',
+    a: 'Yes. MIT licensed, self-hosted, no Paperclip account required. Interactive setup walks you through database configuration and creating your first company. Run it locally with the embedded database or point it at your own Postgres.',
+  },
+];
+---
+
+<section class="faq-section section">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-badge">FAQ</span>
+      <h2 class="heading-serif faq-heading">Frequently asked questions.</h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>{item.q}</span>
+            <svg class="faq-chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 8 10 12 14 8" />
+            </svg>
+          </summary>
+          <p class="faq-answer">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .faq-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .faq-list {
+    max-width: 740px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.2s;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::marker {
+    content: '';
+  }
+
+  .faq-question:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    transition: transform 0.25s ease;
+  }
+
+  .faq-item[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    padding: 0 0 var(--space-md);
+    max-width: 640px;
+  }
+</style>

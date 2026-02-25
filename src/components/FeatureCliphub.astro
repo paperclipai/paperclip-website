@@ -1,0 +1,313 @@
+---
+---
+
+<section class="feature-section section" id="cliphub-section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="feature-header">
+      <div>
+        <div class="badge-row">
+          <span class="section-badge">Cliphub</span>
+          <span class="badge-coming-soon">Coming Soon</span>
+        </div>
+        <h2 class="heading-serif feature-heading">Download a business.<br />Import. Run.</h2>
+        <p class="feature-sub">
+          Browse pre-built company templates — full org structures, agent configs,
+          and skills — and import them into your Paperclip instance in seconds.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid-wrapper">
+      <div class="templates-grid">
+        <!-- 1. Content Marketing Agency -->
+        <div class="template-card" style="--d:0">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <span class="template-name">Content Marketing Agency</span>
+          <p class="template-desc">SEO, blogs, social media on autopilot</p>
+          <div class="template-meta">
+            <span class="agent-pill">8 agents</span>
+            <span class="category-tag">Marketing</span>
+          </div>
+        </div>
+
+        <!-- 2. Crypto Trading Desk -->
+        <div class="template-card" style="--d:1">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <span class="template-name">Crypto Trading Desk</span>
+          <p class="template-desc">Analysis, execution, risk, compliance</p>
+          <div class="template-meta">
+            <span class="agent-pill">12 agents</span>
+            <span class="category-tag">Finance</span>
+          </div>
+        </div>
+
+        <!-- 3. E-commerce Operator -->
+        <div class="template-card" style="--d:2">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          </div>
+          <span class="template-name">E-commerce Operator</span>
+          <p class="template-desc">Listings, support, inventory, ads</p>
+          <div class="template-meta">
+            <span class="agent-pill">10 agents</span>
+            <span class="category-tag">E-commerce</span>
+          </div>
+        </div>
+
+        <!-- 4. YouTube Factory -->
+        <div class="template-card" style="--d:3">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          </div>
+          <span class="template-name">YouTube Factory</span>
+          <p class="template-desc">Scripts, edits, thumbnails, scheduling</p>
+          <div class="template-meta">
+            <span class="agent-pill">6 agents</span>
+            <span class="category-tag">Media</span>
+          </div>
+        </div>
+
+        <!-- 5. Dev Agency -->
+        <div class="template-card" style="--d:4">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="template-name">Dev Agency</span>
+          <p class="template-desc">PM, engineers, QA, DevOps pipeline</p>
+          <div class="template-meta">
+            <span class="agent-pill">9 agents</span>
+            <span class="category-tag">Software</span>
+          </div>
+        </div>
+
+        <!-- 6. Real Estate Leads -->
+        <div class="template-card" style="--d:5">
+          <div class="template-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="template-name">Real Estate Leads</span>
+          <p class="template-desc">Prospecting, outreach, follow-up, closing</p>
+          <div class="template-meta">
+            <span class="agent-pill">7 agents</span>
+            <span class="category-tag">Sales</span>
+          </div>
+        </div>
+
+        <!-- 7. Publish Your Own (ghost card) -->
+        <div class="template-card template-card--ghost" style="--d:6">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span class="template-name">Publish Your Own</span>
+          <p class="template-desc">Share your company template with the community</p>
+        </div>
+      </div>
+
+      <!-- Coming Soon overlay -->
+      <div class="coming-soon-overlay">
+        <span class="coming-soon-pill">Coming Soon</span>
+        <p class="coming-soon-sub">Star us on GitHub to stay updated</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById('cliphub-section');
+  if (section) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            section.classList.add('is-visible');
+            observer.unobserve(section);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(section);
+  }
+</script>
+
+<style>
+  .feature-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 520px;
+  }
+
+  /* ── Badge row ── */
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .badge-row .section-badge {
+    margin-bottom: 0;
+  }
+
+  .badge-coming-soon {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0.3em 0.9em;
+  }
+
+  /* ── Grid wrapper (holds grid + overlay) ── */
+  .grid-wrapper {
+    position: relative;
+  }
+
+  /* ── Template grid ── */
+  .templates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    opacity: 0.5;
+    filter: blur(1px);
+  }
+
+  .template-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    border: 1.5px solid transparent;
+    cursor: default;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition-delay: calc(var(--d) * 120ms + 100ms);
+  }
+
+  #cliphub-section:global(.is-visible) .template-card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .template-icon {
+    color: var(--color-text-muted);
+    margin-bottom: 0.15rem;
+  }
+
+  .template-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .template-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .template-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+  }
+
+  .agent-pill {
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-raised);
+    color: var(--color-text-secondary);
+  }
+
+  .category-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Ghost card (Publish Your Own) ── */
+  .template-card--ghost {
+    border: 2px dashed var(--color-border);
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-muted);
+  }
+
+  .template-card--ghost .template-name {
+    color: var(--color-text-muted);
+  }
+
+  /* ── Coming Soon overlay ── */
+  .coming-soon-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    transition-delay: 1s;
+  }
+
+  #cliphub-section:global(.is-visible) .coming-soon-overlay {
+    opacity: 1;
+  }
+
+  .coming-soon-pill {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-pill);
+    padding: 0.6em 1.6em;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .coming-soon-sub {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .templates-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .templates-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

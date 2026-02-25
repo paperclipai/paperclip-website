@@ -1,0 +1,538 @@
+---
+---
+
+<section class="feature-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="tickets-two-col" id="tickets-section">
+      <!-- Left: copy + bullets -->
+      <div class="tickets-copy">
+        <span class="section-badge">Ticket System</span>
+        <h2 class="heading-serif feature-heading">Every conversation traced.<br />Every decision explained.</h2>
+        <p class="feature-sub">
+          You communicate with agents through tickets. Every instruction, every response,
+          every tool call and decision is recorded with full tracing. Nothing happens in the dark.
+        </p>
+        <ul class="ticket-bullets">
+          <li class="ticket-bullet" style="--d:0">
+            <span class="bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </span>
+            <div>
+              <strong>Structured tickets</strong>
+              <span>Every task is a ticket with a clear owner, status, and thread.</span>
+            </div>
+          </li>
+          <li class="ticket-bullet" style="--d:1">
+            <span class="bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            <div>
+              <strong>Full trace</strong>
+              <span>Every tool call, API request, and decision point is logged and visible.</span>
+            </div>
+          </li>
+          <li class="ticket-bullet" style="--d:2">
+            <span class="bullet-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </span>
+            <div>
+              <strong>Immutable audit log</strong>
+              <span>Append-only history. No edits, no deletions. Full accountability.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: mock ticket UI -->
+      <div class="tickets-visual">
+        <div class="ticket-mock" id="ticket-mock">
+
+          <!-- Ticket header -->
+          <div class="ticket-header" style="--d:0">
+            <div class="ticket-id-row">
+              <span class="ticket-number">#1042</span>
+              <span class="ticket-title">Deploy updated pricing page</span>
+            </div>
+            <div class="ticket-meta">
+              <span class="ticket-pill ticket-pill--status">In Progress</span>
+              <span class="ticket-pill ticket-pill--assignee">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                CTO
+              </span>
+            </div>
+          </div>
+
+          <!-- Conversation thread -->
+          <div class="ticket-thread">
+            <div class="thread-msg thread-msg--human" style="--d:1">
+              <div class="msg-avatar msg-avatar--human">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="msg-body">
+                <div class="msg-meta">
+                  <span class="msg-author">You</span>
+                  <span class="msg-time">2 min ago</span>
+                </div>
+                <p class="msg-text">Deploy the updated pricing page to production. Run tests first.</p>
+              </div>
+            </div>
+            <div class="thread-msg thread-msg--agent" style="--d:2">
+              <div class="msg-avatar msg-avatar--agent">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              </div>
+              <div class="msg-body">
+                <div class="msg-meta">
+                  <span class="msg-author">CTO Agent</span>
+                  <span class="msg-time">1 min ago</span>
+                </div>
+                <p class="msg-text">Running test suite and staging deployment now. I'll promote to production once smoke tests pass.</p>
+              </div>
+            </div>
+            <div class="thread-msg thread-msg--human" style="--d:3">
+              <div class="msg-avatar msg-avatar--human">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </div>
+              <div class="msg-body">
+                <div class="msg-meta">
+                  <span class="msg-author">You</span>
+                  <span class="msg-time">just now</span>
+                </div>
+                <p class="msg-text">Approved. Go ahead.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trace timeline -->
+          <div class="ticket-trace">
+            <span class="trace-label">Trace</span>
+            <div class="trace-steps">
+              <div class="trace-step" style="--d:4">
+                <span class="trace-dot trace-dot--done"></span>
+                <span class="trace-line"></span>
+                <span class="trace-action">run_tests()</span>
+                <span class="trace-status trace-status--done">passed</span>
+              </div>
+              <div class="trace-step" style="--d:5">
+                <span class="trace-dot trace-dot--done"></span>
+                <span class="trace-line"></span>
+                <span class="trace-action">deploy_to_staging()</span>
+                <span class="trace-status trace-status--done">done</span>
+              </div>
+              <div class="trace-step" style="--d:6">
+                <span class="trace-dot trace-dot--done"></span>
+                <span class="trace-line"></span>
+                <span class="trace-action">smoke_test()</span>
+                <span class="trace-status trace-status--done">passed</span>
+              </div>
+              <div class="trace-step trace-step--active" style="--d:7">
+                <span class="trace-dot trace-dot--active"></span>
+                <span class="trace-action">deploy_to_production()</span>
+                <span class="trace-status trace-status--active">running</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const ticketsSection = document.getElementById('tickets-section');
+  if (ticketsSection) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            ticketsSection.classList.add('is-visible');
+            observer.unobserve(ticketsSection);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(ticketsSection);
+  }
+</script>
+
+<style>
+  /* ── Two-column layout ── */
+  .tickets-two-col {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-xl);
+    align-items: stretch;
+    padding-top: var(--space-lg);
+  }
+
+  .tickets-copy {
+    padding-top: var(--space-xs);
+  }
+
+  .feature-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 420px;
+  }
+
+  /* ── Bullet list ── */
+  .ticket-bullets {
+    margin-top: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .ticket-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .bullet-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    margin-top: 1px;
+  }
+
+  .bullet-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ticket-bullet strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.15rem;
+  }
+
+  .ticket-bullet span {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* ── Visual panel ── */
+  .tickets-visual {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: var(--space-md);
+    overflow: hidden;
+  }
+
+  /* ── Mock ticket card ── */
+  .ticket-mock {
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ── Ticket header ── */
+  .ticket-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ticket-id-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ticket-number {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .ticket-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+
+  .ticket-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .ticket-pill {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2em 0.7em;
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ticket-pill--status {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .ticket-pill--assignee {
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+  }
+
+  .ticket-pill--assignee svg {
+    flex-shrink: 0;
+  }
+
+  /* ── Thread ── */
+  .ticket-thread {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .thread-msg {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .msg-avatar {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .msg-avatar--human {
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+  }
+
+  .msg-avatar--agent {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .msg-body {
+    min-width: 0;
+  }
+
+  .msg-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+
+  .msg-author {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .msg-time {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+  }
+
+  .msg-text {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ── Trace timeline ── */
+  .ticket-trace {
+    padding: 14px 20px;
+  }
+
+  .trace-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    margin-bottom: 10px;
+  }
+
+  .trace-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding-left: 6px;
+  }
+
+  .trace-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    padding: 6px 0;
+    padding-left: 18px;
+  }
+
+  /* Vertical connector line between steps */
+  .trace-line {
+    position: absolute;
+    left: 4px;
+    top: 22px;
+    width: 1.5px;
+    height: calc(100%);
+    background: var(--color-border);
+  }
+
+  .trace-step:last-child .trace-line {
+    display: none;
+  }
+
+  .trace-dot {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .trace-dot--done {
+    background: #22c55e;
+  }
+
+  .trace-dot--active {
+    background: #22c55e;
+    animation: dotPulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0);
+    }
+  }
+
+  .trace-action {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .trace-status {
+    font-size: 0.65rem;
+    font-weight: 500;
+    margin-left: auto;
+  }
+
+  .trace-status--done {
+    color: #16a34a;
+  }
+
+  .trace-status--active {
+    color: #22c55e;
+    animation: statusBlink 1.5s ease-in-out infinite;
+  }
+
+  @keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ── Reveal animation ── */
+  .ticket-header,
+  .thread-msg,
+  .trace-step,
+  .ticket-bullet {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+
+  .tickets-two-col:global(.is-visible) .ticket-header,
+  .tickets-two-col:global(.is-visible) .thread-msg,
+  .tickets-two-col:global(.is-visible) .trace-step {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) * 120ms + 100ms);
+  }
+
+  .tickets-two-col:global(.is-visible) .ticket-bullet {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: calc(var(--d) * 120ms + 300ms);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .tickets-two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .tickets-visual {
+      min-height: 320px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ticket-header {
+      padding: 12px 14px;
+    }
+
+    .ticket-thread {
+      padding: 12px 14px;
+    }
+
+    .ticket-trace {
+      padding: 10px 14px;
+    }
+
+    .ticket-title {
+      font-size: 0.85rem;
+    }
+
+    .msg-text {
+      font-size: 0.78rem;
+    }
+
+    .trace-action {
+      font-size: 0.7rem;
+    }
+  }
+</style>
