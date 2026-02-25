@@ -17,38 +17,248 @@
     </div>
     <div class="feature-layout">
       <div class="companies-grid">
-        <div class="company-card">
-          <div class="company-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+
+        <!-- Card 1: Mobile Marketing Co -->
+        <div class="company-card-wrapper">
+          <div class="company-card" data-company="marketing">
+            <div class="company-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/><line x1="9" y1="5" x2="15" y2="5"/></svg>
+            </div>
+            <span class="company-name">Mobile Marketing Co</span>
+            <span class="company-agents">8 agents</span>
+            <span class="company-status active">Active</span>
           </div>
-          <span class="company-name">Acme Marketing Co</span>
-          <span class="company-agents">8 agents</span>
-          <span class="company-status active">Active</span>
-        </div>
-        <div class="company-card">
-          <div class="company-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <div class="org-dropdown" data-tree="marketing">
+            <div class="org-tree-mini">
+              <div class="mini-row mini-row--single">
+                <div class="mini-card" style="--d:0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>CEO</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:1"></div>
+              <div class="mini-row mini-row--cols-2">
+                <div class="mini-card" style="--d:2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                  <span>VP Marketing</span>
+                </div>
+                <div class="mini-card" style="--d:3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  <span>VP Growth</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:4"></div>
+              <div class="mini-row mini-row--cols-4">
+                <div class="mini-card" style="--d:5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  <span>Content</span>
+                </div>
+                <div class="mini-card" style="--d:6">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <span>Ads</span>
+                </div>
+                <div class="mini-card" style="--d:7">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <span>SEO</span>
+                </div>
+                <div class="mini-card" style="--d:8">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  <span>Analytics</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <span class="company-name">DevShop Alpha</span>
-          <span class="company-agents">14 agents</span>
-          <span class="company-status active">Active</span>
         </div>
-        <div class="company-card">
-          <div class="company-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+
+        <!-- Card 2: John Street Hyperliquid Fund -->
+        <div class="company-card-wrapper">
+          <div class="company-card" data-company="fund">
+            <div class="company-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <span class="company-name">John Street Hyperliquid Fund</span>
+            <span class="company-agents">14 agents</span>
+            <span class="company-status active">Active</span>
           </div>
-          <span class="company-name">Content Factory</span>
-          <span class="company-agents">5 agents</span>
-          <span class="company-status active">Active</span>
+          <div class="org-dropdown" data-tree="fund">
+            <div class="org-tree-mini">
+              <div class="mini-row mini-row--single">
+                <div class="mini-card" style="--d:0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Managing Partner</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:1"></div>
+              <div class="mini-row mini-row--cols-3">
+                <div class="mini-card" style="--d:2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                  <span>Trading</span>
+                </div>
+                <div class="mini-card" style="--d:3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <span>Research</span>
+                </div>
+                <div class="mini-card" style="--d:4">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Risk</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:5"></div>
+              <div class="mini-row mini-row--cols-4">
+                <div class="mini-card" style="--d:6">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  <span>Quant</span>
+                </div>
+                <div class="mini-card" style="--d:7">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  <span>Exec Bot</span>
+                </div>
+                <div class="mini-card" style="--d:8">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                  <span>Scout</span>
+                </div>
+                <div class="mini-card" style="--d:9">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Hedger</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="company-card card-add">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          <span class="company-name">Add company</span>
+
+        <!-- Card 3: Faceless TikTok Factory -->
+        <div class="company-card-wrapper">
+          <div class="company-card" data-company="tiktok">
+            <div class="company-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14"/><rect x="3" y="6" width="12" height="12" rx="2"/></svg>
+            </div>
+            <span class="company-name">Faceless TikTok Factory</span>
+            <span class="company-agents">5 agents</span>
+            <span class="company-status active">Active</span>
+          </div>
+          <div class="org-dropdown" data-tree="tiktok">
+            <div class="org-tree-mini">
+              <div class="mini-row mini-row--single">
+                <div class="mini-card" style="--d:0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Producer</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:1"></div>
+              <div class="mini-row mini-row--cols-2">
+                <div class="mini-card" style="--d:2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  <span>Scriptwriter</span>
+                </div>
+                <div class="mini-card" style="--d:3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                  <span>Video Editor</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:4"></div>
+              <div class="mini-row mini-row--cols-3">
+                <div class="mini-card" style="--d:5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  <span>Voice</span>
+                </div>
+                <div class="mini-card" style="--d:6">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                  <span>Thumbnail</span>
+                </div>
+                <div class="mini-card" style="--d:7">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>Scheduler</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Card 4: Add company -->
+        <div class="company-card-wrapper">
+          <div class="company-card card-add" data-company="add">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span class="company-name">Add company</span>
+          </div>
+          <div class="org-dropdown" data-tree="add">
+            <div class="org-tree-mini">
+              <div class="mini-row mini-row--single">
+                <div class="mini-card mini-card--ghost" style="--d:0">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>Your CEO</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:1"></div>
+              <div class="mini-row mini-row--cols-3">
+                <div class="mini-card mini-card--ghost" style="--d:2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                  <span>Role...</span>
+                </div>
+                <div class="mini-card mini-card--ghost" style="--d:3">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                  <span>Role...</span>
+                </div>
+                <div class="mini-card mini-card--ghost" style="--d:4">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                  <span>Role...</span>
+                </div>
+              </div>
+              <div class="mini-stem" style="--d:5"></div>
+              <div class="mini-row mini-row--cols-2">
+                <div class="mini-card mini-card--ghost" style="--d:6">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                  <span>Agent...</span>
+                </div>
+                <div class="mini-card mini-card--ghost" style="--d:7">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                  <span>Agent...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.company-card[data-company]').forEach(card => {
+    const wrapper = card.closest('.company-card-wrapper');
+    const dropdown = wrapper.querySelector('.org-dropdown');
+    if (!dropdown) return;
+
+    let hideTimeout;
+
+    function show() {
+      clearTimeout(hideTimeout);
+      document.querySelectorAll('.org-dropdown.is-open').forEach(d => {
+        if (d !== dropdown) close(d);
+      });
+      dropdown.classList.add('is-open');
+      const cards = dropdown.querySelectorAll('.mini-card');
+      cards.forEach(c => c.classList.remove('is-visible'));
+      requestAnimationFrame(() => {
+        cards.forEach(c => c.classList.add('is-visible'));
+      });
+    }
+
+    function close(d) {
+      d.classList.remove('is-open');
+      d.querySelectorAll('.mini-card').forEach(c => c.classList.remove('is-visible'));
+    }
+
+    function hide() {
+      hideTimeout = setTimeout(() => close(dropdown), 200);
+    }
+
+    card.addEventListener('mouseenter', show);
+    card.addEventListener('mouseleave', hide);
+    dropdown.addEventListener('mouseenter', () => clearTimeout(hideTimeout));
+    dropdown.addEventListener('mouseleave', hide);
+  });
+</script>
 
 <style>
   .feature-header {
@@ -72,6 +282,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-md);
+    align-items: start;
+  }
+
+  .company-card-wrapper {
+    position: relative;
   }
 
   .company-card {
@@ -81,6 +296,14 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    cursor: default;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    border: 1.5px solid transparent;
+  }
+
+  .company-card[data-company]:hover {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 1.5px rgba(34, 197, 94, 0.18);
   }
 
   .company-icon {
@@ -91,6 +314,10 @@
   .company-name {
     font-weight: 600;
     font-size: 0.95rem;
+    line-height: 1.25;
+    min-height: 2.5em;
+    display: flex;
+    align-items: flex-start;
   }
 
   .company-agents {
@@ -117,12 +344,233 @@
     align-items: center;
     justify-content: center;
     color: var(--color-text-muted);
-    min-height: 140px;
+    /* match height of sibling cards */
   }
 
-  @media (max-width: 768px) {
+  .card-add .company-name {
+    min-height: auto;
+    justify-content: center;
+  }
+
+  /* ── Org tree dropdown ── */
+  .org-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    width: max-content;
+    min-width: 100%;
+    max-width: 340px;
+    padding-top: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .org-dropdown:global(.is-open) {
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .org-tree-mini {
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 16px 14px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── Mini rows ── */
+  .mini-row {
+    width: 100%;
+    position: relative;
+  }
+
+  .mini-row--single {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ── Grid-based multi-child rows ── */
+  /* Each column count gets its own class so the horizontal bar
+     lines up exactly from the center of the first cell to the
+     center of the last cell.
+     Formula: inset = (100% - (N-1) * gap) / (2 * N)           */
+
+  .mini-row--cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding-top: 16px;
+  }
+
+  .mini-row--cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding-top: 16px;
+  }
+
+  .mini-row--cols-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    padding-top: 16px;
+  }
+
+  /* Horizontal connection bar */
+  .mini-row--cols-2::before,
+  .mini-row--cols-3::before,
+  .mini-row--cols-4::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 1.5px;
+    background: #b5b0a8;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.15s;
+  }
+
+  /* 2 cols: inset = (100% - 6px) / 4 */
+  .mini-row--cols-2::before {
+    left: calc((100% - 6px) / 4);
+    right: calc((100% - 6px) / 4);
+  }
+
+  /* 3 cols: inset = (100% - 12px) / 6 */
+  .mini-row--cols-3::before {
+    left: calc((100% - 12px) / 6);
+    right: calc((100% - 12px) / 6);
+  }
+
+  /* 4 cols: inset = (100% - 18px) / 8 */
+  .mini-row--cols-4::before {
+    left: calc((100% - 18px) / 8);
+    right: calc((100% - 18px) / 8);
+  }
+
+  .org-dropdown:global(.is-open) .mini-row--cols-2::before,
+  .org-dropdown:global(.is-open) .mini-row--cols-3::before,
+  .org-dropdown:global(.is-open) .mini-row--cols-4::before {
+    opacity: 1;
+  }
+
+  /* Drop lines from horizontal bar down into each card */
+  .mini-row--cols-2 > .mini-card::before,
+  .mini-row--cols-3 > .mini-card::before,
+  .mini-row--cols-4 > .mini-card::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1.5px;
+    height: 16px;
+    background: #b5b0a8;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.15s;
+  }
+
+  .org-dropdown:global(.is-open) .mini-row--cols-2 > .mini-card::before,
+  .org-dropdown:global(.is-open) .mini-row--cols-3 > .mini-card::before,
+  .org-dropdown:global(.is-open) .mini-row--cols-4 > .mini-card::before {
+    opacity: 1;
+  }
+
+  /* Vertical stem between levels */
+  .mini-stem {
+    width: 1.5px;
+    height: 16px;
+    background: #b5b0a8;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+  }
+
+  .org-dropdown:global(.is-open) .mini-stem {
+    opacity: 1;
+  }
+
+  /* ── Mini card ── */
+  .mini-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    transition-delay: calc(var(--d) * 60ms);
+  }
+
+  .mini-card:global(.is-visible) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mini-card svg {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+  }
+
+  .mini-card span {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    line-height: 1;
+  }
+
+  /* Ghost cards for "Add company" */
+  .mini-card--ghost {
+    border-style: dashed;
+    background: transparent;
+  }
+
+  .mini-card--ghost svg {
+    opacity: 0.4;
+  }
+
+  .mini-card--ghost span {
+    color: var(--color-text-muted);
+    opacity: 0.6;
+  }
+
+  /* Pulse highlight cascading down */
+  @keyframes miniPulse {
+    0%, 100% { border-color: var(--color-border); }
+    50% { border-color: #22c55e; box-shadow: 0 0 0 1px rgba(34,197,94,0.15); }
+  }
+
+  .mini-card:global(.is-visible):not(.mini-card--ghost) {
+    animation: miniPulse 1.8s ease calc(var(--d) * 120ms + 0.4s) 1;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
     .companies-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .companies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .org-dropdown {
+      left: 0;
+      transform: none;
+      max-width: 100%;
     }
   }
 </style>

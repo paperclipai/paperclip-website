@@ -227,7 +227,10 @@
                 item.classList.add('visible');
               }, i * 180);
             });
-            observer.unobserve(entry.target);
+          } else {
+            items.forEach((item) => {
+              item.classList.remove('visible');
+            });
           }
         });
       },
