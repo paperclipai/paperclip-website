@@ -20,8 +20,19 @@ const steps = [
 
 <section class="how-it-works section">
   <div class="container">
+    <div class="video-wrapper">
+      <video
+        class="tour-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source src="/videos/full-tour.webm" type="video/webm" />
+      </video>
+    </div>
     <div class="how-it-works-header">
-      <span class="section-badge">How it works</span>
       <h2 class="heading-serif how-it-works-heading">Three steps to an<br />autonomous company.</h2>
     </div>
     <div class="steps-grid">
@@ -37,6 +48,32 @@ const steps = [
 </section>
 
 <style>
+  .video-wrapper {
+    margin-bottom: var(--space-xl);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    animation: videoFadeIn 1.2s ease-out both;
+  }
+
+  .tour-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--color-surface);
+  }
+
+  @keyframes videoFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   .how-it-works-header {
     text-align: center;
     margin-bottom: var(--space-xl);
@@ -88,3 +125,42 @@ const steps = [
     }
   }
 </style>
+
+<script>
+  const video = document.querySelector('.tour-video');
+  const wrapper = document.querySelector('.video-wrapper');
+
+  if (video && wrapper) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            wrapper.classList.add('is-visible');
+            (video as HTMLVideoElement).play().catch(() => {});
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(wrapper);
+
+    // Start hidden, animate when scrolled into view
+    wrapper.style.opacity = '0';
+    wrapper.style.animation = 'none';
+    wrapper.classList.remove('is-visible');
+
+    const visibleObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            wrapper.style.animation = '';
+            wrapper.style.opacity = '';
+            visibleObserver.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    visibleObserver.observe(wrapper);
+  }
+</script>
