@@ -5,33 +5,25 @@
   <div class="container">
     <hr class="section-divider" />
     <div class="feature-header">
-      <div>
-        <span class="section-badge">Goal Alignment</span>
-        <h2 class="heading-serif feature-heading">Keep your agents aligned<br />on the goal.</h2>
-        <p class="feature-sub">
-          Paperclip gives tasks context in the company hierarchy: company goals
-          &rarr; team goals &rarr; agent goals &rarr; tasks. Every piece of work
-          your agents do traces back to the company mission.
-        </p>
-        <p class="feature-tagline">At every level, everyone knows <em>why</em> they're working.</p>
-      </div>
+      <span class="section-badge">Goal Alignment</span>
+      <h2 class="heading-serif feature-heading">Keep your agents aligned<br />on the goal.</h2>
     </div>
     <div class="feature-layout">
-      <div class="feature-details">
+      <div class="feature-graphic">
         <div class="goal-cascade">
           <div class="goal-level goal-level-1">
             <span class="goal-icon">&#9678;</span>
             <div>
               <span class="goal-label">Company Mission</span>
-              <span class="goal-text">Build the #1 AI note-taking app</span>
+              <span class="goal-text">Make $2mm ARR with the #1 AI note-taking app</span>
             </div>
           </div>
           <div class="goal-connector"></div>
           <div class="goal-level goal-level-2">
             <span class="goal-icon">&#9673;</span>
             <div>
-              <span class="goal-label">Team Goal</span>
-              <span class="goal-text">Ship v2 with collaboration features by Q2</span>
+              <span class="goal-label">Project Goal</span>
+              <span class="goal-text">Ship collaboration features</span>
             </div>
           </div>
           <div class="goal-connector"></div>
@@ -39,7 +31,7 @@
             <span class="goal-icon">&#9675;</span>
             <div>
               <span class="goal-label">Agent Goal</span>
-              <span class="goal-text">Implement real-time sync module</span>
+              <span class="goal-text">Implement real-time sync</span>
             </div>
           </div>
           <div class="goal-connector"></div>
@@ -51,6 +43,16 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="feature-copy">
+        <p class="feature-sub">
+          Every piece of work is given context that traces back to the company
+          mission. Your agents will know <em>what</em> to do and <em>why</em>.
+        </p>
+        <p class="feature-sub">
+          Paperclip <code>SKILLS.md</code> means your agents know how to
+          discover the context they need.
+        </p>
       </div>
     </div>
   </div>
@@ -67,36 +69,34 @@
     margin-bottom: var(--space-sm);
   }
 
-  .feature-sub {
-    color: var(--color-text-muted);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 520px;
-    margin-bottom: var(--space-xs);
-  }
-
-  .feature-tagline {
-    color: var(--color-text-secondary);
-    font-size: 1rem;
-    font-style: italic;
-  }
-
   .feature-layout {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
   }
 
-  .feature-details {
+  .feature-graphic {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    padding: var(--space-lg) var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .feature-copy {
+    padding-top: var(--space-sm);
+  }
+
+  .feature-sub {
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: var(--space-md);
   }
 
   .goal-cascade {
     display: flex;
     flex-direction: column;
-    max-width: 480px;
-    margin: 0 auto;
   }
 
   .goal-level {
@@ -107,6 +107,39 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     padding: 1rem 1.25rem;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .goal-level.visible {
+    animation: cascadeIn 0.45s ease-out forwards;
+  }
+
+  .goal-connector {
+    width: 2px;
+    height: 20px;
+    background: transparent;
+    margin-left: 2.5rem;
+  }
+
+  .goal-connector.visible {
+    animation: connectorGrow 0.3s ease-out forwards;
+  }
+
+  @keyframes cascadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes connectorGrow {
+    from {
+      background: transparent;
+    }
+    to {
+      background: var(--color-border);
+    }
   }
 
   .goal-icon {
@@ -133,13 +166,6 @@
     color: var(--color-text);
   }
 
-  .goal-connector {
-    width: 2px;
-    height: 20px;
-    background: var(--color-border);
-    margin-left: 2.5rem;
-  }
-
   .goal-level-2 {
     margin-left: 1.5rem;
   }
@@ -160,6 +186,20 @@
     margin-left: 5.5rem;
   }
 
+  @media (max-width: 768px) {
+    .feature-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-graphic {
+      order: 1;
+    }
+
+    .feature-copy {
+      order: 2;
+    }
+  }
+
   @media (max-width: 640px) {
     .goal-level-2,
     .goal-level-3,
@@ -172,3 +212,28 @@
     }
   }
 </style>
+
+<script>
+  const cascade = document.querySelector('.goal-cascade');
+  if (cascade) {
+    const items = cascade.querySelectorAll('.goal-level, .goal-connector');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            items.forEach((item, i) => {
+              setTimeout(() => {
+                item.classList.add('visible');
+              }, i * 180);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(cascade);
+  }
+</script>

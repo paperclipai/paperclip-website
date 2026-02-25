@@ -4,72 +4,305 @@
 <section class="feature-section section">
   <div class="container">
     <hr class="section-divider" />
-    <div class="feature-header">
-      <div>
-        <span class="section-badge">Org Structure</span>
-        <h2 class="heading-serif feature-heading">Real org charts for<br />AI companies.</h2>
+    <div class="orgchart-two-col">
+      <!-- Left: copy + works-with -->
+      <div class="orgchart-copy">
+        <span class="section-badge">Bring Your Own Agent</span>
+        <h2 class="heading-serif feature-heading">Bring your own bot.</h2>
         <p class="feature-sub">
-          Paperclip models a real company: CEO, managers, individual contributors.
-          Agents have roles, titles, reporting structures, and capabilities.
-          Your agent's individual skills and missions combine for company templates.
+          Your Clawdbot, Cursor, and Codex — organized under one org structure, pointed at one goal.
+          If it can receive a heartbeat, it's hired.
         </p>
+        <div class="works-with">
+          <span class="works-with-label heading-serif">Works with any agent</span>
+          <div class="works-with-logos">
+            <div class="logo-item">
+              <div class="logo-icon">
+                <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="512" height="512" rx="128" fill="#14120b"/>
+                  <path d="m415.035 156.35-151.503-87.47c-4.865-2.81-10.868-2.81-15.733 0l-151.497 87.47c-4.09 2.36-6.615 6.73-6.615 11.46v176.38c0 4.73 2.525 9.1 6.615 11.46l151.504 87.47c4.865 2.81 10.868 2.81 15.733 0l151.504-87.47c4.089-2.36 6.614-6.73 6.614-11.46V167.81c0-4.73-2.525-9.1-6.614-11.46zm-9.516 18.53-146.255 253.32c-.988 1.71-3.599 1.01-3.599-.97V261.36c0-3.31-1.771-6.38-4.644-8.04l-143.645-82.93c-1.707-.99-1.01-3.6.968-3.6h292.509c4.154 0 6.75 4.5 4.673 8.1h-.007z" fill="#edecec"/>
+                </svg>
+              </div>
+              <span class="logo-name">Cursor</span>
+            </div>
+            <div class="logo-item">
+              <div class="logo-icon logo-icon--claude">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="#D97757">
+                  <path d="m3.127 10.604 3.135-1.76.053-.153-.053-.085H6.11l-.525-.032-1.791-.048-1.554-.065-1.505-.08-.38-.081L0 7.832l.036-.234.32-.214.455.04 1.009.069 1.513.105 1.097.064 1.626.17h.259l.036-.105-.089-.065-.068-.064-1.566-1.062-1.695-1.121-.887-.646-.48-.327-.243-.306-.104-.67.435-.48.585.04.15.04.593.456 1.267.981 1.654 1.218.242.202.097-.068.012-.049-.109-.181-.9-1.626-.96-1.655-.428-.686-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089.279.242.411.94.666 1.48 1.033 2.014.302.597.162.553.06.17h.105v-.097l.085-1.134.157-1.392.154-1.792.052-.504.25-.605.497-.327.387.186.319.456-.045.294-.19 1.23-.37 1.93-.243 1.29h.142l.161-.16.654-.868 1.097-1.372.484-.545.565-.601.363-.287h.686l.505.751-.226.775-.707.895-.585.759-.839 1.13-.524.904.048.072.125-.012 1.897-.403 1.024-.186 1.223-.21.553.258.06.263-.218.536-1.307.323-1.533.307-2.284.54-.028.02.032.04 1.029.098.44.024h1.077l2.005.15.525.346.315.424-.053.323-.807.411-3.631-.863-.872-.218h-.12v.073l.726.71 1.331 1.202 1.667 1.55.084.383-.214.302-.226-.032-1.464-1.101-.565-.497-1.28-1.077h-.084v.113l.295.432 1.557 2.34.08.718-.112.234-.404.141-.444-.08-.911-1.28-.94-1.44-.759-1.291-.093.053-.448 4.821-.21.246-.484.186-.403-.307-.214-.496.214-.98.258-1.28.21-1.016.19-1.263.112-.42-.008-.028-.092.012-.953 1.307-1.448 1.957-1.146 1.227-.274.109-.477-.247.045-.44.266-.39 1.586-2.018.956-1.25.617-.723-.004-.105h-.036l-4.212 2.736-.75.096-.324-.302.04-.496.154-.162 1.267-.871z"/>
+                </svg>
+              </div>
+              <span class="logo-name">Claude</span>
+            </div>
+            <div class="logo-item">
+              <div class="logo-icon logo-icon--openclaw">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="lobster-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ff4d4d"/>
+                      <stop offset="100%" stop-color="#991b1b"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M60 10C30 10 15 35 15 55C15 75 30 95 45 100L45 110L55 110L55 100C55 100 60 102 65 100L65 110L75 110L75 100C90 95 105 75 105 55C105 35 90 10 60 10Z" fill="url(#lobster-grad)"/>
+                  <path d="M20 45C5 40 0 50 5 60C10 70 20 65 25 55C28 48 25 45 20 45Z" fill="url(#lobster-grad)"/>
+                  <path d="M100 45C115 40 120 50 115 60C110 70 100 65 95 55C92 48 95 45 100 45Z" fill="url(#lobster-grad)"/>
+                  <path d="M45 15Q35 5 30 8" stroke="#ff4d4d" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M75 15Q85 5 90 8" stroke="#ff4d4d" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="45" cy="35" r="6" fill="#050810"/>
+                  <circle cx="75" cy="35" r="6" fill="#050810"/>
+                  <circle cx="46" cy="34" r="2.5" fill="#00e5cc"/>
+                  <circle cx="76" cy="34" r="2.5" fill="#00e5cc"/>
+                </svg>
+              </div>
+              <span class="logo-name">OpenClaw</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="feature-layout">
-      <div class="graphic-placeholder">
-        <!-- Org chart tree illustration -->
-        <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- CEO node -->
-          <rect x="190" y="30" width="100" height="44" rx="10" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="240" y="57" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="500" fill="#1a1a1a">CEO</text>
-          <!-- Lines down -->
-          <line x1="240" y1="74" x2="240" y2="100" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="120" y1="100" x2="360" y2="100" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="120" y1="100" x2="120" y2="120" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="240" y1="100" x2="240" y2="120" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="360" y1="100" x2="360" y2="120" stroke="#c8c4be" stroke-width="1.5"/>
-          <!-- CTO -->
-          <rect x="70" y="120" width="100" height="44" rx="10" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="120" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#1a1a1a">CTO</text>
-          <!-- CMO -->
-          <rect x="190" y="120" width="100" height="44" rx="10" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="240" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#1a1a1a">CMO</text>
-          <!-- COO -->
-          <rect x="310" y="120" width="100" height="44" rx="10" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="360" y="147" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#1a1a1a">COO</text>
-          <!-- Lines from CTO -->
-          <line x1="120" y1="164" x2="120" y2="188" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="80" y1="188" x2="160" y2="188" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="80" y1="188" x2="80" y2="208" stroke="#c8c4be" stroke-width="1.5"/>
-          <line x1="160" y1="188" x2="160" y2="208" stroke="#c8c4be" stroke-width="1.5"/>
-          <!-- Engineers -->
-          <rect x="40" y="208" width="80" height="38" rx="8" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="80" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#4a4a4a">Engineer</text>
-          <rect x="120" y="208" width="80" height="38" rx="8" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="160" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#4a4a4a">Engineer</text>
-          <!-- Lines from CMO -->
-          <line x1="240" y1="164" x2="240" y2="208" stroke="#c8c4be" stroke-width="1.5"/>
-          <rect x="200" y="208" width="80" height="38" rx="8" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="240" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#4a4a4a">Content</text>
-          <!-- Lines from COO -->
-          <line x1="360" y1="164" x2="360" y2="208" stroke="#c8c4be" stroke-width="1.5"/>
-          <rect x="320" y="208" width="80" height="38" rx="8" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <text x="360" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#4a4a4a">Ops</text>
-          <!-- Subtitle -->
-          <text x="240" y="290" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Build an org, not a pipeline.</text>
-        </svg>
+
+      <!-- Right: org chart -->
+      <div class="orgchart-visual">
+        <div class="org-tree" id="org-tree">
+
+          <!-- Level 0: CEO -->
+          <div class="org-row org-row--single">
+            <div class="org-card" data-role="ceo" style="--i:0">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V9l7-5 7 5v11"/><path d="M9 20v-5h6v5"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">CEO</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>Claude</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-stem" style="--i:0.5"></div>
+
+          <!-- Level 1: CMO, CTO, COO -->
+          <div class="org-row org-row--three">
+            <div class="org-card" data-role="cmo" style="--i:1">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">CMO</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>OpenClaw</span>
+              </div>
+            </div>
+            <div class="org-card" data-role="cto" style="--i:2">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">CTO</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>Cursor</span>
+              </div>
+            </div>
+            <div class="org-card" data-role="coo" style="--i:3">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">COO</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>Claude</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="org-stem" style="--i:3.5"></div>
+
+          <!-- Level 2: Engineers (under CTO) -->
+          <div class="org-row org-row--two">
+            <div class="org-card" data-role="eng1" style="--i:4">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">CodexCoder</span>
+                <span class="org-card__title">Engineer</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>Codex</span>
+              </div>
+            </div>
+            <div class="org-card" data-role="eng2" style="--i:5">
+              <div class="org-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="org-card__body">
+                <span class="org-card__name">ClaudeCoder</span>
+                <span class="org-card__title">Engineer</span>
+                <span class="org-card__model"><span class="org-card__dot"></span>Claude</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<script>
+  // Kill any previous loop and clean up stale DOM
+  window.__pcStop = true;
+  document.querySelectorAll('.task-packet').forEach(el => el.remove());
+  document.querySelectorAll('.org-card.is-live').forEach(el => el.classList.remove('is-live'));
+
+  const tree = document.getElementById('org-tree');
+  if (tree && !tree.dataset.flowQueued) {
+    tree.dataset.flowQueued = '1';
+
+    const rect = tree.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (inView) {
+      tree.classList.add('is-visible');
+      setTimeout(() => startTaskFlow(tree), 800);
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              tree.classList.add('is-visible');
+              observer.unobserve(tree);
+              setTimeout(() => startTaskFlow(tree), 2200);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(tree);
+    }
+  }
+
+  function startTaskFlow(tree) {
+    // Only one loop at a time
+    if (tree.dataset.flowRunning) return;
+    tree.dataset.flowRunning = '1';
+    window.__pcStop = false;
+
+    const get = (role) => tree.querySelector(`[data-role="${role}"]`);
+    const cards = { ceo: get('ceo'), cmo: get('cmo'), cto: get('cto'), coo: get('coo'), eng1: get('eng1'), eng2: get('eng2') };
+    if (!cards.ceo) { delete tree.dataset.flowRunning; return; }
+
+    const PW = 16;
+    const PH = 8;
+    const HALF_W = PW / 2;
+    const HALF_H = PH / 2;
+
+    // Clean up any stale packets, create fresh one
+    document.querySelectorAll('.task-packet').forEach(el => el.remove());
+    const packet = document.createElement('div');
+    packet.className = 'task-packet';
+    packet.style.opacity = '0';
+    tree.appendChild(packet);
+
+    function pos(card) {
+      const tr = tree.getBoundingClientRect();
+      const cr = card.getBoundingClientRect();
+      return {
+        cx: cr.left + cr.width / 2 - tr.left,
+        top: cr.top - tr.top,
+        bottom: cr.bottom - tr.top,
+      };
+    }
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function alive() { return !window.__pcStop; }
+
+    function setPos(x, y) {
+      packet.style.transition = 'none';
+      packet.style.left = (x - HALF_W) + 'px';
+      packet.style.top = (y - HALF_H) + 'px';
+      packet.getBoundingClientRect();
+    }
+
+    function slideTo(x, y, ms, ease) {
+      return new Promise(resolve => {
+        packet.style.transition = `left ${ms}ms ${ease}, top ${ms}ms ${ease}`;
+        packet.style.left = (x - HALF_W) + 'px';
+        packet.style.top = (y - HALF_H) + 'px';
+        setTimeout(resolve, ms + 30);
+      });
+    }
+
+    async function send(fromCard, toCard) {
+      if (!alive()) return;
+      const from = pos(fromCard);
+      const to = pos(toCard);
+      const barY = to.top - 20;
+
+      setPos(from.cx, from.bottom + 2);
+      packet.style.opacity = '1';
+      packet.getBoundingClientRect();
+
+      await slideTo(from.cx, barY, 550, 'ease-in');
+      if (!alive()) return;
+      await slideTo(to.cx, barY, 650, 'linear');
+      if (!alive()) return;
+      await slideTo(to.cx, to.top - 2, 400, 'ease-in');
+      if (!alive()) return;
+
+      packet.style.transition = 'opacity 0.2s ease';
+      packet.style.opacity = '0';
+      toCard.classList.add('is-live');
+      await delay(250);
+    }
+
+    function clearLive(...list) {
+      list.forEach(c => c.classList.remove('is-live'));
+    }
+
+    async function loop() {
+      while (alive()) {
+        await send(cards.ceo, cards.cto);
+        if (!alive()) break;
+        await delay(300);
+        await send(cards.cto, cards.eng1);
+        if (!alive()) break;
+        await send(cards.cto, cards.eng2);
+        if (!alive()) break;
+        await delay(1500);
+        clearLive(cards.eng1, cards.eng2, cards.cto);
+        await delay(1000);
+        if (!alive()) break;
+
+        await send(cards.ceo, cards.cmo);
+        if (!alive()) break;
+        await delay(1500);
+        clearLive(cards.cmo);
+        await delay(1000);
+        if (!alive()) break;
+
+        await send(cards.ceo, cards.coo);
+        if (!alive()) break;
+        await delay(1500);
+        clearLive(cards.coo);
+        await delay(1500);
+      }
+      delete tree.dataset.flowRunning;
+    }
+
+    console.log('[paperclip] task flow started (single instance)');
+    loop();
+  }
+</script>
+
 <style>
-  .feature-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding-top: var(--space-2xl);
-    margin-bottom: var(--space-xl);
+  .feature-section {
+    padding-bottom: var(--space-lg);
+  }
+
+  /* ── Two-column layout ── */
+  .orgchart-two-col {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-xl);
+    align-items: stretch;
+    padding-top: var(--space-lg);
+  }
+
+  .orgchart-copy {
+    padding-top: var(--space-xs);
   }
 
   .feature-heading {
@@ -81,18 +314,390 @@
     color: var(--color-text-muted);
     font-size: 1rem;
     line-height: 1.7;
-    max-width: 520px;
+    max-width: 420px;
   }
 
-  .feature-layout {
-    display: grid;
-    grid-template-columns: 1fr;
+  /* ── Works with ── */
+  .works-with {
+    margin-top: var(--space-xl);
   }
 
-  .graphic-placeholder {
+  .works-with-label {
+    display: block;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .works-with-logos {
+    display: flex;
+    gap: var(--space-lg);
+  }
+
+  .logo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    filter: grayscale(1) opacity(0.5);
+    transition: filter 0.3s ease;
+  }
+
+  .logo-item:hover {
+    filter: grayscale(0) opacity(1);
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo-icon--claude svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .logo-icon--openclaw svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  /* ── Org chart visual ── */
+  .orgchart-visual {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    min-height: 360px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
     padding: var(--space-md);
+    overflow: hidden;
+  }
+
+  /* ── Org tree structure ── */
+  .org-tree {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0;
+  }
+
+  /* Rows */
+  .org-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+  }
+
+  .org-row--single {
+    justify-content: center;
+  }
+
+  .org-row--single .org-card {
+    min-width: 140px;
+  }
+
+  .org-row--three {
+    padding-top: 20px;
+  }
+
+  .org-row--three .org-card {
+    flex: 1;
+    max-width: 180px;
+  }
+
+  .org-row--two {
+    max-width: 62%;
+    padding-top: 20px;
+  }
+
+  .org-row--two .org-card {
+    flex: 1;
+    max-width: 180px;
+  }
+
+  /* Horizontal bar for 3-child row */
+  .org-row--three::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* Account for 10px gaps between 3 flex children */
+    left: calc((100% - 20px) / 6);
+    right: calc((100% - 20px) / 6);
+    height: 2px;
+    background: #b5b0a8;
+    z-index: 1;
+  }
+
+  /* Drop lines — from bar to card top, NOT into the card */
+  .org-row--three .org-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: #b5b0a8;
+    z-index: 1;
+  }
+
+  /* Horizontal bar for 2-child row */
+  .org-row--two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* Account for 10px gap between 2 flex children */
+    left: calc((100% - 10px) / 4);
+    right: calc((100% - 10px) / 4);
+    height: 2px;
+    background: #b5b0a8;
+    z-index: 1;
+  }
+
+  /* Drop lines for 2-child row */
+  .org-row--two .org-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 20px;
+    background: #b5b0a8;
+    z-index: 1;
+  }
+
+  /* Vertical stems — overlap 3px into the row below */
+  .org-stem {
+    width: 2px;
+    height: 20px;
+    background: #b5b0a8;
+    margin-bottom: -3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Org card ── */
+  .org-card {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    background: var(--color-bg);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Live state (global — toggled via JS) */
+  .org-card:global(.is-live) {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 1.5px rgba(34, 197, 94, 0.25);
+  }
+
+  .org-card:global(.is-live)::after {
+    content: 'Active';
+    position: absolute;
+    top: -9px;
+    right: 10px;
+    font-size: 0.58rem;
+    font-weight: 600;
+    padding: 1px 7px;
+    background: #dcfce7;
+    color: #166534;
+    border-radius: 100px;
+    letter-spacing: 0.02em;
+  }
+
+  .org-card__icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    margin-top: 1px;
+  }
+
+  .org-card__icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .org-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .org-card__name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .org-card__title {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+    line-height: 1.3;
+  }
+
+  .org-card__model {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+    line-height: 1.3;
+  }
+
+  .org-card__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #e5a536;
+    flex-shrink: 0;
+  }
+
+  /* ── Task packet (global — dynamically created via JS) ── */
+  :global(.task-packet) {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 4px;
+    opacity: 0;
+    z-index: 4;
+    pointer-events: none;
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  }
+
+  /* ── Reveal animation ── */
+  .org-tree .org-card,
+  .org-tree .org-stem {
+    opacity: 0;
+  }
+
+  .org-tree .org-row--three::before,
+  .org-tree .org-row--two::before,
+  .org-tree .org-row--three .org-card::before,
+  .org-tree .org-row--two .org-card::before {
+    opacity: 0;
+  }
+
+  @keyframes nodeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .org-tree.is-visible .org-card {
+    animation: nodeSlide 0.4s ease-out forwards;
+    animation-delay: calc(var(--i) * 140ms + 80ms);
+  }
+
+  .org-tree.is-visible .org-stem {
+    animation: fadeIn 0.25s ease forwards;
+    animation-delay: calc(var(--i) * 140ms);
+  }
+
+  .org-tree.is-visible .org-row--three::before {
+    animation: fadeIn 0.25s ease forwards;
+    animation-delay: calc(1 * 140ms);
+  }
+
+  .org-tree.is-visible .org-row--two::before {
+    animation: fadeIn 0.25s ease forwards;
+    animation-delay: calc(4 * 140ms);
+  }
+
+  .org-tree.is-visible .org-row--three .org-card::before,
+  .org-tree.is-visible .org-row--two .org-card::before {
+    animation: fadeIn 0.25s ease forwards;
+    animation-delay: calc(var(--i) * 140ms);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .orgchart-two-col {
+      grid-template-columns: 1fr;
+    }
+
+    .orgchart-visual {
+      min-height: 320px;
+    }
+
+    .org-row--two {
+      max-width: 75%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .org-card {
+      padding: 8px 10px;
+      gap: 8px;
+    }
+
+    .org-card__icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .org-card__icon svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .org-card__name {
+      font-size: 0.72rem;
+    }
+
+    .org-card__model {
+      font-size: 0.62rem;
+    }
+
+    .org-row--three .org-card {
+      max-width: 140px;
+    }
   }
 </style>

@@ -15,64 +15,146 @@
       </div>
     </div>
     <div class="feature-layout">
-      <div class="graphic-placeholder">
-        <!-- Budget / cost bars -->
-        <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Header labels -->
-          <text x="40" y="40" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Agent</text>
-          <text x="160" y="40" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Budget Used</text>
-          <text x="400" y="40" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a1a1a">Cost</text>
-          <line x1="40" y1="50" x2="440" y2="50" stroke="#d4d0ca" stroke-width="1"/>
+      <div class="cost-table-wrap">
+        <div class="cost-table" id="cost-table">
+          <div class="cost-header-row">
+            <span class="cost-col-agent">Agent</span>
+            <span class="cost-col-bar">Budget Used</span>
+            <span class="cost-col-cost">Cost</span>
+          </div>
+          <div class="cost-divider"></div>
 
-          <!-- Row 1 -->
-          <text x="40" y="80" font-family="Inter, sans-serif" font-size="12" fill="#1a1a1a">CEO Agent</text>
-          <rect x="160" y="66" width="200" height="20" rx="4" fill="#e8e4de"/>
-          <rect x="160" y="66" width="140" height="20" rx="4" fill="#1a1a1a"/>
-          <text x="400" y="80" font-family="Inter, sans-serif" font-size="12" fill="#4a4a4a">$42</text>
-          <text x="440" y="80" font-family="Inter, sans-serif" font-size="10" fill="#888880">/60</text>
+          <div class="cost-row" data-cost="42" data-budget="60">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V9l7-5 7 5v11"/><path d="M9 20v-5h6v5"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">CEO</span>
+                <span class="cost-agent-model">Claude</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 70%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $60</span>
+            </div>
+          </div>
 
-          <!-- Row 2 -->
-          <text x="40" y="120" font-family="Inter, sans-serif" font-size="12" fill="#1a1a1a">CTO Agent</text>
-          <rect x="160" y="106" width="200" height="20" rx="4" fill="#e8e4de"/>
-          <rect x="160" y="106" width="100" height="20" rx="4" fill="#1a1a1a"/>
-          <text x="400" y="120" font-family="Inter, sans-serif" font-size="12" fill="#4a4a4a">$25</text>
-          <text x="440" y="120" font-family="Inter, sans-serif" font-size="10" fill="#888880">/50</text>
+          <div class="cost-row" data-cost="12" data-budget="40">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">CMO</span>
+                <span class="cost-agent-model">OpenClaw</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 30%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $40</span>
+            </div>
+          </div>
 
-          <!-- Row 3 -->
-          <text x="40" y="160" font-family="Inter, sans-serif" font-size="12" fill="#1a1a1a">Engineer 1</text>
-          <rect x="160" y="146" width="200" height="20" rx="4" fill="#e8e4de"/>
-          <rect x="160" y="146" width="60" height="20" rx="4" fill="#1a1a1a"/>
-          <text x="400" y="160" font-family="Inter, sans-serif" font-size="12" fill="#4a4a4a">$9</text>
-          <text x="440" y="160" font-family="Inter, sans-serif" font-size="10" fill="#888880">/30</text>
+          <div class="cost-row" data-cost="25" data-budget="50">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">CTO</span>
+                <span class="cost-agent-model">Cursor</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 50%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $50</span>
+            </div>
+          </div>
 
-          <!-- Row 4 -->
-          <text x="40" y="200" font-family="Inter, sans-serif" font-size="12" fill="#1a1a1a">Engineer 2</text>
-          <rect x="160" y="186" width="200" height="20" rx="4" fill="#e8e4de"/>
-          <rect x="160" y="186" width="170" height="20" rx="4" fill="#1a1a1a"/>
-          <text x="400" y="200" font-family="Inter, sans-serif" font-size="12" fill="#4a4a4a">$26</text>
-          <text x="440" y="200" font-family="Inter, sans-serif" font-size="10" fill="#888880">/30</text>
+          <div class="cost-row" data-cost="26" data-budget="30">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">COO</span>
+                <span class="cost-agent-model">Claude</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 87%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $30</span>
+            </div>
+          </div>
 
-          <!-- Row 5 -->
-          <text x="40" y="240" font-family="Inter, sans-serif" font-size="12" fill="#1a1a1a">Content</text>
-          <rect x="160" y="226" width="200" height="20" rx="4" fill="#e8e4de"/>
-          <rect x="160" y="226" width="30" height="20" rx="4" fill="#1a1a1a"/>
-          <text x="400" y="240" font-family="Inter, sans-serif" font-size="12" fill="#4a4a4a">$6</text>
-          <text x="440" y="240" font-family="Inter, sans-serif" font-size="10" fill="#888880">/40</text>
+          <div class="cost-row" data-cost="9" data-budget="30">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">CodexCoder</span>
+                <span class="cost-agent-model">Codex</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 30%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $30</span>
+            </div>
+          </div>
 
-          <!-- Total -->
-          <line x1="40" y1="260" x2="440" y2="260" stroke="#d4d0ca" stroke-width="1"/>
-          <text x="40" y="285" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">Total</text>
-          <text x="400" y="285" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#1a1a1a">$108</text>
-          <text x="440" y="285" font-family="Inter, sans-serif" font-size="10" fill="#888880">/210</text>
-        </svg>
+          <div class="cost-row" data-cost="26" data-budget="30">
+            <div class="cost-col-agent">
+              <div class="cost-agent-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div class="cost-agent-info">
+                <span class="cost-agent-name">ClaudeCoder</span>
+                <span class="cost-agent-model">Claude</span>
+              </div>
+            </div>
+            <div class="cost-col-bar">
+              <div class="cost-bar-bg"><div class="cost-bar-fill" style="--target-pct: 87%"></div></div>
+            </div>
+            <div class="cost-col-cost">
+              <span class="cost-amount">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $30</span>
+            </div>
+          </div>
+
+          <div class="cost-divider"></div>
+          <div class="cost-row cost-row--total" data-cost="140" data-budget="240">
+            <div class="cost-col-agent">
+              <span class="cost-agent-name">Total</span>
+            </div>
+            <div class="cost-col-bar"></div>
+            <div class="cost-col-cost">
+              <span class="cost-amount cost-amount--bold">$<span class="cost-num">0</span></span>
+              <span class="cost-budget">/ $240</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="feature-details">
         <p class="feature-detail-text">
           Track costs per agent, per task, per project, per goal. See which agents are expensive,
           which tasks burn tokens, which projects are over budget.
-        </p>
-        <p class="feature-detail-emphasis">
-          Real cost attribution — not estimates.
         </p>
       </div>
     </div>
@@ -104,11 +186,137 @@
     align-items: start;
   }
 
-  .graphic-placeholder {
+  .cost-table-wrap {
     background: var(--color-surface);
     border-radius: var(--radius-lg);
-    min-height: 320px;
-    padding: var(--space-sm);
+    padding: var(--space-lg);
+  }
+
+  .cost-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cost-header-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 100px;
+    gap: var(--space-sm);
+    align-items: center;
+    padding-bottom: 0.75rem;
+  }
+
+  .cost-header-row span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .cost-divider {
+    height: 1px;
+    background: var(--color-border);
+  }
+
+  .cost-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 100px;
+    gap: var(--space-sm);
+    align-items: center;
+    padding: 0.65rem 0;
+  }
+
+  .cost-col-agent {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .cost-agent-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+  }
+
+  .cost-agent-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .cost-agent-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .cost-agent-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+
+  .cost-agent-model {
+    font-size: 0.68rem;
+    color: var(--color-text-muted);
+  }
+
+  .cost-col-bar {
+    min-width: 0;
+  }
+
+  .cost-bar-bg {
+    width: 100%;
+    height: 18px;
+    background: var(--color-surface-raised);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .cost-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--color-text);
+    border-radius: 4px;
+    transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .cost-bar-fill.animate {
+    width: var(--target-pct);
+  }
+
+  .cost-col-cost {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .cost-amount {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cost-amount--bold {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .cost-budget {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .cost-row--total {
+    padding-top: 0.75rem;
   }
 
   .feature-details {
@@ -122,15 +330,78 @@
     margin-bottom: var(--space-sm);
   }
 
-  .feature-detail-emphasis {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--color-text);
-  }
-
   @media (max-width: 768px) {
     .feature-layout {
       grid-template-columns: 1fr;
     }
+
+    .cost-header-row,
+    .cost-row {
+      grid-template-columns: 130px 1fr 90px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .cost-header-row,
+    .cost-row {
+      grid-template-columns: 110px 1fr 80px;
+    }
+
+    .cost-agent-icon {
+      display: none;
+    }
   }
 </style>
+
+<script>
+  const table = document.getElementById('cost-table');
+  if (table) {
+    const rows = table.querySelectorAll('.cost-row');
+    const fills = table.querySelectorAll('.cost-bar-fill');
+
+    function countUp(el, target, duration) {
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animate bars
+            fills.forEach((fill) => {
+              fill.classList.add('animate');
+            });
+
+            // Count up cost numbers with stagger
+            rows.forEach((row, i) => {
+              const cost = parseInt(row.dataset.cost, 10);
+              const numEl = row.querySelector('.cost-num');
+              if (numEl && cost) {
+                setTimeout(() => countUp(numEl, cost, 1000), i * 80);
+              }
+            });
+          } else {
+            // Reset when scrolled away
+            fills.forEach((fill) => {
+              fill.classList.remove('animate');
+            });
+            rows.forEach((row) => {
+              const numEl = row.querySelector('.cost-num');
+              if (numEl) numEl.textContent = '0';
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(table);
+  }
+</script>
