@@ -24,32 +24,281 @@ const features = [
         </ul>
       </div>
       <div class="graphic-placeholder">
-        <!-- Heartbeat / pulse visualization -->
-        <svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Pulse line -->
-          <path d="M 40 180 L 120 180 L 145 120 L 170 220 L 195 100 L 220 240 L 245 160 L 270 180 L 440 180" stroke="#1a1a1a" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- Agent dots -->
-          <circle cx="120" cy="180" r="6" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
-          <circle cx="270" cy="180" r="6" fill="#fff" stroke="#1a1a1a" stroke-width="2"/>
-          <!-- Labels -->
-          <text x="120" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Check in</text>
-          <text x="270" y="210" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Report back</text>
-          <text x="195" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888880">Execute work</text>
-          <!-- Status indicators -->
-          <rect x="60" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <circle cx="78" cy="265" r="4" fill="#4ade80"/>
-          <text x="105" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Online</text>
-          <rect x="200" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <circle cx="218" cy="265" r="4" fill="#4ade80"/>
-          <text x="245" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Online</text>
-          <rect x="340" y="250" width="80" height="30" rx="6" fill="#fff" stroke="#d4d0ca" stroke-width="1.5"/>
-          <circle cx="358" cy="265" r="4" fill="#facc15"/>
-          <text x="385" y="270" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#4a4a4a">Working</text>
-        </svg>
+        <!-- Swim lane timeline visualization -->
+        <div class="swim-lanes" id="swim-lanes">
+
+          <!-- Time header -->
+          <div class="swim-header">
+            <div class="swim-header__label"></div>
+            <div class="swim-header__track">
+              <span class="time-mark time-mark--start" style="left:0%">0h</span>
+              <span class="time-mark" style="left:16.67%">4h</span>
+              <span class="time-mark" style="left:33.33%">8h</span>
+              <span class="time-mark" style="left:50%">12h</span>
+              <span class="time-mark" style="left:66.67%">16h</span>
+              <span class="time-mark" style="left:83.33%">20h</span>
+              <span class="time-mark time-mark--end" style="left:100%">24h</span>
+            </div>
+          </div>
+
+          <!-- Lane 1: Content Writer (every 4h) -->
+          <div class="swim-lane" data-agent="writer" style="--lane:0">
+            <div class="swim-lane__label">
+              <span class="agent-name">Content Writer</span>
+              <span class="agent-cadence">every 4h</span>
+            </div>
+            <div class="swim-lane__track">
+              <div class="track-line"></div>
+              <div class="schedule-dot" data-dot="0" style="left:0%"></div>
+              <div class="schedule-dot" data-dot="1" style="left:16.67%"></div>
+              <div class="schedule-dot" data-dot="2" style="left:33.33%"></div>
+              <div class="schedule-dot" data-dot="3" style="left:50%"></div>
+              <div class="schedule-dot" data-dot="4" style="left:66.67%"></div>
+              <div class="schedule-dot" data-dot="5" style="left:83.33%"></div>
+              <div class="schedule-dot" data-dot="6" style="left:100%"></div>
+              <div class="pulse-traveler"></div>
+              <div class="work-label work-label--start" data-for="0" style="left:0%">Draft blog post</div>
+              <div class="work-label" data-for="1" style="left:16.67%">Edit copy</div>
+              <div class="work-label" data-for="2" style="left:33.33%">Write newsletter</div>
+              <div class="work-label" data-for="3" style="left:50%">Social captions</div>
+              <div class="work-label" data-for="4" style="left:66.67%">Review drafts</div>
+              <div class="work-label" data-for="5" style="left:83.33%">Publish batch</div>
+              <div class="work-label work-label--end" data-for="6" style="left:100%">Daily report</div>
+            </div>
+          </div>
+
+          <!-- Lane 2: SEO Analyst (every 8h) -->
+          <div class="swim-lane" data-agent="seo" style="--lane:1">
+            <div class="swim-lane__label">
+              <span class="agent-name">SEO Analyst</span>
+              <span class="agent-cadence">every 8h</span>
+            </div>
+            <div class="swim-lane__track">
+              <div class="track-line"></div>
+              <div class="schedule-dot" data-dot="0" style="left:0%"></div>
+              <div class="schedule-dot" data-dot="1" style="left:33.33%"></div>
+              <div class="schedule-dot" data-dot="2" style="left:66.67%"></div>
+              <div class="schedule-dot" data-dot="3" style="left:100%"></div>
+              <div class="pulse-traveler"></div>
+              <div class="work-label work-label--start" data-for="0" style="left:0%">Crawl audit</div>
+              <div class="work-label" data-for="1" style="left:33.33%">Keyword research</div>
+              <div class="work-label" data-for="2" style="left:66.67%">Rank tracking</div>
+              <div class="work-label work-label--end" data-for="3" style="left:100%">Link report</div>
+            </div>
+          </div>
+
+          <!-- Lane 3: Social Manager (every 12h) -->
+          <div class="swim-lane" data-agent="social" style="--lane:2">
+            <div class="swim-lane__label">
+              <span class="agent-name">Social Manager</span>
+              <span class="agent-cadence">every 12h</span>
+            </div>
+            <div class="swim-lane__track">
+              <div class="track-line"></div>
+              <div class="schedule-dot" data-dot="0" style="left:0%"></div>
+              <div class="schedule-dot" data-dot="1" style="left:50%"></div>
+              <div class="schedule-dot" data-dot="2" style="left:100%"></div>
+              <div class="pulse-traveler"></div>
+              <div class="work-label work-label--start" data-for="0" style="left:0%">Schedule posts</div>
+              <div class="work-label" data-for="1" style="left:50%">Engage replies</div>
+              <div class="work-label work-label--end" data-for="2" style="left:100%">Analytics review</div>
+              <!-- Ticket interrupt card -->
+              <div class="ticket-interrupt" id="ticket-interrupt">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Urgent: Brand mention spike</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  window.__hbStop = true;
+
+  const lanes = document.getElementById('swim-lanes');
+  if (lanes && !lanes.dataset.hbQueued) {
+    lanes.dataset.hbQueued = '1';
+
+    const rect = lanes.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (inView) {
+      lanes.classList.add('is-visible');
+      setTimeout(() => startHeartbeatFlow(lanes), 800);
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              lanes.classList.add('is-visible');
+              observer.unobserve(lanes);
+              setTimeout(() => startHeartbeatFlow(lanes), 1200);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(lanes);
+    }
+  }
+
+  function startHeartbeatFlow(container) {
+    if (container.dataset.hbRunning) return;
+    container.dataset.hbRunning = '1';
+    window.__hbStop = false;
+
+    const writerLane = container.querySelector('[data-agent="writer"]');
+    const seoLane = container.querySelector('[data-agent="seo"]');
+    const socialLane = container.querySelector('[data-agent="social"]');
+    const ticketCard = document.getElementById('ticket-interrupt');
+
+    if (!writerLane || !seoLane || !socialLane) {
+      delete container.dataset.hbRunning;
+      return;
+    }
+
+    function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+    function alive() { return !window.__hbStop; }
+
+    function getLane(lane) {
+      return {
+        el: lane,
+        dots: lane.querySelectorAll('.schedule-dot'),
+        labels: lane.querySelectorAll('.work-label:not(.ticket-interrupt)'),
+        pulse: lane.querySelector('.pulse-traveler'),
+      };
+    }
+
+    const writer = getLane(writerLane);
+    const seo = getLane(seoLane);
+    const social = getLane(socialLane);
+
+    async function wake(agent, dotIndex) {
+      if (!alive()) return;
+      const dot = agent.dots[dotIndex];
+      const label = agent.el.querySelector(`.work-label[data-for="${dotIndex}"]`);
+      if (!dot) return;
+
+      const targetLeft = dot.style.left;
+
+      // Position pulse at previous dot (or just before start)
+      const prevLeft = dotIndex > 0 ? agent.dots[dotIndex - 1].style.left : targetLeft;
+      agent.pulse.style.transition = 'none';
+      agent.pulse.style.left = prevLeft;
+      agent.pulse.style.opacity = '1';
+      agent.pulse.getBoundingClientRect();
+
+      // Slide pulse to target dot
+      agent.pulse.style.transition = 'left 0.6s ease';
+      agent.pulse.style.left = targetLeft;
+
+      await delay(600);
+      if (!alive()) return;
+
+      // Wake state
+      agent.el.classList.add('is-awake');
+      agent.el.classList.remove('is-sleeping');
+      dot.classList.add('is-active');
+      if (label) label.classList.add('is-shown');
+
+      await delay(1500);
+      if (!alive()) return;
+
+      // Sleep state
+      agent.el.classList.remove('is-awake');
+      agent.el.classList.add('is-sleeping');
+      dot.classList.remove('is-active');
+      if (label) label.classList.remove('is-shown');
+      agent.pulse.style.transition = 'opacity 0.3s ease';
+      agent.pulse.style.opacity = '0';
+
+      await delay(300);
+    }
+
+    async function ticketInterrupt() {
+      if (!alive()) return;
+
+      // Drop in ticket card
+      ticketCard.classList.add('is-dropped');
+      social.el.classList.add('is-awake');
+      social.el.classList.remove('is-sleeping');
+
+      await delay(2000);
+      if (!alive()) return;
+
+      // Dismiss ticket
+      ticketCard.classList.remove('is-dropped');
+      social.el.classList.remove('is-awake');
+      social.el.classList.add('is-sleeping');
+
+      await delay(400);
+    }
+
+    function resetAll() {
+      [writer, seo, social].forEach(agent => {
+        agent.el.classList.remove('is-awake', 'is-sleeping');
+        agent.dots.forEach(d => d.classList.remove('is-active'));
+        agent.el.querySelectorAll('.work-label').forEach(l => l.classList.remove('is-shown'));
+        agent.pulse.style.transition = 'none';
+        agent.pulse.style.left = '0%';
+        agent.pulse.style.opacity = '0';
+      });
+      ticketCard.classList.remove('is-dropped');
+    }
+
+    async function loop() {
+      while (alive()) {
+        resetAll();
+        [writer, seo, social].forEach(a => a.el.classList.add('is-sleeping'));
+
+        // 0h: Writer, SEO, Social each wake
+        await wake(writer, 0);  if (!alive()) break;
+        await wake(seo, 0);     if (!alive()) break;
+
+        // 4h: Writer dot 1
+        await wake(writer, 1);  if (!alive()) break;
+
+        // Social dot 0 at ~0h
+        await wake(social, 0);  if (!alive()) break;
+
+        // 8h: Writer dot 2, SEO dot 1
+        await wake(writer, 2);  if (!alive()) break;
+        await wake(seo, 1);     if (!alive()) break;
+
+        // 12h: Writer dot 3
+        await wake(writer, 3);  if (!alive()) break;
+
+        // ~6h equivalent: Ticket interrupt on Social
+        await ticketInterrupt(); if (!alive()) break;
+
+        // 16h: Writer dot 4, SEO dot 2
+        await wake(writer, 4);  if (!alive()) break;
+        await wake(seo, 2);     if (!alive()) break;
+
+        // Social dot 1 (12h scheduled)
+        await wake(social, 1);  if (!alive()) break;
+
+        // 20h: Writer dot 5
+        await wake(writer, 5);  if (!alive()) break;
+
+        // 24h: Writer dot 6, SEO dot 3, Social dot 2
+        await wake(writer, 6);  if (!alive()) break;
+        await wake(seo, 3);     if (!alive()) break;
+        await wake(social, 2);  if (!alive()) break;
+
+        // End of 24h cycle — pause then restart
+        await delay(2000);
+      }
+      delete container.dataset.hbRunning;
+    }
+
+    loop();
+  }
+</script>
 
 <style>
   .feature-heading {
@@ -94,15 +343,290 @@ const features = [
     background: var(--color-surface);
     border-radius: var(--radius-lg);
     min-height: 320px;
-    padding: var(--space-sm);
+    padding: var(--space-md) var(--space-lg);
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
+  /* ── Swim lanes ── */
+  .swim-lanes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .swim-header,
+  .swim-lane {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .swim-header {
+    padding-bottom: 6px;
+  }
+
+  .swim-header__label {
+    /* empty spacer */
+  }
+
+  .swim-header__track {
+    position: relative;
+    height: 18px;
+    overflow: visible;
+  }
+
+  .time-mark {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  .time-mark--start {
+    transform: translateX(0);
+  }
+
+  .time-mark--end {
+    transform: translateX(-100%);
+  }
+
+  /* ── Swim lane rows ── */
+  .swim-lane {
+    padding: 18px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .swim-lane__label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-right: 16px;
+    transition: opacity 0.3s ease;
+  }
+
+  .agent-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  .agent-cadence {
+    font-size: 0.65rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* ── Track ── */
+  .swim-lane__track {
+    position: relative;
+    height: 40px;
+    overflow: visible;
+  }
+
+  .track-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #b5b0a8;
+    transform: translateY(-50%);
+  }
+
+  .schedule-dot {
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-bg);
+    border: 2px solid #b5b0a8;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease,
+                border-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+  }
+
+  .schedule-dot:global(.is-active) {
+    width: 14px;
+    height: 14px;
+    background: #22c55e;
+    border-color: #22c55e;
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  }
+
+  .pulse-traveler {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    pointer-events: none;
+  }
+
+  /* ── Work labels ── */
+  .work-label {
+    position: absolute;
+    bottom: calc(50% + 14px);
+    transform: translateX(-50%);
+    font-size: 0.6rem;
+    font-weight: 500;
+    padding: 2px 7px;
+    background: #dcfce7;
+    color: #166534;
+    border-radius: 100px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 4;
+  }
+
+  .work-label--start {
+    transform: translateX(0);
+  }
+
+  .work-label--end {
+    transform: translateX(-100%);
+  }
+
+  .work-label:global(.is-shown) {
+    opacity: 1;
+  }
+
+  /* ── Sleeping / Awake states ── */
+  .swim-lane:global(.is-sleeping) .swim-lane__label {
+    opacity: 0.45;
+  }
+
+  .swim-lane:global(.is-awake) .agent-name {
+    color: #22c55e;
+  }
+
+  .swim-lane:global(.is-awake) .swim-lane__label {
+    opacity: 1;
+  }
+
+  /* ── Ticket interrupt ── */
+  .ticket-interrupt {
+    position: absolute;
+    left: 25%;
+    bottom: calc(50% + 16px);
+    transform: translateX(-50%) translateY(-16px);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 9px;
+    background: var(--color-bg);
+    border: 1.5px solid #f59e0b;
+    border-radius: var(--radius-sm);
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #92400e;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.15);
+  }
+
+  .ticket-interrupt svg {
+    color: #f59e0b;
+    flex-shrink: 0;
+  }
+
+  .ticket-interrupt:global(.is-dropped) {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* ── Entrance animation ── */
+  .swim-header {
+    opacity: 0;
+  }
+
+  .swim-lane {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .swim-lanes:global(.is-visible) .swim-header {
+    animation: laneSlideIn 0.4s ease-out forwards;
+  }
+
+  .swim-lanes:global(.is-visible) .swim-lane {
+    animation: laneSlideIn 0.4s ease-out forwards;
+    animation-delay: calc(var(--lane) * 140ms + 140ms);
+  }
+
+  @keyframes laneSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     .feature-layout {
       grid-template-columns: 1fr;
+    }
+
+    .swim-header,
+    .swim-lane {
+      grid-template-columns: 100px 1fr;
+    }
+
+    .agent-name {
+      font-size: 0.72rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .swim-header,
+    .swim-lane {
+      grid-template-columns: 80px 1fr;
+    }
+
+    .agent-cadence {
+      display: none;
+    }
+
+    .agent-name {
+      font-size: 0.68rem;
+    }
+
+    .time-mark {
+      font-size: 0.55rem;
+    }
+
+    .work-label {
+      font-size: 0.55rem;
+      padding: 1px 5px;
+    }
+
+    .ticket-interrupt {
+      font-size: 0.55rem;
     }
   }
 </style>
