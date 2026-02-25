@@ -2,74 +2,147 @@
 ---
 
 <footer class="footer">
-  <div class="container footer-inner">
-    <div class="footer-left">
-      <span class="footer-logo">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 2a5 5 0 0 1 5 5v12a3 3 0 0 1-6 0V7a1 1 0 0 1 2 0v10" />
-        </svg>
-        Paperclip
-      </span>
-      <span class="footer-copy">&copy; {new Date().getFullYear()} Paperclip. Open source under MIT.</span>
+  <div class="footer-bg">
+    <picture>
+      <source srcset="/footer-bg.webp" type="image/webp" />
+      <img src="/footer-bg.jpg" alt="" width="1920" height="960" loading="lazy" />
+    </picture>
+  </div>
+
+  <div class="footer-content">
+    <div class="container footer-columns">
+      <div class="footer-col">
+        <h4 class="footer-col-heading">Product</h4>
+        <a href="#get-started">Get started</a>
+        <!-- <a href="#">Pricing</a> -->
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-heading">Developers</h4>
+        <a href="https://github.com/paperclip-ai/paperclip">Documentation</a>
+        <a href="https://github.com/paperclip-ai/paperclip">GitHub</a>
+      </div>
+      <!-- <div class="footer-col">
+        <h4 class="footer-col-heading">Company</h4>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+      </div> -->
     </div>
-    <div class="footer-links">
-      <a href="https://github.com/paperclip-ai/paperclip">GitHub</a>
-      <a href="https://github.com/paperclip-ai/paperclip">Docs</a>
+
+    <div class="container footer-bottom">
+      <span class="footer-copy">&copy; {new Date().getFullYear()} Paperclip. Open source under MIT.</span>
+      <!-- <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div> -->
     </div>
   </div>
 </footer>
 
 <style>
   .footer {
-    border-top: 1px solid var(--color-border);
-    padding: var(--space-lg) 0;
-    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
   }
 
-  .footer-inner {
+  /* Background image — covers full footer area */
+  .footer-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .footer-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Semi-transparent overlay so text reads clearly */
+  .footer-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 30, 50, 0.65) 0%,
+      rgba(20, 30, 50, 0.55) 60%,
+      rgba(20, 30, 50, 0.7) 100%
+    );
+  }
+
+  .footer-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Link columns ── */
+  .footer-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(4rem, 10vw, 8rem);
+  }
+
+  .footer-col-heading {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.01em;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover {
+    color: #ffffff;
+  }
+
+  /* ── Bottom bar ── */
+  .footer-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--space-sm);
-  }
-
-  .footer-left {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-  }
-
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 600;
-    font-size: 0.9rem;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 
   .footer-copy {
-    color: var(--color-text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
   }
 
-  .footer-links {
+  .footer-bottom-links {
     display: flex;
     gap: var(--space-md);
   }
 
-  .footer-links a {
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
+  .footer-bottom-links a {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
     transition: color 0.2s;
   }
 
-  .footer-links a:hover {
-    color: var(--color-text);
+  .footer-bottom-links a:hover {
+    color: rgba(255, 255, 255, 0.8);
   }
 
-  @media (max-width: 560px) {
-    .footer-inner {
+  /* ── Responsive ── */
+  @media (max-width: 480px) {
+    .footer-bottom {
       flex-direction: column;
       align-items: flex-start;
     }
