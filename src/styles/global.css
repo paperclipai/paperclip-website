@@ -17,10 +17,12 @@
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
-  --space-lg: 3rem;
-  --space-xl: 5rem;
-  --space-2xl: 7rem;
-  --space-3xl: 10rem;
+  --space-lg: clamp(2rem, calc(1.5rem + 1.5vw), 3rem);
+  --space-xl: clamp(3rem, calc(2rem + 3vw), 5rem);
+  --space-2xl: clamp(4rem, calc(2.5rem + 4.5vw), 7rem);
+  --space-3xl: clamp(5rem, calc(3rem + 6vw), 10rem);
+  --space-section: clamp(5rem, calc(3rem + 5.5vw), 9rem);
+  --space-section-gap: clamp(2rem, 5vw, 6rem);
 
   --max-width: 1140px;
   --radius: 16px;
@@ -74,7 +76,7 @@ img {
 }
 
 .section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-section) 0;
 }
 
 .section-badge {
@@ -84,7 +86,7 @@ img {
   font-weight: 500;
   color: var(--color-text);
   background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: var(--radius-pill);
   padding: 0.4em 1.1em;
   margin-bottom: var(--space-md);
@@ -128,11 +130,4 @@ img {
   height: 100%;
 }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
-  :root {
-    --space-2xl: 4rem;
-    --space-xl: 3rem;
-    --space-3xl: 5rem;
-  }
-}
+/* clamp() handles responsive spacing — no breakpoint overrides needed */
