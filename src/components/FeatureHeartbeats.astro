@@ -7,12 +7,20 @@ const features = [
 ];
 ---
 
-<section class="feature-section section">
+<section class="feature-section section heartbeat-dark" id="heartbeat-section">
+  <!-- Pendant lamp & light effect -->
+  <div class="pendant-lamp" aria-hidden="true">
+    <div class="lamp-cord"></div>
+    <div class="lamp-shade"></div>
+    <div class="lamp-bulb"></div>
+  </div>
+  <div class="light-glow" aria-hidden="true"></div>
+
   <div class="container">
     <hr class="section-divider" />
     <div class="feature-layout">
       <div class="feature-copy">
-        <span class="section-badge">Heartbeats</span>
+        <span class="section-badge"><svg class="badge-heart" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Heartbeats</span>
         <h2 class="heading-serif feature-heading">Heartbeats keep<br />the lights on.</h2>
         <ul class="feature-list">
           {features.map((f) => (
@@ -104,7 +112,7 @@ const features = [
               <div class="work-label work-label--end" data-for="2" style="left:100%">Analytics review</div>
               <!-- Ticket interrupt card -->
               <div class="ticket-interrupt" id="ticket-interrupt">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
                 <span>Urgent: Brand mention spike</span>
               </div>
             </div>
@@ -119,31 +127,59 @@ const features = [
 <script>
   window.__hbStop = true;
 
+  const hbSection = document.getElementById('heartbeat-section');
   const lanes = document.getElementById('swim-lanes');
-  if (lanes && !lanes.dataset.hbQueued) {
+  if (lanes && hbSection && !lanes.dataset.hbQueued) {
     lanes.dataset.hbQueued = '1';
+    let timers = [];
+    let isLit = false;
 
-    const rect = lanes.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight && rect.bottom > 0;
-
-    if (inView) {
-      lanes.classList.add('is-visible');
-      setTimeout(() => startHeartbeatFlow(lanes), 800);
-    } else {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              lanes.classList.add('is-visible');
-              observer.unobserve(lanes);
-              setTimeout(() => startHeartbeatFlow(lanes), 1200);
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      observer.observe(lanes);
+    function schedule(fn, ms) {
+      const id = setTimeout(fn, ms);
+      timers.push(id);
     }
+
+    function lightOn() {
+      isLit = true;
+      hbSection.classList.add('is-lit');
+      schedule(() => lanes.classList.add('is-visible'), 400);
+      schedule(() => startHeartbeatFlow(lanes), 1600);
+    }
+
+    function lightOff() {
+      if (!isLit) return;
+      isLit = false;
+      timers.forEach(clearTimeout);
+      timers = [];
+      window.__hbStop = true;
+      hbSection.classList.remove('is-lit');
+      lanes.classList.remove('is-visible');
+      lanes.querySelectorAll('.schedule-dot').forEach(d => d.classList.remove('is-active'));
+      lanes.querySelectorAll('.work-label').forEach(l => l.classList.remove('is-shown'));
+      lanes.querySelectorAll('.swim-lane').forEach(l => l.classList.remove('is-awake', 'is-sleeping'));
+      lanes.querySelectorAll('.pulse-traveler').forEach(p => {
+        p.style.transition = 'none';
+        p.style.left = '0%';
+        p.style.opacity = '0';
+      });
+      const ticket = document.getElementById('ticket-interrupt');
+      if (ticket) ticket.classList.remove('is-dropped');
+      delete lanes.dataset.hbRunning;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            lightOn();
+          } else {
+            lightOff();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(lanes);
   }
 
   function startHeartbeatFlow(container) {
@@ -301,6 +337,17 @@ const features = [
 </script>
 
 <style>
+  .badge-heart {
+    flex-shrink: 0;
+    opacity: 0.7;
+    animation: heartPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes heartPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.18); opacity: 1; }
+  }
+
   .feature-heading {
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: var(--space-lg);
@@ -584,6 +631,163 @@ const features = [
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* ── Dark section & lamp effect ── */
+  .heartbeat-dark {
+    background: #0c0c0c;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .heartbeat-dark > :global(.container) {
+    position: relative;
+    z-index: 2;
+  }
+
+  .pendant-lamp {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 3;
+  }
+
+  .lamp-cord {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .lamp-shade {
+    width: 28px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+  }
+
+  .lamp-bulb {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    margin-top: 1px;
+    transition: background 0.6s ease, box-shadow 1.2s ease;
+  }
+
+  .heartbeat-dark:global(.is-lit) .lamp-bulb {
+    background: #fef3c7;
+    box-shadow:
+      0 0 12px rgba(254, 243, 199, 0.9),
+      0 0 40px rgba(254, 243, 199, 0.5),
+      0 0 80px rgba(254, 243, 199, 0.2);
+  }
+
+  .light-glow {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 110%;
+    background:
+      radial-gradient(
+        ellipse at 50% 0%,
+        rgba(254, 243, 199, 0.18) 0%,
+        rgba(254, 243, 199, 0.06) 15%,
+        transparent 35%
+      ),
+      radial-gradient(
+        ellipse at 50% 0%,
+        rgba(254, 243, 199, 0.06) 0%,
+        rgba(254, 243, 199, 0.03) 35%,
+        rgba(254, 243, 199, 0.01) 55%,
+        transparent 70%
+      );
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .heartbeat-dark:global(.is-lit) .light-glow {
+    opacity: 1;
+  }
+
+  /* Dark theme color overrides */
+  .heartbeat-dark .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .heartbeat-dark .feature-heading {
+    color: #f0ece7;
+  }
+
+  .heartbeat-dark .feature-list-item {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .heartbeat-dark .feature-list-item svg {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .heartbeat-dark .graphic-placeholder {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .heartbeat-dark .swim-lane {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .heartbeat-dark .track-line {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .heartbeat-dark .schedule-dot {
+    background: #0c0c0c;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .heartbeat-dark .schedule-dot:global(.is-active) {
+    background: #22c55e;
+    border-color: #22c55e;
+  }
+
+  .heartbeat-dark .agent-name {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .heartbeat-dark .agent-cadence {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  .heartbeat-dark .time-mark {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .heartbeat-dark .work-label {
+    background: rgba(34, 197, 94, 0.15);
+    color: #86efac;
+  }
+
+  .heartbeat-dark .ticket-interrupt {
+    background: #1a1a1a;
+    color: #fcd34d;
+  }
+
+  .heartbeat-dark .swim-lane:global(.is-sleeping) .swim-lane__label {
+    opacity: 0.3;
+  }
+
+  .heartbeat-dark .swim-lane:global(.is-awake) .agent-name {
+    color: #4ade80;
   }
 
   /* ── Responsive ── */
