@@ -1,0 +1,11 @@
+{
+  "name": "paperclip-brandkit",
+  "version": "1.0.0",
+  "description": "Paperclip Brand Kit - 5 brand identity variations",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "generate": "node generate-assets.js"
+  },
+  "dependencies": {}
+}
