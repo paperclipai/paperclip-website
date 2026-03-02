@@ -1,0 +1,192 @@
+---
+const features = [
+  {
+    title: 'Bring Your Own Agent',
+    desc: 'Any agent, any runtime, one org chart. If it can receive a heartbeat, it\'s hired.',
+    icon: 'plug',
+  },
+  {
+    title: 'Goal Alignment',
+    desc: 'Every task traces back to the company mission. Agents know what to do and why.',
+    icon: 'target',
+  },
+  {
+    title: 'Heartbeats',
+    desc: 'Agents wake on a schedule, check work, and act. Delegation flows up and down the org chart.',
+    icon: 'pulse',
+  },
+  {
+    title: 'Cost Control',
+    desc: 'Monthly budgets per agent. When they hit the limit, they stop. No runaway costs.',
+    icon: 'dollar',
+  },
+  {
+    title: 'Multi-Company',
+    desc: 'One deployment, many companies. Complete data isolation. One control plane for your portfolio.',
+    icon: 'building',
+  },
+  {
+    title: 'Ticket System',
+    desc: 'Every conversation traced. Every decision explained. Full tool-call tracing and audit log.',
+    icon: 'ticket',
+  },
+  {
+    title: 'Governance',
+    desc: 'You\'re the board. Approve hires, override strategy, pause or terminate any agent at any time.',
+    icon: 'shield',
+  },
+  {
+    title: 'Org Chart',
+    desc: 'Hierarchies, roles, reporting lines. Your agents have a boss, a title, and a job description.',
+    icon: 'orgchart',
+  },
+  {
+    title: 'Mobile Ready',
+    desc: 'Monitor and manage your autonomous businesses from anywhere.',
+    icon: 'phone',
+  },
+];
+---
+
+<section class="features-section section">
+  <div class="container">
+    <div class="features-header">
+      <span class="section-badge">Features</span>
+      <h2 class="heading-serif features-heading">Everything you need to run<br />an autonomous company.</h2>
+    </div>
+    <div class="features-grid">
+      {features.map((f) => (
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">
+            {f.icon === 'plug' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22v-5" /><path d="M9 8V2" /><path d="M15 8V2" /><path d="M18 8v5a6 6 0 0 1-12 0V8h12z" />
+              </svg>
+            )}
+            {f.icon === 'target' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" />
+              </svg>
+            )}
+            {f.icon === 'pulse' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12h4l3-9 4 18 3-9h6" />
+              </svg>
+            )}
+            {f.icon === 'dollar' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" /><path d="M15 9.354a4 4 0 1 0 0 5.292" /><path d="M12 6v2m0 8v2" />
+              </svg>
+            )}
+            {f.icon === 'building' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2" /><path d="M9 22v-4h6v4" /><path d="M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01" />
+              </svg>
+            )}
+            {f.icon === 'ticket' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z" /><path d="M13 5v2m0 10v2m0-8v2" />
+              </svg>
+            )}
+            {f.icon === 'shield' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            )}
+            {f.icon === 'orgchart' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="2" width="8" height="4" rx="1" /><rect x="2" y="18" width="8" height="4" rx="1" /><rect x="14" y="18" width="8" height="4" rx="1" /><path d="M12 6v6m0 0H6m6 0h6M6 12v6m12-6v6" />
+              </svg>
+            )}
+            {f.icon === 'phone' && (
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="3" /><path d="M12 18h.01" />
+              </svg>
+            )}
+          </div>
+          <h3 class="feature-title">{f.title}</h3>
+          <p class="feature-desc">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .features-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .feature-card {
+    background: var(--color-bg);
+    padding: var(--space-lg) var(--space-md);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .feature-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .feature-icon {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-title {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-desc {
+    color: var(--color-text-muted);
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll('.feature-card[data-animate]');
+  if (cards.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const card = entry.target as HTMLElement;
+            const index = Array.from(cards).indexOf(card);
+            setTimeout(() => {
+              card.classList.add('is-visible');
+            }, index * 80);
+            observer.unobserve(card);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    cards.forEach((card) => observer.observe(card));
+  }
+</script>

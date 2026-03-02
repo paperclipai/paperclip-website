@@ -1,0 +1,196 @@
+---
+const items = [
+  {
+    label: 'Atomic execution.',
+    detail: 'Task checkout and budget enforcement are atomic, so no double-work and no runaway spend.',
+    icon: 'atom',
+  },
+  {
+    label: 'Persistent agent state.',
+    detail: 'Agents resume the same task context across heartbeats instead of restarting from scratch.',
+    icon: 'save',
+  },
+  {
+    label: 'Runtime skill injection.',
+    detail: 'Agents can learn Paperclip workflows and project context at runtime, without retraining.',
+    icon: 'zap',
+  },
+  {
+    label: 'Governance with rollback.',
+    detail: 'Approval gates are enforced, config changes are revisioned, and bad changes can be rolled back safely.',
+    icon: 'rewind',
+  },
+  {
+    label: 'Goal-aware execution.',
+    detail: 'Tasks carry full goal ancestry so agents consistently see the "why," not just a title.',
+    icon: 'layers',
+  },
+  {
+    label: 'Portable company templates.',
+    detail: 'Export/import orgs, agents, and skills with secret scrubbing and collision handling.',
+    icon: 'package',
+  },
+  {
+    label: 'True multi-company isolation.',
+    detail: 'Every entity is company-scoped, so one deployment can run many companies with separate data and audit trails.',
+    icon: 'lock',
+  },
+];
+---
+
+<section class="special-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="special-header">
+      <span class="section-badge">Under the Hood</span>
+      <h2 class="heading-serif special-heading">Why Paperclip is special.</h2>
+      <p class="special-sub">Paperclip handles the hard orchestration details correctly.</p>
+    </div>
+    <div class="special-grid">
+      {items.map((item, i) => (
+        <div class:list={['special-item', i === 6 && 'special-item-wide']} data-animate-special>
+          <div class="special-icon">
+            {item.icon === 'atom' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="2" /><ellipse cx="12" cy="12" rx="10" ry="4" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+              </svg>
+            )}
+            {item.icon === 'save' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" /><polyline points="17 21 17 13 7 13 7 21" /><polyline points="7 3 7 8 15 8" />
+              </svg>
+            )}
+            {item.icon === 'zap' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            )}
+            {item.icon === 'rewind' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10" /><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+              </svg>
+            )}
+            {item.icon === 'layers' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" />
+              </svg>
+            )}
+            {item.icon === 'package' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16.5 9.4l-9-5.19M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+            )}
+            {item.icon === 'lock' && (
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            )}
+          </div>
+          <div>
+            <h3 class="special-label">{item.label}</h3>
+            <p class="special-detail">{item.detail}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .special-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .special-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-xs);
+  }
+
+  .special-sub {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .special-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .special-item {
+    background: var(--color-bg);
+    padding: var(--space-lg) var(--space-md);
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  .special-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .special-item-wide {
+    grid-column: span 2;
+  }
+
+  .special-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .special-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .special-detail {
+    color: var(--color-text-muted);
+    font-size: 0.93rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .special-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .special-item-wide {
+      grid-column: span 1;
+    }
+  }
+</style>
+
+<script>
+  const specialItems = document.querySelectorAll('.special-item[data-animate-special]');
+  if (specialItems.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            const index = Array.from(specialItems).indexOf(el);
+            setTimeout(() => {
+              el.classList.add('is-visible');
+            }, index * 70);
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    specialItems.forEach((item) => observer.observe(item));
+  }
+</script>

@@ -21,6 +21,10 @@ const faqs = [
     a: 'By default, Paperclip runs your agents on scheduled heartbeats and/or notifications like being assigned a task or @-mentioned. But your agent is your own \u2014 you\u2019re free to hook a continuous agent like OpenClaw into Paperclip.',
   },
   {
+    q: 'Why should I use Paperclip instead of just pointing my OpenClaw to Asana or Trello?',
+    a: 'Agent orchestration has subtleties in how you coordinate who has work checked out, how to maintain sessions, monitoring costs, establishing governance \u2014 Paperclip does this for you. Bring-your-own-ticket-system is on the roadmap.',
+  },
+  {
     q: 'What does a typical setup look like?',
     a: 'You can run Paperclip as a local instance or a remote deploy. Locally, a single Node.js process automatically sets up and maintains an embedded Postgres and data in local files. When you\u2019re ready for the cloud, Paperclip makes that easy too \u2014 your agents can help using Paperclip\u2019s provided SKILL.md. Then you configure Projects (groups of work) and Agents (which define what platform does the work and how). You set up tasks and the agents take care of the rest.',
   },

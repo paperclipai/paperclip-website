@@ -1,0 +1,187 @@
+---
+const problems = [
+  {
+    without: 'You have 20 Claude Code tabs open and can\'t track which one does what. On reboot you lose everything.',
+    with: 'Tasks are ticket-based, conversations are threaded, sessions persist across reboots.',
+  },
+  {
+    without: 'You manually gather context from several places to remind your bot what you\'re actually doing.',
+    with: 'Context flows from the task up through the project and company goals — your agent always knows what to do and why.',
+  },
+  {
+    without: 'Folders of agent configs are disorganized and you\'re re-inventing task management, communication, and coordination between agents.',
+    with: 'Paperclip gives you org charts, ticketing, delegation, and governance out of the box — so you run a company, not a pile of scripts.',
+  },
+  {
+    without: 'Runaway loops waste hundreds of dollars of tokens and max your quota before you even know what happened.',
+    with: 'Cost tracking surfaces token budgets and throttles agents when they\'re out. Management prioritizes with budgets.',
+  },
+  {
+    without: 'You have recurring jobs (customer support, social, reports) and have to remember to manually kick them off.',
+    with: 'Heartbeats handle regular work on a schedule. Management supervises.',
+  },
+  {
+    without: 'You have an idea, you have to find your repo, fire up Claude Code, keep a tab open, and babysit it.',
+    with: 'Add a task in Paperclip. Your coding agent works on it until it\'s done. Management reviews their work.',
+  },
+];
+---
+
+<section class="problems-section section">
+  <div class="container">
+    <hr class="section-divider" />
+    <div class="problems-header">
+      <span class="section-badge">Problems Solved</span>
+      <h2 class="heading-serif problems-heading">What changes with Paperclip.</h2>
+    </div>
+    <div class="problems-list">
+      {problems.map((p) => (
+        <div class="problem-row" data-animate-problem>
+          <div class="problem-without">
+            <span class="problem-label problem-label-without">Without</span>
+            <p>{p.without}</p>
+          </div>
+          <div class="problem-arrow">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" /><path d="M12 5l7 7-7 7" />
+            </svg>
+          </div>
+          <div class="problem-with">
+            <span class="problem-label problem-label-with">With Paperclip</span>
+            <p>{p.with}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .problems-header {
+    padding-top: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .problems-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+
+  .problems-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .problem-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    background: var(--color-bg);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+  }
+
+  .problem-row.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .problem-without,
+  .problem-with {
+    padding: var(--space-md);
+  }
+
+  .problem-without {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .problem-with {
+    border-left: 1px solid var(--color-border);
+  }
+
+  .problem-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--space-sm);
+    color: var(--color-text-muted);
+  }
+
+  .problem-label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-label-without {
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+  }
+
+  .problem-label-with {
+    color: var(--color-text);
+    background: var(--color-surface-raised);
+  }
+
+  .problem-without p,
+  .problem-with p {
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .problem-row {
+      grid-template-columns: 1fr;
+    }
+
+    .problem-without {
+      border-right: none;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .problem-with {
+      border-left: none;
+    }
+
+    .problem-arrow {
+      padding: var(--space-xs);
+      justify-content: flex-start;
+      padding-left: var(--space-md);
+      transform: rotate(90deg);
+    }
+  }
+</style>
+
+<script>
+  const rows = document.querySelectorAll('.problem-row[data-animate-problem]');
+  if (rows.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const row = entry.target as HTMLElement;
+            const index = Array.from(rows).indexOf(row);
+            setTimeout(() => {
+              row.classList.add('is-visible');
+            }, index * 100);
+            observer.unobserve(row);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+    rows.forEach((row) => observer.observe(row));
+  }
+</script>
