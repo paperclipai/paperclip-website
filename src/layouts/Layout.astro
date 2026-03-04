@@ -8,9 +8,9 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://paperclip.ing');
 
 const {
-  title = 'Paperclip — The control plane for AI agents',
+  title = 'Paperclip — Open-source orchestration for zero-human companies',
   description = 'Manage a team of AI agents to run your business. Org charts, budgets, governance, and goals — all in one deployment.',
-  ogImage = '/og.png',
+  ogImage = '/og.jpg',
 } = Astro.props;
 
 const ogImageURL = new URL(ogImage, canonicalURL.origin).href;
@@ -33,8 +33,8 @@ const ogImageURL = new URL(ogImage, canonicalURL.origin).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:image:width" content="2200" />
-    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
