@@ -1,0 +1,188 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const releases = await getCollection('releases');
+  return releases.map((release) => ({
+    params: { version: `v${release.data.version}` },
+    props: { release },
+  }));
+}
+
+const { release } = Astro.props;
+const { Content } = await render(release);
+
+const formattedDate = new Date(release.data.date + 'T00:00:00').toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout
+  title={`v${release.data.version} — Paperclip Changelog`}
+  description={`Release notes for Paperclip v${release.data.version}.`}
+>
+  <Navbar />
+
+  <header class="release-header">
+    <div class="container">
+      <a href="/changelog" class="release-back">&larr; All releases</a>
+      <div class="release-meta">
+        <h1 class="heading-serif release-title">v{release.data.version}</h1>
+        {release.data.breaking && (
+          <span class="release-breaking-badge">Breaking Changes</span>
+        )}
+      </div>
+      <time class="release-date" datetime={release.data.date}>{formattedDate}</time>
+    </div>
+  </header>
+
+  <main class="release-main">
+    <div class="container">
+      <article class="release-content">
+        <Content />
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .release-header {
+    padding-top: clamp(8rem, 12vw, 12rem);
+    padding-bottom: var(--space-lg);
+    background: var(--color-bg);
+  }
+
+  .release-back {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    transition: color 0.2s;
+  }
+
+  .release-back:hover {
+    color: var(--color-text);
+  }
+
+  .release-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .release-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+  }
+
+  .release-breaking-badge {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #b45309;
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    padding: 0.25em 0.75em;
+    border-radius: var(--radius-pill);
+  }
+
+  .release-date {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .release-main {
+    padding-bottom: var(--space-3xl);
+  }
+
+  .release-content {
+    max-width: 680px;
+  }
+
+  /* Markdown prose styles */
+  .release-content :global(h2) {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .release-content :global(h3) {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .release-content :global(p) {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .release-content :global(ul),
+  .release-content :global(ol) {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+    list-style: disc;
+  }
+
+  .release-content :global(ol) {
+    list-style: decimal;
+  }
+
+  .release-content :global(li) {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.35rem;
+  }
+
+  .release-content :global(li strong) {
+    color: var(--color-text);
+  }
+
+  .release-content :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    background: var(--color-surface);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+  }
+
+  .release-content :global(pre) {
+    background: var(--color-surface);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  .release-content :global(pre code) {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .release-content :global(strong) {
+    font-weight: 600;
+  }
+</style>
