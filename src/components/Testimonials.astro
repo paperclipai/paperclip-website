@@ -1,0 +1,226 @@
+---
+const tweets = [
+  {
+    name: "Numman Ali",
+    username: "nummanali",
+    avatar: "/testimonials/nummanali.jpg",
+    text: "I've never seen an agent orchestration system that operates across all business functions\n\nAnd, neither have I seen one that has been built with great taste i.e. design and UX quality like Linear etc\n\nPaperclip seems to be special - no agent tie in either",
+  },
+  {
+    name: "John Holloway",
+    username: "JohnHolloway",
+    avatar: "/testimonials/JohnHolloway.jpg",
+    text: "Great for orchestrating a bunch of agents to do dev, content, social, marketing, qa, research, outreach, and anything else for an autonomous biz.",
+  },
+  {
+    name: "Diogo D",
+    username: "DiogoTheReal",
+    avatar: "/testimonials/DiogoTheReal.jpg",
+    text: "Been using it and works great!",
+  },
+  {
+    name: "Logan",
+    username: "logansaether",
+    avatar: "/testimonials/logansaether.jpg",
+    text: "When I first started playing with openclaw this was the vision I had for where you could take Agents.\n\nStarted to build my own, but it's nowhere near as polished as this.\n\nEveryone should go try Paperclip right now.",
+  },
+  {
+    name: "neo",
+    username: "dnalor_x",
+    avatar: "/testimonials/dnalor_x.jpg",
+    text: "Ok this blows everything out of the water! This is gonna be the interface of the future!",
+  },
+  {
+    name: "Resolver Vicky",
+    username: "resolvervicky",
+    avatar: "/testimonials/resolvervicky.jpg",
+    text: "OpenClaw is an employee, Paperclip is the company.",
+  },
+  {
+    name: "JoelGG",
+    username: "JoelGG",
+    avatar: "/testimonials/JoelGG.jpg",
+    text: "This is awesome! This replaces my mission control",
+  },
+  {
+    name: "Wi_F_I",
+    username: "Wi_F_I",
+    avatar: "/testimonials/Wi_F_I.jpg",
+    text: "been checking out Paperclip and it's pretty simple: it's a tool to organize and run work with AI agents instead of a bunch of separate automations\nit gives you org chart, goals, tasks, budgets and agent templates all in one place so you're not wiring everything from scratch",
+  },
+  {
+    name: "alexander",
+    username: "4tt4r",
+    avatar: "/testimonials/4tt4r.jpg",
+    text: "Just what I was looking for",
+  },
+  {
+    name: "yash",
+    username: "yashns1",
+    avatar: "/testimonials/yashns1.jpg",
+    text: 'The framing here is what makes this interesting. Not "here is an AI tool." CEO hires a Coder. You approve it. The mental model is a company you are running, not a tool you are using.\n\nThe shift from "I am prompting an AI" to "I am managing a team" changes how you think about what',
+  },
+  {
+    name: "Evan Drake",
+    username: "iamevandrake",
+    avatar: "/testimonials/iamevandrake.jpg",
+    text: "The rise of autonomous companies is inevitable. I tested Paperclip today and it blew my mind. I suggest giving it a spin.",
+  },
+];
+
+const topRow = [...tweets, ...tweets];
+const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
+---
+
+<section class="testimonials-section">
+  <div class="container">
+    <span class="section-badge">What people are saying</span>
+    <h2 class="heading-serif testimonials-heading">Loved by builders.</h2>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track track-left">
+      {topRow.map((tweet) => (
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <img src={tweet.avatar} alt={tweet.name} class="tweet-avatar" loading="lazy" />
+            <div class="tweet-author">
+              <span class="tweet-name">{tweet.name}</span>
+              <span class="tweet-handle">@{tweet.username}</span>
+            </div>
+            <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </div>
+          <p class="tweet-text">{tweet.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="carousel-track track-right">
+      {bottomRow.map((tweet) => (
+        <div class="tweet-card">
+          <div class="tweet-header">
+            <img src={tweet.avatar} alt={tweet.name} class="tweet-avatar" loading="lazy" />
+            <div class="tweet-author">
+              <span class="tweet-name">{tweet.name}</span>
+              <span class="tweet-handle">@{tweet.username}</span>
+            </div>
+            <svg class="tweet-x-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </div>
+          <p class="tweet-text">{tweet.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    padding: var(--space-section) 0 var(--space-xl);
+    overflow: hidden;
+  }
+
+  .testimonials-heading {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: var(--space-xl);
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: var(--space-md);
+    width: max-content;
+  }
+
+  .track-left {
+    animation: scroll-left 60s linear infinite;
+  }
+
+  .track-right {
+    animation: scroll-right 60s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .tweet-card {
+    flex-shrink: 0;
+    width: 340px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tweet-header {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .tweet-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .tweet-author {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tweet-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .tweet-handle {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .tweet-x-icon {
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  .tweet-text {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    white-space: pre-line;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @media (max-width: 640px) {
+    .tweet-card {
+      width: 280px;
+    }
+  }
+</style>
