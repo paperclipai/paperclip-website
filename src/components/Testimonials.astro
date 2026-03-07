@@ -79,6 +79,9 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
   </div>
 
   <div class="carousel-wrapper">
+    <div class="carousel-fade carousel-fade-left"></div>
+    <div class="carousel-fade carousel-fade-right"></div>
+
     <div class="carousel-track track-left">
       {topRow.map((tweet) => (
         <div class="tweet-card">
@@ -129,13 +132,34 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
   }
 
   .carousel-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
   }
 
+  .carousel-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .carousel-fade-left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg), transparent);
+  }
+
+  .carousel-fade-right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg), transparent);
+  }
+
   .carousel-track {
     display: flex;
+    align-items: stretch;
     gap: var(--space-md);
     width: max-content;
   }
@@ -160,10 +184,10 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
 
   .tweet-card {
     flex-shrink: 0;
-    width: 340px;
-    background: var(--color-bg);
+    width: 320px;
+    background: var(--color-bg-alt);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    border-radius: var(--radius-sm);
     padding: var(--space-md);
     display: flex;
     flex-direction: column;
@@ -177,8 +201,8 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
   }
 
   .tweet-avatar {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -192,13 +216,13 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
 
   .tweet-name {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.3;
     color: var(--color-text);
   }
 
   .tweet-handle {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-muted);
   }
 
@@ -208,10 +232,9 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
   }
 
   .tweet-text {
-    font-size: 0.9rem;
-    line-height: 1.55;
+    font-size: 0.88rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    white-space: pre-line;
   }
 
   .carousel-track:hover {
@@ -220,7 +243,11 @@ const bottomRow = [...[...tweets].reverse(), ...[...tweets].reverse()];
 
   @media (max-width: 640px) {
     .tweet-card {
-      width: 280px;
+      width: 270px;
+    }
+
+    .carousel-fade {
+      width: 60px;
     }
   }
 </style>
