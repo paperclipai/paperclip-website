@@ -1,4 +1,21 @@
 ---
+let starCount = '';
+try {
+  const res = await fetch('https://api.github.com/repos/paperclipai/paperclip', {
+    headers: { 'Accept': 'application/vnd.github.v3+json' },
+  });
+  if (res.ok) {
+    const data = await res.json();
+    const count = data.stargazers_count;
+    if (typeof count === 'number' && count > 0) {
+      starCount = count >= 1000
+        ? `${(count / 1000).toFixed(1).replace(/\.0$/, '')}k`
+        : String(count);
+    }
+  }
+} catch {
+  // Silently fail — just show "Star" without a count
+}
 ---
 
 <nav class="navbar">
@@ -20,7 +37,7 @@
     <div class="navbar-right">
       <a href="https://github.com/paperclipai/paperclip" class="navbar-cta">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Star
+        Star{starCount && <span class="navbar-cta-count">{starCount}</span>}
       </a>
     </div>
   </div>
@@ -110,6 +127,16 @@
     border-radius: var(--radius-pill);
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: background 0.2s, color 0.2s;
+  }
+
+  .navbar-cta-count {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.1rem 0.45rem;
+    border-radius: 9999px;
+    margin-left: 0.1rem;
   }
 
   .navbar-cta:hover {
