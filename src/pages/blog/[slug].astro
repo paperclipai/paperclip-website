@@ -24,6 +24,7 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
 <Layout
   title={`${post.data.title} — Paperclip Blog`}
   description={post.data.excerpt}
+  ogImage={post.data.youtubeId ? `https://i.ytimg.com/vi/${post.data.youtubeId}/maxresdefault.jpg` : post.data.coverImage}
 >
   <div class="blog-post-page">
     <Navbar />
@@ -77,18 +78,19 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
   .blog-post-header {
     padding-top: clamp(8rem, 12vw, 11rem);
     padding-bottom: var(--space-lg);
+    background: #1a1a2e;
   }
 
   .blog-back-link {
     display: inline-block;
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: var(--space-md);
     transition: color 0.2s;
   }
 
   .blog-back-link:hover {
-    color: var(--color-text);
+    color: #fff;
   }
 
   .blog-post-meta {
@@ -96,7 +98,7 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
     align-items: center;
     gap: 0.75rem;
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: var(--space-sm);
   }
 
@@ -105,8 +107,8 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--color-text-secondary);
-    background: var(--color-surface);
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
     padding: 0.2em 0.65em;
     border-radius: var(--radius-pill);
   }
@@ -115,12 +117,13 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
     font-size: clamp(2rem, 4.5vw, 3rem);
     margin-bottom: 0.75rem;
     max-width: 720px;
+    color: #fff;
   }
 
   .blog-post-excerpt {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.6);
     max-width: 620px;
   }
 
