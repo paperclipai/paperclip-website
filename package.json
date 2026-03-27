@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "npm run deploy:prod",
+    "deploy:prod": "astro build && npx wrangler pages deploy dist --project-name paperclip-website --branch master --commit-dirty=true",
+    "deploy:canary": "astro build && npx wrangler pages deploy dist --project-name paperclip-website --branch canary --commit-dirty=true",
     "astro": "astro"
   },
   "dependencies": {
