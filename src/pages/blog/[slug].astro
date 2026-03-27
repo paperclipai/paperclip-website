@@ -291,9 +291,51 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
     font-style: italic;
   }
 
+  .blog-post-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-bottom: var(--space-md);
+  }
+
+  .blog-post-content :global(th),
+  .blog-post-content :global(td) {
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--color-border);
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .blog-post-content :global(th) {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-surface);
+  }
+
+  .blog-post-content :global(td) {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+  }
+
   .blog-post-content :global(hr) {
     border: none;
     border-top: 1px solid var(--color-border);
     margin: var(--space-xl) 0;
+  }
+
+  @media (max-width: 640px) {
+    .blog-post-content :global(table) {
+      font-size: 0.88rem;
+    }
+
+    .blog-post-content :global(th),
+    .blog-post-content :global(td) {
+      padding: 0.6rem;
+    }
   }
 </style>
