@@ -35,6 +35,7 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
           <a href="/blog" class="blog-back-link">&larr; Back to blog</a>
           <div class="blog-post-meta">
             <time datetime={post.data.date}>{formattedDate}</time>
+            <span class="blog-post-author">By {post.data.author}</span>
             {post.data.tags.map((tag) => (
               <span class="blog-post-tag">{tag}</span>
             ))}
@@ -96,10 +97,15 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
   .blog-post-meta {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.75rem;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: var(--space-sm);
+  }
+
+  .blog-post-author {
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .blog-post-tag {

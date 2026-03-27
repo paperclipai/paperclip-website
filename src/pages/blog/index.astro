@@ -60,6 +60,7 @@ const posts = (await getCollection('blog')).sort(
                       day: 'numeric',
                     })}
                   </time>
+                  <span class="blog-card-author">By {post.data.author}</span>
                   {post.data.tags.length > 0 && (
                     <span class="blog-card-tag">{post.data.tags[0]}</span>
                   )}
@@ -218,9 +219,14 @@ const posts = (await getCollection('blog')).sort(
   .blog-card-meta {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.75rem;
     font-size: 0.8rem;
     color: var(--color-text-muted);
+  }
+
+  .blog-card-author {
+    color: var(--color-text-secondary);
   }
 
   .blog-card-tag {
