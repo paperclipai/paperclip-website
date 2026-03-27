@@ -120,13 +120,17 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
     position: relative;
     z-index: 1;
     margin-top: -7rem;
+    margin-bottom: clamp(1rem, 3vw, 1.75rem);
     padding: clamp(1.1rem, 3vw, 1.8rem);
     padding-bottom: clamp(1.4rem, 3.5vw, 2rem);
     border-radius: 28px;
-    background:
-      linear-gradient(180deg, rgba(11, 16, 31, 0.88) 0%, rgba(11, 16, 31, 0.96) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 24px 48px rgba(8, 12, 24, 0.2);
+    background: linear-gradient(180deg, rgba(10, 14, 26, 0.96) 0%, rgba(10, 14, 26, 0.99) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 28px 56px rgba(8, 12, 24, 0.26),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   .blog-back-link {
@@ -337,6 +341,7 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
   @media (max-width: 768px) {
     .blog-post-header-content {
       margin-top: -5.5rem;
+      margin-bottom: 1.25rem;
       border-radius: 22px;
     }
   }
@@ -344,6 +349,7 @@ const formattedDate = new Date(post.data.date + 'T00:00:00').toLocaleDateString(
   @media (max-width: 640px) {
     .blog-post-header-content {
       margin-top: -4.5rem;
+      margin-bottom: 1rem;
       padding: 1rem;
       padding-bottom: 1.2rem;
       border-radius: 18px;
