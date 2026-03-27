@@ -14,10 +14,11 @@ const posts = (await getCollection('blog')).sort(
     <Navbar />
 
     <header class="blog-header">
-      <div class="container">
-        <span class="section-badge blog-badge">Blog</span>
-        <h1 class="heading-serif blog-title">From the Paperclip team</h1>
-        <p class="blog-subtitle">News, demos, and deep dives on building with AI agents.</p>
+      <div class="blog-header-image">
+        <picture>
+          <source srcset="/blog-header.webp" type="image/webp" />
+          <img src="/blog-header.jpg" alt="" width="1920" height="960" loading="eager" />
+        </picture>
       </div>
     </header>
 
@@ -84,32 +85,45 @@ const posts = (await getCollection('blog')).sort(
     background: var(--color-bg);
   }
 
-  /* ── Header ── */
+  /* ── Header / Hero image ── */
   .blog-header {
-    padding-top: clamp(8rem, 12vw, 12rem);
-    padding-bottom: var(--space-xl);
-    background: #1a1a2e;
+    position: relative;
+    overflow: hidden;
   }
 
-  .blog-badge {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
+  .blog-header-image {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 240px;
+    max-height: 420px;
+    overflow: hidden;
   }
 
-  .blog-title {
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    margin-bottom: 0.5rem;
-    color: #fff;
+  .blog-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
   }
 
-  .blog-subtitle {
-    font-size: 1.1rem;
-    max-width: 480px;
-    color: rgba(255, 255, 255, 0.6);
+  .blog-header-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0) 40%,
+      rgba(255, 255, 255, 0.3) 85%,
+      rgba(255, 255, 255, 1) 100%
+    );
   }
 
   /* ── Grid ── */
   .blog-main {
+    padding-top: var(--space-xl);
     padding-bottom: var(--space-3xl);
   }
 
