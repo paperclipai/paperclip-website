@@ -1,0 +1,270 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Layout title="Blog — Paperclip" description="News, demos, and deep dives from the Paperclip team.">
+  <div class="blog-page">
+    <Navbar />
+
+    <header class="blog-header">
+      <div class="container">
+        <span class="section-badge">Blog</span>
+        <h1 class="heading-serif blog-title">From the Paperclip team</h1>
+        <p class="text-secondary blog-subtitle">News, demos, and deep dives on building with AI agents.</p>
+      </div>
+    </header>
+
+    <main class="blog-main">
+      <div class="container">
+        <div class="blog-grid">
+          {posts.map((post, i) => (
+            <a href={`/blog/${post.id}`} class:list={['blog-card', { 'blog-card--featured': i === 0 }]}>
+              {post.data.youtubeId && (
+                <div class="blog-card-thumb">
+                  <img
+                    src={`https://i.ytimg.com/vi/${post.data.youtubeId}/maxresdefault.jpg`}
+                    alt={post.data.title}
+                    width="640"
+                    height="360"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                  <div class="blog-card-play">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              )}
+              {!post.data.youtubeId && post.data.coverImage && (
+                <div class="blog-card-thumb">
+                  <img
+                    src={post.data.coverImage}
+                    alt={post.data.title}
+                    width="640"
+                    height="360"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                </div>
+              )}
+              <div class="blog-card-body">
+                <div class="blog-card-meta">
+                  <time datetime={post.data.date}>
+                    {new Date(post.data.date + 'T00:00:00').toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  {post.data.tags.length > 0 && (
+                    <span class="blog-card-tag">{post.data.tags[0]}</span>
+                  )}
+                </div>
+                <h2 class="blog-card-title">{post.data.title}</h2>
+                <p class="blog-card-excerpt">{post.data.excerpt}</p>
+                <span class="blog-card-link">Read more &rarr;</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .blog-page {
+    background: var(--color-bg);
+  }
+
+  /* ── Header ── */
+  .blog-header {
+    padding-top: clamp(8rem, 12vw, 12rem);
+    padding-bottom: var(--space-xl);
+  }
+
+  .blog-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-subtitle {
+    font-size: 1.1rem;
+    max-width: 480px;
+  }
+
+  /* ── Grid ── */
+  .blog-main {
+    padding-bottom: var(--space-3xl);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  /* ── Card ── */
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-card:hover {
+    border-color: var(--color-surface-raised);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  .blog-card:hover .blog-card-link {
+    color: var(--color-text);
+  }
+
+  /* ── Featured card spans full width ── */
+  .blog-card--featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .blog-card--featured .blog-card-thumb img {
+    height: 100%;
+  }
+
+  .blog-card--featured .blog-card-body {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .blog-card--featured .blog-card-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  }
+
+  /* ── Thumbnail ── */
+  .blog-card-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--color-surface);
+  }
+
+  .blog-card--featured .blog-card-thumb {
+    aspect-ratio: auto;
+  }
+
+  .blog-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .blog-card:hover .blog-card-thumb img {
+    transform: scale(1.03);
+  }
+
+  .blog-card-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.15);
+    transition: background 0.2s;
+  }
+
+  .blog-card-play svg {
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  }
+
+  .blog-card:hover .blog-card-play {
+    background: rgba(0, 0, 0, 0.25);
+  }
+
+  /* ── Card body ── */
+  .blog-card-body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .blog-card-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    background: var(--color-surface);
+    padding: 0.15em 0.6em;
+    border-radius: var(--radius-pill);
+  }
+
+  .blog-card-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--color-text);
+  }
+
+  .blog-card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .blog-card-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    transition: color 0.2s;
+    margin-top: auto;
+    padding-top: 0.25rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-card--featured {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-card--featured .blog-card-thumb {
+      aspect-ratio: 16 / 9;
+    }
+  }
+</style>

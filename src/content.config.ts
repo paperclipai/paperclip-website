@@ -10,4 +10,17 @@ const releases = defineCollection({
   }),
 });
 
-export const collections = { releases };
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    excerpt: z.string(),
+    author: z.string().default('Paperclip'),
+    tags: z.array(z.string()).default([]),
+    coverImage: z.string().optional(),
+    youtubeId: z.string().optional(),
+  }),
+});
+
+export const collections = { releases, blog };
