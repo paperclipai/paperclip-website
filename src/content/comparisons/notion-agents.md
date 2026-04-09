@@ -32,6 +32,8 @@ Paperclip agents can be Claude Code, Codex, shell scripts, HTTP webhooks — any
 
 Paperclip agents write code, manage repositories, open PRs, and ship features. Notion agents automate workspace tasks — triage, standups, Q&A, database updates. These are fundamentally different use cases. Paperclip replaces engineering headcount. Notion agents replace admin work.
 
+![Paperclip task coordination view showing agents working across multiple tasks with real-time status tracking](/vs/screenshots/task-coordination.webp)
+
 ### Governance and Cost Control
 
 Paperclip has per-agent budgets with auto-pause, board approval gates, and full audit trails. Notion has basic access controls. When your agents are writing production code and spending API credits, you need real governance.

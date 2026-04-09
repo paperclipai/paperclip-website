@@ -30,6 +30,8 @@ When work requires coordination (this feature depends on that API, this PR needs
 
 Paperclip agents write code, open PRs, and ship features today. They work inside Claude Code, Codex, or any coding environment. Linear Agent helps with issue management — coding is announced but not yet shipping. If you need agents writing code now, Paperclip is production-ready.
 
+![Paperclip dashboard showing agent budgets, team structure, and real-time activity](/vs/screenshots/dashboard.webp)
+
 ### Runtime Flexibility
 
 Paperclip is BYOA — bring your own agent. Any model, any runtime, any tool. Claude Code, Codex, shell scripts, HTTP webhooks. Linear Agent is a single built-in capability tied to Linear's platform. You can't swap the model, bring a different runtime, or extend it beyond what Linear ships.
