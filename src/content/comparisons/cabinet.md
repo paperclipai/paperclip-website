@@ -4,6 +4,7 @@ title: "Paperclip vs Cabinet — AI Agent Coordination Compared"
 excerpt: "Cabinet is a knowledge base with agent features. Paperclip is a purpose-built control plane for agent teams. Here's the difference."
 date: "2026-04-09"
 order: 2
+coverImage: /vs/cover-cabinet.webp
 ---
 
 ## Quick Take

@@ -16,7 +16,9 @@ const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
     <Navbar />
 
     <header class="vs-index-header">
-      <div class="vs-index-header-bg"></div>
+      <div class="vs-index-header-bg">
+        <img src="/vs/vs-hero.webp" alt="Paperclip vs Alternatives" class="vs-index-header-img" />
+      </div>
       <div class="container vs-index-header-content">
         <span class="vs-index-badge">Comparisons</span>
         <h1 class="heading-serif vs-index-title">How Paperclip Compares</h1>
@@ -70,13 +72,15 @@ const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
     height: 32vh;
     min-height: 200px;
     max-height: 340px;
-    background: linear-gradient(
-      135deg,
-      #1a1a1a 0%,
-      #2d2a26 40%,
-      #3d3830 70%,
-      #1a1a1a 100%
-    );
+    background: #1a1a1a;
+    overflow: hidden;
+  }
+
+  .vs-index-header-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .vs-index-header-bg::after {

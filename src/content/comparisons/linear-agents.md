@@ -4,6 +4,7 @@ title: "Paperclip vs Linear Agents — AI Agent Coordination Compared"
 excerpt: "Linear added an AI agent to its issue tracker. Paperclip coordinates teams of agents across your entire stack. Here's the difference."
 date: "2026-04-09"
 order: 4
+coverImage: /vs/cover-linear-agents.webp
 ---
 
 ## Quick Take

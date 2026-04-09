@@ -4,6 +4,7 @@ title: "Paperclip vs Multica — AI Agent Coordination Compared"
 excerpt: "Both Paperclip and Multica orchestrate AI coding agents. Here's how they differ on governance, execution, and team structure."
 date: "2026-04-09"
 order: 1
+coverImage: /vs/cover-multica.webp
 ---
 
 ## Quick Take

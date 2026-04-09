@@ -4,6 +4,7 @@ title: "Paperclip vs Notion AI Agents — AI Agent Coordination Compared"
 excerpt: "Notion added AI agents to its workspace. Paperclip is an agent-first coordination platform. Here's how they compare."
 date: "2026-04-09"
 order: 3
+coverImage: /vs/cover-notion-agents.webp
 ---
 
 ## Quick Take
