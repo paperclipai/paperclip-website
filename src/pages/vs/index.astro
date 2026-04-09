@@ -1,0 +1,193 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const comparisons = await getCollection('comparisons');
+const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+  title="Paperclip vs Alternatives — AI Agent Coordination Compared"
+  description="See how Paperclip compares to other AI agent platforms. Honest, side-by-side comparisons with feature tables."
+>
+  <div class="vs-index-page">
+    <Navbar />
+
+    <header class="vs-index-header">
+      <div class="vs-index-header-bg"></div>
+      <div class="container vs-index-header-content">
+        <span class="vs-index-badge">Comparisons</span>
+        <h1 class="heading-serif vs-index-title">How Paperclip Compares</h1>
+        <p class="vs-index-subtitle">
+          Honest, side-by-side comparisons with the tools you're evaluating.
+          We highlight what each does well and where Paperclip differs.
+        </p>
+      </div>
+    </header>
+
+    <section class="container vs-index-grid-section">
+      <div class="vs-index-grid">
+        {sorted.map((comp) => (
+          <a href={`/vs/${comp.id}`} class="vs-card">
+            <span class="vs-card-badge">vs</span>
+            <h2 class="vs-card-title">Paperclip vs {comp.data.competitor}</h2>
+            <p class="vs-card-excerpt">{comp.data.excerpt}</p>
+            <span class="vs-card-link">Read comparison &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style>
+  .vs-index-page {
+    background: var(--color-bg);
+  }
+
+  /* ── Header ── */
+  .vs-index-header {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vs-index-header-bg {
+    position: relative;
+    width: 100%;
+    height: 32vh;
+    min-height: 200px;
+    max-height: 340px;
+    background: linear-gradient(
+      135deg,
+      #1a1a1a 0%,
+      #2d2a26 40%,
+      #3d3830 70%,
+      #1a1a1a 100%
+    );
+  }
+
+  .vs-index-header-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
+
+  .vs-index-header-content {
+    position: relative;
+    z-index: 1;
+    margin-top: -6rem;
+    padding-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .vs-index-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.25em 0.75em;
+    border-radius: var(--radius-pill);
+    margin-bottom: var(--space-sm);
+  }
+
+  .vs-index-title {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom: 0.75rem;
+    color: #fff;
+  }
+
+  .vs-index-subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ── Grid ── */
+  .vs-index-grid-section {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .vs-index-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .vs-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .vs-card:hover {
+    border-color: var(--color-text-muted);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .vs-card-badge {
+    display: inline-block;
+    width: fit-content;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+    margin-bottom: var(--space-sm);
+  }
+
+  .vs-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .vs-card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    flex: 1;
+    margin-bottom: var(--space-sm);
+  }
+
+  .vs-card-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: color 0.2s;
+  }
+
+  .vs-card:hover .vs-card-link {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 600px) {
+    .vs-index-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
