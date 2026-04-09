@@ -31,10 +31,19 @@ const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
       <div class="vs-index-grid">
         {sorted.map((comp) => (
           <a href={`/vs/${comp.id}`} class="vs-card">
-            <span class="vs-card-badge">vs</span>
-            <h2 class="vs-card-title">Paperclip vs {comp.data.competitor}</h2>
-            <p class="vs-card-excerpt">{comp.data.excerpt}</p>
-            <span class="vs-card-link">Read comparison &rarr;</span>
+            {comp.data.coverImage ? (
+              <div class="vs-card-thumb">
+                <img src={comp.data.coverImage} alt={`Paperclip vs ${comp.data.competitor}`} class="vs-card-thumb-img" />
+              </div>
+            ) : (
+              <div class="vs-card-thumb vs-card-thumb--gradient"></div>
+            )}
+            <div class="vs-card-body">
+              <span class="vs-card-badge">vs</span>
+              <h2 class="vs-card-title">Paperclip vs {comp.data.competitor}</h2>
+              <p class="vs-card-excerpt">{comp.data.excerpt}</p>
+              <span class="vs-card-link">Read comparison &rarr;</span>
+            </div>
           </a>
         ))}
       </div>
@@ -133,15 +142,45 @@ const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
   .vs-card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-lg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+    overflow: hidden;
     transition: border-color 0.2s, box-shadow 0.2s;
   }
 
   .vs-card:hover {
     border-color: var(--color-text-muted);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .vs-card-thumb {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+  }
+
+  .vs-card-thumb--gradient {
+    background: linear-gradient(
+      135deg,
+      #1a1a1a 0%,
+      #2d2a26 40%,
+      #3d3830 70%,
+      #1a1a1a 100%
+    );
+  }
+
+  .vs-card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vs-card-body {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .vs-card-badge {
@@ -170,8 +209,8 @@ const sorted = comparisons.sort((a, b) => a.data.order - b.data.order);
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--color-text-muted);
-    flex: 1;
     margin-bottom: var(--space-sm);
+    flex: 1;
   }
 
   .vs-card-link {

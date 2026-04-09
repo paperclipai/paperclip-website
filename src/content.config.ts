@@ -31,6 +31,7 @@ const comparisons = defineCollection({
     excerpt: z.string(),
     date: z.string(),
     order: z.number().default(0),
+    coverImage: z.string().optional(),
   }),
 });
 
