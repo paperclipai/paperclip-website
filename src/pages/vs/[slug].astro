@@ -315,12 +315,12 @@ const coverImage = comp.data.coverImage;
 
   /* Highlight the Paperclip column (2nd column) */
   .vs-content :global(th:nth-child(2)) {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-surface);
     color: var(--color-text);
   }
 
   .vs-content :global(td:nth-child(2)) {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-surface);
   }
 
   .vs-content :global(td) {
@@ -339,7 +339,7 @@ const coverImage = comp.data.coverImage;
 
   /* Alternating row stripes */
   .vs-content :global(tbody tr:nth-child(even)) {
-    background: rgba(255, 255, 255, 0.015);
+    background: var(--color-bg-alt);
   }
 
   .vs-content :global(tbody tr:nth-child(even):hover) {

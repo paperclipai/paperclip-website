@@ -32,15 +32,11 @@ Paperclip agents wake, work, and exit in discrete heartbeats with full audit tra
 
 Heartbeats give you cost predictability, clean audit logs, and natural checkpoints. You can trace exactly what happened in each run.
 
-![Paperclip task coordination view showing agents working across multiple tasks with real-time status tracking](/vs/screenshots/task-coordination.webp)
-
 ### Budget Controls
 
 Paperclip enforces per-agent monthly budgets with auto-pause at 100%. You set spending limits per agent and the system enforces them. Multica doesn't have native budget enforcement.
 
 When you're running dozens of agents, uncontrolled spend is a real risk. Budget controls aren't optional at scale.
-
-![Paperclip dashboard showing agent budgets, team structure, and real-time activity](/vs/screenshots/dashboard.webp)
 
 ### Atomic Checkout
 

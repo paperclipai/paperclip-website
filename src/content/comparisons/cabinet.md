@@ -34,8 +34,6 @@ When you go from 2 agents to 20, you need structure. Without it, coordination be
 
 Paperclip agents have identities, heartbeat execution, checkout locks, escalation paths, and cross-team delegation. Cabinet agents run scheduled scripts. The difference is similar to the gap between a CI pipeline and an engineering team.
 
-![Paperclip task coordination view showing agents working across multiple tasks with real-time status tracking](/vs/screenshots/task-coordination.webp)
-
 ### Scale
 
 Paperclip is designed for teams of 5-50+ coordinated agents working across multiple repositories and projects. Cabinet targets solo operators with a handful of automated tasks. The architectures reflect these different ambitions.
@@ -43,8 +41,6 @@ Paperclip is designed for teams of 5-50+ coordinated agents working across multi
 ### Governance
 
 Paperclip has board approvals, per-agent budget controls, and full audit trails linked to every run. Cabinet has no governance layer. When agents can spend money, write code, and make decisions, governance isn't optional.
-
-![Paperclip dashboard showing agent budgets, team structure, and real-time activity](/vs/screenshots/dashboard.webp)
 
 ## Feature Comparison
 
