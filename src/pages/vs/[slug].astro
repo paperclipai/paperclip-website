@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 
 const { comp } = Astro.props;
 const { Content } = await render(comp);
-const coverImage = comp.data.coverImage;
 ---
 
 <Layout
@@ -26,16 +25,17 @@ const coverImage = comp.data.coverImage;
 
     <article class="vs-article">
       <header class="vs-header">
-        {coverImage ? (
-          <div class="vs-header-bg vs-header-bg--image">
-            <img src={coverImage} alt={`Paperclip vs ${comp.data.competitor}`} class="vs-header-cover" />
-          </div>
-        ) : (
-          <div class="vs-header-bg"></div>
-        )}
+        <div class="vs-header-image">
+          <picture>
+            <source srcset="/blog-header.webp" type="image/webp" />
+            <img src="/blog-header.jpg" alt="" width="1920" height="960" loading="eager" />
+          </picture>
+        </div>
         <div class="container vs-header-content">
           <a href="/vs" class="vs-back-link">&larr; All comparisons</a>
-          <span class="vs-badge">Comparison</span>
+          <div class="vs-header-meta">
+            <span class="vs-badge">Comparison</span>
+          </div>
           <h1 class="heading-serif vs-title">Paperclip vs {comp.data.competitor}</h1>
           <p class="vs-excerpt">{comp.data.excerpt}</p>
         </div>
@@ -95,48 +95,48 @@ const coverImage = comp.data.coverImage;
     overflow: hidden;
   }
 
-  .vs-header-bg {
+  .vs-header-image {
     position: relative;
     width: 100%;
-    height: 32vh;
-    min-height: 200px;
-    max-height: 340px;
-    background: linear-gradient(
-      135deg,
-      #1a1a1a 0%,
-      #2d2a26 40%,
-      #3d3830 70%,
-      #1a1a1a 100%
-    );
+    height: 40vh;
+    min-height: 240px;
+    max-height: 420px;
+    overflow: hidden;
   }
 
-  .vs-header-bg::after {
+  .vs-header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+    display: block;
+  }
+
+  .vs-header-image::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to bottom,
-      transparent 0%,
-      rgba(0, 0, 0, 0.3) 100%
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.6) 100%
     );
-  }
-
-  .vs-header-bg--image {
-    background: #1a1a1a;
-  }
-
-  .vs-header-cover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
   }
 
   .vs-header-content {
     position: relative;
     z-index: 1;
     margin-top: -7rem;
-    padding-bottom: var(--space-lg);
+    margin-bottom: clamp(1rem, 3vw, 1.75rem);
+    padding: clamp(1.1rem, 3vw, 1.8rem);
+    padding-bottom: clamp(1.4rem, 3.5vw, 2rem);
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(10, 14, 26, 0.96) 0%, rgba(10, 14, 26, 0.99) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   .vs-back-link {
@@ -151,17 +151,23 @@ const coverImage = comp.data.coverImage;
     color: #fff;
   }
 
+  .vs-header-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: var(--space-sm);
+  }
+
   .vs-badge {
-    display: inline-block;
     font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     color: rgba(255, 255, 255, 0.7);
     background: rgba(255, 255, 255, 0.1);
-    padding: 0.25em 0.75em;
+    padding: 0.2em 0.65em;
     border-radius: var(--radius-pill);
-    margin-bottom: var(--space-sm);
   }
 
   .vs-title {
@@ -174,7 +180,7 @@ const coverImage = comp.data.coverImage;
   .vs-excerpt {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.82);
     max-width: 620px;
   }
 
@@ -347,6 +353,12 @@ const coverImage = comp.data.coverImage;
   }
 
   @media (max-width: 768px) {
+    .vs-header-content {
+      margin-top: -5.5rem;
+      margin-bottom: 1.25rem;
+      border-radius: 22px;
+    }
+
     .vs-content :global(table) {
       display: block;
       overflow-x: auto;
@@ -357,6 +369,16 @@ const coverImage = comp.data.coverImage;
     .vs-content :global(td) {
       padding: 0.5rem 0.75rem;
       white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .vs-header-content {
+      margin-top: -4.5rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      padding-bottom: 1.2rem;
+      border-radius: 18px;
     }
   }
 
