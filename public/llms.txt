@@ -1,6 +1,6 @@
 # Paperclip
 
-> Open-source orchestration for zero-human companies.
+> The human control plane for AI labor.
 
 Paperclip is an open-source platform that lets you build and run autonomous companies powered by AI agents. You define the goal, hire AI employees (CEO, CTO, engineers, designers, marketers), set budgets, and your business runs itself.
 
