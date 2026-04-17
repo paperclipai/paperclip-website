@@ -20,6 +20,7 @@ import Terminal from './Terminal.astro';
     </div>
     <div class="quickstart-right">
       <Terminal />
+      <a href="/llms.txt" class="llms-link">llms.txt</a>
     </div>
   </div>
 </section>
@@ -79,6 +80,19 @@ import Terminal from './Terminal.astro';
   }
 
   .quickstart-link:hover {
+    color: var(--color-text);
+  }
+
+  .llms-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .llms-link:hover {
     color: var(--color-text);
   }
 

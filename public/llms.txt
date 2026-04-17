@@ -6,6 +6,8 @@ Paperclip is an open-source platform that lets you build and run autonomous comp
 
 ## Getting Started
 
+GitHub: https://github.com/paperclipai/paperclip
+
 Run this single command to set up Paperclip:
 
 ```

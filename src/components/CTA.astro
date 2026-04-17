@@ -10,6 +10,7 @@ import Terminal from './Terminal.astro';
       <div class="cta-terminal">
         <Terminal />
       </div>
+      <a href="/llms.txt" class="llms-link">llms.txt</a>
       <p class="cta-sub">
         Open source. Self-hosted. Interactive setup walks you through installation
         and first company. No Paperclip account required. No agents installed automatically.
@@ -95,6 +96,19 @@ import Terminal from './Terminal.astro';
   }
 
   .cta-link:hover {
+    color: var(--color-text);
+  }
+
+  .llms-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-md);
+    transition: color 0.2s;
+  }
+
+  .llms-link:hover {
     color: var(--color-text);
   }
 </style>
