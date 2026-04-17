@@ -3,11 +3,17 @@
 
 <div class="terminal">
   <div class="terminal-header">
-    <span class="terminal-dot"></span>
-    <span class="terminal-dot"></span>
-    <span class="terminal-dot"></span>
+    <div class="terminal-dots">
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+      <span class="terminal-dot"></span>
+    </div>
+    <div class="terminal-tabs">
+      <button class="terminal-tab active" data-tab="npm">npm</button>
+      <button class="terminal-tab" data-tab="claude">claude</button>
+    </div>
   </div>
-  <div class="terminal-body">
+  <div class="terminal-body terminal-pane active" data-pane="npm">
     <span class="terminal-prompt">$</span>
     <span class="terminal-cmd">npx paperclipai onboard --yes</span>
     <button class="copy-btn" onclick="var b=this;var c=b.getAttribute('data-cmd');if(navigator.clipboard)navigator.clipboard.writeText(c).catch(function(){});b.classList.add('copied');setTimeout(function(){b.classList.remove('copied')},1500)" data-cmd="npx paperclipai onboard --yes" aria-label="Copy command">
@@ -15,7 +21,28 @@
       <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </button>
   </div>
+  <div class="terminal-body terminal-pane" data-pane="claude">
+    <span class="terminal-cmd">Please install paperclip https://paperclip.ing/llms.txt</span>
+    <button class="copy-btn" onclick="var b=this;var c=b.getAttribute('data-cmd');if(navigator.clipboard)navigator.clipboard.writeText(c).catch(function(){});b.classList.add('copied');setTimeout(function(){b.classList.remove('copied')},1500)" data-cmd="Please install paperclip https://paperclip.ing/llms.txt" aria-label="Copy command">
+      <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </button>
+  </div>
 </div>
+
+<script>
+  document.querySelectorAll('.terminal').forEach(function(terminal) {
+    terminal.querySelectorAll('.terminal-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.getAttribute('data-tab');
+        terminal.querySelectorAll('.terminal-tab').forEach(function(t) { t.classList.remove('active'); });
+        terminal.querySelectorAll('.terminal-pane').forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        terminal.querySelector('[data-pane="' + target + '"]').classList.add('active');
+      });
+    });
+  });
+</script>
 
 <style>
   .terminal {
@@ -27,9 +54,15 @@
 
   .terminal-header {
     display: flex;
-    gap: 6px;
+    align-items: center;
+    gap: 12px;
     padding: 10px 14px;
     background: #222;
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
   }
 
   .terminal-dot {
@@ -39,13 +72,47 @@
     background: #3a3a3a;
   }
 
-  .terminal-body {
+  .terminal-tabs {
     display: flex;
+    gap: 2px;
+    margin-left: auto;
+    background: #1a1a1a;
+    border-radius: 6px;
+    padding: 2px;
+  }
+
+  .terminal-tab {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: #666;
+    background: none;
+    border: none;
+    padding: 3px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .terminal-tab:hover {
+    color: #999;
+  }
+
+  .terminal-tab.active {
+    color: #f0f0f0;
+    background: #333;
+  }
+
+  .terminal-body {
+    display: none;
     align-items: center;
     padding: 1.1rem 1.25rem;
     font-family: var(--font-mono);
     font-size: 0.95rem;
     color: #f0f0f0;
+  }
+
+  .terminal-pane.active {
+    display: flex;
   }
 
   .terminal-prompt {

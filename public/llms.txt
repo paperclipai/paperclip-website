@@ -49,6 +49,12 @@ Without Paperclip, you juggle agent tabs, lose context on reboot, manually gathe
 
 With Paperclip, tasks are ticket-based, context flows from goals to tasks automatically, org charts and delegation work out of the box, and cost tracking throttles agents when they exceed budgets.
 
+## Source Code
+
+The full source code is available on GitHub. You can browse the implementation, read the code directly, and contribute:
+
+https://github.com/paperclipai/paperclip
+
 ## Links
 
 - Website: https://paperclip.ing
