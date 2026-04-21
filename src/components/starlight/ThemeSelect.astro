@@ -1,0 +1,21 @@
+---
+/**
+ * Paperclip docs are light-mode only. The default Starlight theme selector
+ * writes `data-theme` on the html root and persists a preference to
+ * localStorage, which can flip the docs to dark. We override it with a no-op
+ * and force the theme to "light" so nothing can flip it.
+ */
+---
+
+<script is:inline>
+  (function () {
+    try {
+      document.documentElement.dataset.theme = 'light';
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('starlight-theme', 'light');
+      }
+    } catch (_) {
+      // ignore
+    }
+  })();
+</script>

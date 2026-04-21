@@ -1,0 +1,51 @@
+---
+import Navbar from '../Navbar.astro';
+import Search from 'virtual:starlight/components/Search';
+import config from 'virtual:starlight/user-config';
+
+const shouldRenderSearch =
+  config.pagefind || config.components.Search !== '@astrojs/starlight/components/Search.astro';
+---
+
+<div class="docs-header-stack">
+  <Navbar />
+  {shouldRenderSearch && (
+    <div class="docs-header-search print:hidden">
+      <div class="docs-header-search-inner">
+        <Search />
+      </div>
+    </div>
+  )}
+</div>
+
+<style>
+  .docs-header-stack {
+    position: relative;
+    height: 100%;
+  }
+
+  .docs-header-search {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.75rem;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none;
+    padding-inline: var(--sl-nav-pad-x, 1rem);
+  }
+
+  .docs-header-search-inner {
+    pointer-events: auto;
+    width: min(280px, 60vw);
+  }
+
+  @media (max-width: 50rem) {
+    .docs-header-search {
+      bottom: 0.5rem;
+    }
+    .docs-header-search-inner {
+      width: min(220px, 70vw);
+    }
+  }
+</style>

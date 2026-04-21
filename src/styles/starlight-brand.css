@@ -1,0 +1,157 @@
+/* Paperclip brand theming for Starlight.
+ *
+ * Pulls fonts + palette from src/layouts/Layout.astro and src/styles/global.css
+ * so docs feel visually continuous with the marketing site. Forced to
+ * light-mode only — Starlight's theme toggle is overridden to be a no-op
+ * and :root[data-theme=...] always resolves to light tokens.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root,
+:root[data-theme='light'],
+:root[data-theme='dark'],
+:root[data-theme='auto'] {
+  color-scheme: light;
+
+  /* ── Brand design tokens (mirror of src/styles/global.css) ── */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f3f0;
+  --color-surface: #f0ece7;
+  --color-surface-raised: #e8e4de;
+  --color-border: #e0dcd6;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #4a4a4a;
+  --color-text-muted: #888880;
+  --color-accent: #1a1a1a;
+
+  --font-serif: 'Instrument Serif', serif;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* ── Starlight token overrides ── */
+  --sl-font: var(--font-sans);
+  --sl-font-system: var(--font-sans);
+  --sl-font-system-mono: var(--font-mono);
+
+  --sl-color-white: var(--color-text);
+  --sl-color-gray-1: var(--color-text);
+  --sl-color-gray-2: var(--color-text-secondary);
+  --sl-color-gray-3: var(--color-text-muted);
+  --sl-color-gray-4: var(--color-border);
+  --sl-color-gray-5: var(--color-border);
+  --sl-color-gray-6: var(--color-surface);
+  --sl-color-gray-7: var(--color-surface-raised);
+  --sl-color-black: var(--color-bg);
+
+  --sl-color-accent-low: var(--color-surface);
+  --sl-color-accent: var(--color-accent);
+  --sl-color-accent-high: var(--color-accent);
+
+  --sl-color-text: var(--color-text);
+  --sl-color-text-accent: var(--color-accent);
+  --sl-color-text-invert: var(--color-bg);
+
+  --sl-color-bg: var(--color-bg);
+  --sl-color-bg-nav: var(--color-bg);
+  --sl-color-bg-sidebar: var(--color-bg);
+  --sl-color-bg-inline-code: var(--color-surface);
+  --sl-color-bg-accent: var(--color-accent);
+
+  --sl-color-hairline-light: var(--color-border);
+  --sl-color-hairline: var(--color-border);
+  --sl-color-hairline-shade: var(--color-border);
+
+  --sl-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --sl-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --sl-shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.08);
+
+  /* Our site Navbar (pill-shaped, ~88px inner + padding) plus a below-pill
+   * search bar pushes the docs header taller than Starlight's default 4rem.
+   * Sidebar and main-frame layout math both key off --sl-nav-height, so we
+   * widen it to fit the stacked docs header.
+   */
+  --sl-nav-height: 7.5rem;
+}
+
+@media (min-width: 50rem) {
+  :root {
+    --sl-nav-height: 8.25rem;
+  }
+}
+
+/* Belt-and-suspenders: if the JS theme toggle flips to dark despite the
+ * override, force the html root back to light.
+ */
+html[data-theme='dark'] {
+  color-scheme: light;
+}
+
+/* Hide any residual theme selector UI (belt-and-suspenders to the component
+ * override in src/components/starlight/ThemeSelect.astro).
+ */
+starlight-theme-select {
+  display: none !important;
+}
+
+/* Lift docs pages above Starlight's opinionated defaults and align
+ * typography with the marketing site's bright illustrated style.
+ */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+/* Display headings use Instrument Serif, matching Layout.astro. */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+main h1,
+main h2,
+main h3,
+.page-title,
+[data-page-title] {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.sl-markdown-content code:not(pre code) {
+  font-family: var(--font-mono);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 0.1em 0.4em;
+}
+
+/* Make room for the site Navbar (absolute-positioned at the top). */
+.page,
+.main-frame {
+  --__site-nav-height: 88px;
+}
+
+/* Make Starlight's fixed header match our full-bleed site navbar zone.
+ * Our Navbar is absolutely positioned at the top of the page; giving the
+ * header a transparent background lets the pill float on top of the docs
+ * content correctly.
+ */
+header.header {
+  background: transparent;
+  border-bottom: none;
+  padding: 0;
+}
+
+/* Subtle link styling inside docs content matches site feel. */
+.sl-markdown-content a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.sl-markdown-content a:hover {
+  text-decoration-thickness: 2px;
+}
