@@ -21,7 +21,7 @@ This split is the whole reason a $20 VPS is enough. You're hosting coordination,
 
 ## The walkthrough
 
-Specs: Hetzner CPX31 (4 vCPU, 8 GB RAM, 160 GB SSD), Ubuntu 24.04, automated backups enabled. Everything below is one shell session as `root` until the last step.
+Specs: Hetzner CPX32 in Germany/Finland (4 vCPU, 8 GB RAM, 160 GB SSD), Ubuntu 24.04, automated backups, and a Hetzner Cloud Firewall allowing inbound 22, 80, and 443 only. Everything below is one shell session as `root` until the last step.
 
 **1. Install Docker + Compose.**
 
@@ -37,7 +37,7 @@ git clone https://github.com/paperclipai/paperclip /opt/paperclip
 cd /opt/paperclip/docker
 ```
 
-The repo ships a `docker-compose.yml` that wires the server, Postgres, and two named volumes (`pgdata`, `paperclip-data`). You don't write this file; you read it once and commit your `.env` next to it.
+The repo ships a `docker-compose.yml` that wires the server, Postgres, and two named volumes (`pgdata`, `paperclip-data`). You don't write this file; you read it once and keep your uncommitted `.env` next to it.
 
 **3. Generate secrets and a public URL.**
 
@@ -53,19 +53,17 @@ Point a DNS A record for `paperclip.example.com` at the VPS IP. Wait the thirty 
 **4. Reverse proxy with Caddy.**
 
 ```bash
+cat > /opt/paperclip/Caddyfile <<'EOF'
+paperclip.example.com {
+  reverse_proxy localhost:3100
+}
+EOF
+
 docker run -d --name caddy --restart=always \
   --network host \
   -v /opt/paperclip/Caddyfile:/etc/caddy/Caddyfile \
   -v caddy-data:/data \
   caddy:2
-```
-
-Caddyfile:
-
-```text
-paperclip.example.com {
-  reverse_proxy localhost:3100
-}
 ```
 
 Caddy gets a Let's Encrypt cert on first request. No flags, no manual ACME setup.
@@ -106,15 +104,15 @@ Numbers are real, dated, and pre-tax for the line items we control. Your taxes w
 
 | Line item | Monthly | Notes |
 | --- | --- | --- |
-| Hetzner CPX31 | €15.59 (~$17) | 4 vCPU, 8 GB RAM, 160 GB SSD |
-| Hetzner backups (20%) | €3.12 (~$3.40) | Daily snapshot, 7-day retention |
+| Hetzner CPX32 (Germany/Finland) | €13.99 / $15.99 | 4 vCPU, 8 GB RAM, 160 GB SSD |
+| Hetzner backups (20%) | €2.80 / $3.20 | Daily snapshot, 7-day retention |
 | Domain (`example.com`) | ~$1 | Amortized from $12/year at most registrars |
 | Cloudflare DNS | $0 | Free tier |
-| **Total** | **~$21** | |
+| **Total** | **~$20** | |
 
 What this *doesn't* include: agent inference costs. Those are paid to whoever runs the model — Anthropic, OpenAI, or your own GPUs. Paperclip's per-agent budgets exist precisely because that line item is the one that varies. ([Setting agent budgets that stick](/blog/setting-agent-budgets-that-stick).)
 
-A CPX31 has been comfortable for a five-agent company with daily heartbeats and a few hundred issues. We haven't load-tested it past that. If you push past, it's almost certainly Postgres, not Node, that asks for the next dollar.
+A CPX32 has been comfortable for a five-agent company with daily heartbeats and a few hundred issues. We haven't load-tested it past that. If you push past, it's almost certainly Postgres, not Node, that asks for the next dollar.
 
 ## The three things you'll get wrong
 
@@ -132,4 +130,4 @@ A reference repo with the Caddyfile, the `docker-compose.yml` overlay, the env t
 
 The paired how-to with the exact commands and a per-step troubleshooting table is at [Deploy Paperclip to a VPS](/docs/how-to/deploy-vps/). If you find a step that breaks, open an issue against the example repo — broken first deploys are bugs, not user error.
 
-Tested against Paperclip v0.3.0 on Hetzner CPX31, Ubuntu 24.04, Docker 27, Caddy 2.8, in April 2026. Cost numbers are list price as of this date and will drift. The architecture won't.
+Tested against Paperclip v0.3.0 on Hetzner CPX32, Ubuntu 24.04, Docker 27, Caddy 2.8, in April 2026. Cost numbers are list price as of this date and will drift. The architecture won't.
