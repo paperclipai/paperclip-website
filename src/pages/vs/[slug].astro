@@ -14,6 +14,11 @@ export async function getStaticPaths() {
 
 const { comp } = Astro.props;
 const { Content } = await render(comp);
+const formattedDate = new Date(comp.data.date + 'T00:00:00').toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 ---
 
 <Layout
@@ -34,6 +39,8 @@ const { Content } = await render(comp);
         <div class="container vs-header-content">
           <a href="/vs" class="vs-back-link">&larr; All comparisons</a>
           <div class="vs-header-meta">
+            <time datetime={comp.data.date}>{formattedDate}</time>
+            <span class="vs-header-author">By Paperclip</span>
             <span class="vs-badge">Comparison</span>
           </div>
           <h1 class="heading-serif vs-title">Paperclip vs {comp.data.competitor}</h1>
@@ -69,17 +76,17 @@ const { Content } = await render(comp);
 </Layout>
 
 <script>
-  // Replace Yes/No text in table cells with checkmark/X icons
+  // Replace Yes/No text in table cells with checkmark/X icons.
+  // Keep <td> as default display:table-cell so row alignment is preserved —
+  // wrap icon + detail in a single inline span instead of styling the cell.
   document.querySelectorAll('.vs-content td').forEach((td) => {
     const text = td.textContent?.trim() ?? '';
     if (/^Yes\b/.test(text)) {
       const detail = text.replace(/^Yes\s*—?\s*/, '');
-      td.innerHTML = `<span class="vs-check" aria-label="Yes">✓</span>${detail ? ` <span class="vs-check-detail">${detail}</span>` : ''}`;
-      td.classList.add('vs-cell-yes');
+      td.innerHTML = `<span class="vs-cell-icon"><span class="vs-check" aria-label="Yes">✓</span>${detail ? `<span class="vs-check-detail">${detail}</span>` : ''}</span>`;
     } else if (/^No\b/.test(text)) {
       const detail = text.replace(/^No\s*—?\s*/, '');
-      td.innerHTML = `<span class="vs-x" aria-label="No">✗</span>${detail ? ` <span class="vs-check-detail">${detail}</span>` : ''}`;
-      td.classList.add('vs-cell-no');
+      td.innerHTML = `<span class="vs-cell-icon"><span class="vs-x" aria-label="No">✗</span>${detail ? `<span class="vs-check-detail">${detail}</span>` : ''}</span>`;
     }
   });
 </script>
@@ -156,7 +163,13 @@ const { Content } = await render(comp);
     align-items: center;
     flex-wrap: wrap;
     gap: 0.75rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: var(--space-sm);
+  }
+
+  .vs-header-author {
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .vs-badge {
@@ -298,58 +311,52 @@ const { Content } = await render(comp);
   .vs-content :global(table) {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     margin-bottom: var(--space-lg);
     font-size: 0.95rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    overflow: hidden;
   }
 
-  .vs-content :global(thead) {
-    border-bottom: 2px solid var(--color-border);
+  .vs-content :global(th),
+  .vs-content :global(td) {
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .vs-content :global(th) {
-    text-align: left;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-text);
-    padding: 0.75rem 1rem;
-    font-size: 0.85rem;
+    background: var(--color-surface);
     text-transform: uppercase;
-    letter-spacing: 0.03em;
-  }
-
-  /* Highlight the Paperclip column (2nd column) */
-  .vs-content :global(th:nth-child(2)) {
-    background: var(--color-surface);
-    color: var(--color-text);
-  }
-
-  .vs-content :global(td:nth-child(2)) {
-    background: var(--color-surface);
+    letter-spacing: 0.04em;
   }
 
   .vs-content :global(td) {
-    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    border-bottom: 1px solid var(--color-border);
   }
 
-  .vs-content :global(tbody tr:last-child td) {
-    border-bottom: none;
+  /* Paperclip column (2nd) — emphasized as the winning column */
+  .vs-content :global(th:nth-child(2)) {
+    background: var(--color-text);
+    color: var(--color-bg);
   }
 
-  .vs-content :global(tbody tr:hover) {
-    background: var(--color-surface);
-  }
-
-  /* Alternating row stripes */
-  .vs-content :global(tbody tr:nth-child(even)) {
+  .vs-content :global(td:nth-child(2)) {
     background: var(--color-bg-alt);
+    color: var(--color-text);
   }
 
-  .vs-content :global(tbody tr:nth-child(even):hover) {
-    background: var(--color-surface);
+  /* Feature column (1st) — slightly weighted as a row label */
+  .vs-content :global(td:nth-child(1)) {
+    font-weight: 600;
+    color: var(--color-text);
   }
 
   @media (max-width: 768px) {
@@ -360,15 +367,16 @@ const { Content } = await render(comp);
     }
 
     .vs-content :global(table) {
-      display: block;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
+      font-size: 0.88rem;
     }
 
     .vs-content :global(th),
     .vs-content :global(td) {
-      padding: 0.5rem 0.75rem;
-      white-space: nowrap;
+      padding: 0.55rem 0.6rem;
+    }
+
+    .vs-content :global(th) {
+      font-size: 0.7rem;
     }
   }
 
@@ -383,22 +391,14 @@ const { Content } = await render(comp);
   }
 
   /* ── Checkmark / X icons ── */
-  .vs-content :global(.vs-check) {
+  .vs-content :global(.vs-cell-icon) {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 1.3em;
-    height: 1.3em;
-    border-radius: 50%;
-    background: rgba(74, 222, 128, 0.15);
-    color: #4ade80;
-    font-size: 0.85em;
-    font-weight: 700;
-    margin-right: 0.4em;
-    vertical-align: middle;
-    flex-shrink: 0;
+    gap: 0.45em;
+    flex-wrap: wrap;
   }
 
+  .vs-content :global(.vs-check),
   .vs-content :global(.vs-x) {
     display: inline-flex;
     align-items: center;
@@ -406,24 +406,25 @@ const { Content } = await render(comp);
     width: 1.3em;
     height: 1.3em;
     border-radius: 50%;
-    background: rgba(248, 113, 113, 0.15);
-    color: #f87171;
-    font-size: 0.85em;
+    font-size: 0.8em;
     font-weight: 700;
-    margin-right: 0.4em;
-    vertical-align: middle;
     flex-shrink: 0;
   }
 
-  .vs-content :global(.vs-check-detail) {
-    color: var(--color-text-muted);
-    font-size: 0.9em;
+  .vs-content :global(.vs-check) {
+    background: rgba(34, 197, 94, 0.18);
+    color: #16a34a;
   }
 
-  .vs-content :global(.vs-cell-yes),
-  .vs-content :global(.vs-cell-no) {
-    display: flex;
-    align-items: center;
+  .vs-content :global(.vs-x) {
+    background: rgba(239, 68, 68, 0.18);
+    color: #dc2626;
+  }
+
+  .vs-content :global(.vs-check-detail) {
+    color: inherit;
+    opacity: 0.85;
+    font-size: 0.95em;
   }
 
   /* ── CTA Section ── */
