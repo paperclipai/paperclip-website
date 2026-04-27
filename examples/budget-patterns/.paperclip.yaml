@@ -1,0 +1,13 @@
+schema: paperclip/v1
+# Companion example for the W3.1 blog post,
+# "Setting agent budgets and making them stick".
+#
+# Two agents — one CEO, one coder — and the four-layer
+# budget pattern: per-agent monthly cap, 80% triage rule,
+# request_board_approval cap-raise, and the auto-pause that
+# the platform enforces at 100%.
+agents:
+  ceo:
+    budgetMonthlyCents: 5000
+  coder:
+    budgetMonthlyCents: 5000
