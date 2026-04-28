@@ -1,8 +1,12 @@
 ---
 let starCount = '';
 try {
+  const ghToken = import.meta.env.GITHUB_TOKEN;
   const res = await fetch('https://api.github.com/repos/paperclipai/paperclip', {
-    headers: { 'Accept': 'application/vnd.github.v3+json' },
+    headers: {
+      'Accept': 'application/vnd.github.v3+json',
+      ...(ghToken ? { 'Authorization': `Bearer ${ghToken}` } : {}),
+    },
   });
   if (res.ok) {
     const data = await res.json();
@@ -202,8 +206,9 @@ try {
       font-size: 0.75rem;
     }
 
-    /* Hide llms.txt on mobile — Blog, Docs, GitHub still fit */
-    .navbar-link--secondary {
+    /* Hide llms.txt and GitHub link on small mobile to prevent overflow */
+    .navbar-link--secondary,
+    .navbar-link--icon {
       display: none;
     }
 
