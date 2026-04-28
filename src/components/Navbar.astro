@@ -1,8 +1,12 @@
 ---
 let starCount = '';
 try {
+  const ghToken = import.meta.env.GITHUB_TOKEN;
   const res = await fetch('https://api.github.com/repos/paperclipai/paperclip', {
-    headers: { 'Accept': 'application/vnd.github.v3+json' },
+    headers: {
+      'Accept': 'application/vnd.github.v3+json',
+      ...(ghToken ? { 'Authorization': `Bearer ${ghToken}` } : {}),
+    },
   });
   if (res.ok) {
     const data = await res.json();
