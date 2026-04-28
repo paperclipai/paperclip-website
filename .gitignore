@@ -8,3 +8,5 @@ build/
 .claude/
 *.log
 videos/
+!public/videos/
+!public/videos/full-tour.webm
