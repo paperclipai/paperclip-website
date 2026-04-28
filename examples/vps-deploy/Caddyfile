@@ -1,0 +1,10 @@
+{$PAPERCLIP_DOMAIN} {
+	reverse_proxy server:3100
+
+	encode zstd gzip
+
+	log {
+		output stdout
+		format console
+	}
+}

@@ -1,0 +1,59 @@
+# Paperclip production overlay for VPS deploys.
+#
+# Layered on top of the upstream paperclipai/paperclip docker-compose.yml:
+#
+#   docker compose \
+#     -f /opt/paperclip/docker/docker-compose.yml \
+#     -f /opt/paperclip/docker/docker-compose.prod.yml \
+#     up -d
+#
+# What this overlay changes vs the upstream base:
+#
+#  - Pins postgres + caddy image tags (env-driven; defaults match what we test).
+#  - Removes the host-port publish on `db` so Postgres is reachable only on the
+#    docker network. Belt-and-suspenders alongside the provider firewall.
+#  - Rebinds `server` to 127.0.0.1 so the only externally reachable surface is
+#    Caddy on :80 / :443. The provider firewall is the actual perimeter; this
+#    is defense-in-depth.
+#  - Drives postgres credentials and DATABASE_URL from .env (the base hardcodes
+#    `paperclip:paperclip`).
+#  - Adds a Caddy service handling TLS, HTTP→HTTPS redirect, and reverse proxy.
+#  - Adds restart policies so the stack survives reboot without intervention.
+#
+# Requires Docker Compose v2.27+ for the `!reset` tag.
+
+services:
+  db:
+    image: ${POSTGRES_IMAGE:-postgres:17.4-alpine}
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: paperclip
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set}"
+      POSTGRES_DB: paperclip
+    ports: !reset []
+
+  server:
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgres://paperclip:${POSTGRES_PASSWORD}@db:5432/paperclip"
+    ports: !reset
+      - "127.0.0.1:3100:3100"
+
+  caddy:
+    image: ${CADDY_IMAGE:-caddy:2.8}
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      PAPERCLIP_DOMAIN: "${PAPERCLIP_DOMAIN:?PAPERCLIP_DOMAIN must be set}"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - server
+
+volumes:
+  caddy-data:
+  caddy-config:
