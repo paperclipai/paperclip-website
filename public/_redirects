@@ -1,0 +1,3 @@
+/docs https://docs.paperclip.ing 301
+/docs/ https://docs.paperclip.ing 301
+/docs/* https://docs.paperclip.ing/:splat 301

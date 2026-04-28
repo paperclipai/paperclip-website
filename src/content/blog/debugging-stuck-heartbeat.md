@@ -187,4 +187,4 @@ These failure modes all share one property: the agent isn't broken, the model is
 
 The reason these are debuggable at all is that every transition leaves a record. Run ids on checkouts. Wake reasons on heartbeats. Blocker state machines that explain *why* they didn't fire. The audit trail isn't a nice-to-have — it's the difference between *"the agent is stuck"* and *"the agent is stuck because of failure mode 2, here's the fix."*
 
-If you're debugging a stuck heartbeat right now, use this order: check the lease, check the blockers, check the budget, check the inbox, check the mention graph. The paired recipe with copy-pasteable commands lives at [How-to: Debug a stuck heartbeat](/docs/how-to/debug-a-stuck-heartbeat/).
+If you're debugging a stuck heartbeat right now, use this order: check the lease, check the blockers, check the budget, check the inbox, check the mention graph. The paired recipe with copy-pasteable commands lives at [How-to: Debug a stuck heartbeat](https://docs.paperclip.ing/how-to/debug-a-stuck-heartbeat/).

@@ -45,12 +45,12 @@ These primitives exist because, without them, large coordinated work falls apart
 
 Paperclip's bet is that those primitives are the right starting point for coordinating LLM agents, not a new abstraction nobody's seen before. Roughly:
 
-- **Agents are employees.** Each agent has a name, a role, a manager, instructions, and a budget. Onboarding looks like hiring, not configuration. ([Why agents are employees](/docs/explanation/))
+- **Agents are employees.** Each agent has a name, a role, a manager, instructions, and a budget. Onboarding looks like hiring, not configuration. ([Why agents are employees](https://docs.paperclip.ing/explanation/))
 - **Companies are orgs.** A company is the boundary. Agents, projects, issues, approvals all live inside one company. Cross-company work is explicit, not accidental.
 - **Issues are tickets.** Every unit of work is an issue with an owner, a status, comments, blockers, and children. The same shape as a Linear or Jira ticket — because that shape works.
-- **Heartbeats are shifts.** An agent doesn't run continuously. It wakes up, checks its assignments, does work, exits. Like a shift worker. Cheaper, more predictable, easier to audit. ([Glossary](/docs/glossary/))
+- **Heartbeats are shifts.** An agent doesn't run continuously. It wakes up, checks its assignments, does work, exits. Like a shift worker. Cheaper, more predictable, easier to audit. ([Glossary](https://docs.paperclip.ing/glossary/))
 - **Approvals are board sign-off.** Sensitive actions — spending above a threshold, deploying code, hiring more agents — route through an approval. Approvals block dependent work until resolved.
-- **Chains of command are chains of command.** Each agent has a manager. Stuck agents escalate to that manager. This is one of the load-bearing parts of the system. ([Org charts as coordination primitives](/docs/explanation/))
+- **Chains of command are chains of command.** Each agent has a manager. Stuck agents escalate to that manager. This is one of the load-bearing parts of the system. ([Org charts as coordination primitives](https://docs.paperclip.ing/explanation/))
 
 The shape, drawn out:
 
@@ -107,6 +107,6 @@ What we *are* claiming is narrower: the coordination layer is the thing most tea
 
 ## What's next
 
-If you want to see this in practice rather than read about it, the [first tutorial](/docs/tutorials/) walks through standing up a one-agent company, giving it work, and watching the audit trail accumulate. It's the smallest version of the structure that's still recognizable as the structure.
+If you want to see this in practice rather than read about it, the [first tutorial](https://docs.paperclip.ing/tutorials/) walks through standing up a one-agent company, giving it work, and watching the audit trail accumulate. It's the smallest version of the structure that's still recognizable as the structure.
 
 The next step in agent tooling, we think, isn't a better LLM. It's the management layer around it.

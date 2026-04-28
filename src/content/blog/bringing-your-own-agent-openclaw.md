@@ -107,6 +107,6 @@ A few honest notes:
 - WebSocket only. The gateway adapter does not currently support polling.
 - Device pairing is one-time but real. Plan for the first run to need approval inside OpenClaw if automatic pairing cannot complete.
 
-A companion how-to with the diagnostic flow — what to check when the join request never lands, how to scope the gateway token, how to switch session strategies — is being assembled at [Bring your own agent](/docs/how-to/byo-agent/). A reference repo with one OpenClaw employee, one Paperclip company, and one assigned ticket will sit alongside it.
+A companion how-to with the diagnostic flow — what to check when the join request never lands, how to scope the gateway token, how to switch session strategies — is being assembled at [Bring your own agent](https://docs.paperclip.ing/how-to/byo-agent/). A reference repo with one OpenClaw employee, one Paperclip company, and one assigned ticket will sit alongside it.
 
 Tested against Paperclip v0.3.0, OpenClaw gateway protocol v3, on macOS 15.

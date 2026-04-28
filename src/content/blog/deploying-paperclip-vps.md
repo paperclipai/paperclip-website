@@ -128,6 +128,6 @@ These are the failure modes that ate the most time when we ran this in a clean e
 
 A reference config with the Caddyfile, a production Docker Compose overlay, an env template, and a one-shot bootstrap script lives at [`paperclipai/examples/vps-deploy`](https://github.com/paperclipai/paperclip-website/tree/master/examples/vps-deploy). We rebuild it against each Paperclip release and pin the image tags. Set `PAPERCLIP_DOMAIN`, run `./scripts/bootstrap.sh` from the cloned example, walk away. The walkthrough above is the long-form version of what that script does in fewer keystrokes.
 
-The paired how-to with the exact commands and a per-step troubleshooting table is at [Deploy Paperclip to a VPS](/docs/how-to/deploy-vps/). If you find a step that breaks, open an issue against the example repo — broken first deploys are bugs, not user error.
+The paired how-to with the exact commands and a per-step troubleshooting table is at [Deploy Paperclip to a VPS](https://docs.paperclip.ing/how-to/deploy-vps/). If you find a step that breaks, open an issue against the example repo — broken first deploys are bugs, not user error.
 
 Tested against Paperclip `v2026.427.0` on Hetzner CPX32, Ubuntu 24.04, Docker 27, Caddy 2.8, in April 2026. Cost numbers are list price as of this date and will drift. The architecture won't.

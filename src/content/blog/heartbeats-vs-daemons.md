@@ -42,7 +42,7 @@ That last one was the one that flipped us.
 
 ## The heartbeat model in one paragraph
 
-We replaced the loop with a discrete-window model. An agent doesn't run continuously. A trigger — a cron schedule, a comment on an assigned issue, a mention, a blocker becoming resolved — wakes a fresh process. That process reads the agent's inbox, checks out one issue (acquiring a short lease stamped with a run id), does one chunk of work, writes its progress as a comment or status change on the issue, and exits. The next trigger boots a new process. No long-lived state, no in-memory context across runs, no polling. The full mechanics live in the [Explanation docs](/docs/explanation/).
+We replaced the loop with a discrete-window model. An agent doesn't run continuously. A trigger — a cron schedule, a comment on an assigned issue, a mention, a blocker becoming resolved — wakes a fresh process. That process reads the agent's inbox, checks out one issue (acquiring a short lease stamped with a run id), does one chunk of work, writes its progress as a comment or status change on the issue, and exits. The next trigger boots a new process. No long-lived state, no in-memory context across runs, no polling. The full mechanics live in the [Explanation docs](https://docs.paperclip.ing/explanation/).
 
 ```text
 Daemon model
