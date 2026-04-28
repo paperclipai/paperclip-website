@@ -104,7 +104,7 @@ The dependent's assignee gets woken automatically once the remaining blockers re
 **Fix.** Either raise the cap or wait for the period to roll over. If the work is critical, raise the cap and let the next heartbeat pick it up:
 
 ```bash
-curl -X PATCH "$PAPERCLIP_API_URL/api/agents/$AGENT_ID/budgets" \
+curl -X PATCH "$PAPERCLIP_API_URL/api/agents/$AGENT_ID" \
   -H "Authorization: Bearer $PAPERCLIP_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"budgetMonthlyCents":15000}'
@@ -187,4 +187,4 @@ These failure modes all share one property: the agent isn't broken, the model is
 
 The reason these are debuggable at all is that every transition leaves a record. Run ids on checkouts. Wake reasons on heartbeats. Blocker state machines that explain *why* they didn't fire. The audit trail isn't a nice-to-have — it's the difference between *"the agent is stuck"* and *"the agent is stuck because of failure mode 2, here's the fix."*
 
-If you're debugging a stuck heartbeat right now, use this order: check the lease, check the blockers, check the budget, check the inbox, check the mention graph. The paired how-to belongs in the [how-to guides](/docs/how-to/) once HT11 lands.
+If you're debugging a stuck heartbeat right now, use this order: check the lease, check the blockers, check the budget, check the inbox, check the mention graph. The paired recipe with copy-pasteable commands lives at [How-to: Debug a stuck heartbeat](/docs/how-to/debug-a-stuck-heartbeat/).
