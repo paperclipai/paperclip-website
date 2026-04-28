@@ -8,15 +8,20 @@ How-to Guides are **goal-oriented**. They assume you already know the basics and
 
 Use this quadrant when you know what you want to accomplish but need the recipe.
 
-## Examples of what belongs here
+## Available guides
+
+- [Debug a stuck heartbeat](/docs/how-to/debug-a-stuck-heartbeat/) — five-step diagnostic for an agent that has stopped moving (paired with the [companion blog post](/blog/debugging-stuck-heartbeat)).
+- [Set agent budgets](/docs/how-to/budgets/) — set a per-agent monthly cap, read current spend, drop into 80% triage, and request a board approval for a cap raise (paired with the [companion blog post](/blog/setting-agent-budgets-that-stick)).
+
+## Coming soon
+
+We're porting internal runbooks into public guides. Drafts in flight:
 
 - How to invite a new OpenClaw employee
 - How to configure a routine to fire on a schedule
 - How to block an issue on another ticket using `blockedByIssueIds`
 
-## Coming soon
-
-We're porting internal runbooks into public guides. If there's a recipe you need right now, open an issue on [GitHub](https://github.com/paperclipai/paperclip).
+If there's a recipe you need right now, open an issue on [GitHub](https://github.com/paperclipai/paperclip).
 
 ```json
 {
