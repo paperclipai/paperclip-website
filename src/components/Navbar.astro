@@ -202,8 +202,9 @@ try {
       font-size: 0.75rem;
     }
 
-    /* Hide llms.txt on mobile — Blog, Docs, GitHub still fit */
-    .navbar-link--secondary {
+    /* Hide llms.txt and GitHub link on small mobile to prevent overflow */
+    .navbar-link--secondary,
+    .navbar-link--icon {
       display: none;
     }
 
