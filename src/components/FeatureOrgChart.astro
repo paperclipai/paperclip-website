@@ -712,6 +712,18 @@
     .org-row--two {
       max-width: 75%;
     }
+
+    /* Connector lines use calc() for equal-width columns; prevent content-sized minima from breaking alignment */
+    .org-row--three .org-card,
+    .org-row--two .org-card {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+
+    .org-row--three .org-card::before,
+    .org-row--two .org-card::before {
+      z-index: 2;
+    }
   }
 
   @media (max-width: 480px) {
