@@ -463,7 +463,8 @@
   }
 
   .org-row--three .org-card {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     max-width: 180px;
   }
 
@@ -473,16 +474,16 @@
   }
 
   .org-row--two .org-card {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     max-width: 180px;
   }
 
-  /* Horizontal bar for 3-child row */
+  /* Horizontal bar for 3-child row — inset math assumes equal-width cards + 10px gaps (see flex on .org-card) */
   .org-row--three::before {
     content: '';
     position: absolute;
     top: 0;
-    /* Account for 10px gaps between 3 flex children */
     left: calc((100% - 20px) / 6);
     right: calc((100% - 20px) / 6);
     height: 2px;
@@ -496,11 +497,11 @@
     position: absolute;
     top: -20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0);
     width: 2px;
     height: 20px;
     background: #b5b0a8;
-    z-index: 1;
+    z-index: 2;
   }
 
   /* Horizontal bar for 2-child row */
@@ -508,7 +509,6 @@
     content: '';
     position: absolute;
     top: 0;
-    /* Account for 10px gap between 2 flex children */
     left: calc((100% - 10px) / 4);
     right: calc((100% - 10px) / 4);
     height: 2px;
@@ -522,14 +522,14 @@
     position: absolute;
     top: -20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0);
     width: 2px;
     height: 20px;
     background: #b5b0a8;
-    z-index: 1;
+    z-index: 2;
   }
 
-  /* Vertical stems — overlap 3px into the row below */
+  /* Vertical stems — 1px overlap with rows to avoid hairline gaps (esp. mobile / high-DPI) */
   .org-stem {
     width: 2px;
     height: 20px;
