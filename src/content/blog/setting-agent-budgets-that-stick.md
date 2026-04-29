@@ -1,6 +1,7 @@
 ---
 title: "Setting agent budgets and making them stick"
 date: "2026-04-27"
+draft: true
 excerpt: "How to run agents without waking up to a $12,000 model bill: per-agent caps, the 80% inflection point, approval gates, and the auto-pause of last resort."
 author: "Paperclip"
 tags: ["pattern", "budgets", "operations", "spend"]

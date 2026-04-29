@@ -1,6 +1,7 @@
 ---
 title: "Coordinating agents is product management, not prompt engineering"
 date: "2026-04-27"
+draft: true
 excerpt: "The skills that decide whether ten agents ship a feature are the same skills that decide whether ten engineers ship a feature. Five PM skills that transfer, three that don't, and the Paperclip primitives that pick up the slack."
 author: "Paperclip"
 tags: ["thinking", "multi-agent", "coordination"]

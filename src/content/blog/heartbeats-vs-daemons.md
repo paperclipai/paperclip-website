@@ -1,6 +1,7 @@
 ---
 title: "Heartbeats vs daemons: why we chose discrete execution windows"
 date: "2026-04-27"
+draft: true
 excerpt: "The first version of Paperclip ran agents as long-lived daemons. Three production failure modes pushed us to discrete execution windows. Here's what that swap costs and what it buys."
 author: "Paperclip"
 tags: ["thinking", "heartbeats", "architecture"]

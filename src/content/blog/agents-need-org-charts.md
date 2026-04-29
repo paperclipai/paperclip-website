@@ -1,6 +1,7 @@
 ---
 title: "Why agents need org charts, not prompt chains"
 date: "2026-04-27"
+draft: true
 excerpt: "Multi-agent coordination is a management problem, not a prompt engineering problem. The bottleneck has never been the LLM — it's the coordination layer around it."
 author: "Paperclip"
 tags: ["positioning", "multi-agent", "coordination"]

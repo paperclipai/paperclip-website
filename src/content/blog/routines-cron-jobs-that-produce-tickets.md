@@ -1,6 +1,7 @@
 ---
 title: "Paperclip routines: cron jobs that produce tickets"
 date: "2026-04-27"
+draft: true
 excerpt: "A recurring schedule that creates an issue an agent picks up: three worked examples and the policies that make recurring agent work observable."
 author: "Paperclip"
 tags: ["pattern", "routines", "automation", "operations"]

@@ -1,6 +1,7 @@
 ---
 title: "Deploying Paperclip to production on a $20/month VPS"
 date: "2026-04-27"
+draft: true
 excerpt: "We put the Paperclip control plane on a single Hetzner box, with TLS, backups, and login. Here's the walkthrough, the dated cost breakdown, and the three things almost everyone gets wrong on the first try."
 author: "Paperclip"
 tags: ["pattern", "deployment", "ops", "self-hosted"]

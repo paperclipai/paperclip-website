@@ -1,6 +1,7 @@
 ---
 title: "The audit trail: every agent action has a receipt"
 date: "2026-04-27"
+draft: true
 excerpt: "Most agent platforms can't answer 'what did my coder agent do last Tuesday?' in less than a forensics exercise. Paperclip's heartbeat model produces structured receipts for every action — and stops at the line where logging becomes surveillance."
 author: "Paperclip"
 tags: ["thinking", "audit", "governance", "operations"]

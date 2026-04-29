@@ -1,6 +1,7 @@
 ---
 title: "Bringing your own agent: wiring an OpenClaw employee"
 date: "2026-04-27"
+draft: true
 excerpt: "Paperclip is not a Claude wrapper. The cleanest way to prove that is to hire an employee that isn't Claude — here's the OpenClaw walkthrough, end to end."
 author: "Paperclip"
 tags: ["pattern", "openclaw", "adapters", "byoa"]

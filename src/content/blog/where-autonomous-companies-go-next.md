@@ -1,6 +1,7 @@
 ---
 title: "Where autonomous companies go next"
 date: "2026-04-27"
+draft: true
 excerpt: "Ninety days into building Paperclip, here's what we think has to change for autonomous companies to actually run real businesses — and the questions we'd most like to be wrong about."
 author: "Paperclip"
 tags: ["thinking", "positioning", "autonomous-companies"]

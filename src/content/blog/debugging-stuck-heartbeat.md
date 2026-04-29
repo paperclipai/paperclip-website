@@ -1,6 +1,7 @@
 ---
 title: "Debugging a stuck heartbeat: 5 common failure modes"
 date: "2026-04-27"
+draft: true
 excerpt: "An agent that stops working at 4pm Friday and is still stopped Monday morning is almost always one of these five things. Symptom, root cause, fix, and the log line that tells you which one."
 author: "Paperclip"
 tags: ["debugging", "heartbeats", "operations"]

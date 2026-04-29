@@ -20,6 +20,7 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     coverImage: z.string().optional(),
     youtubeId: z.string().optional(),
+    draft: z.boolean().default(false),
   }),
 });
 
