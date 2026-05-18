@@ -1,8 +1,0 @@
-{
-  "id": "33333333-3333-3333-3333-333333333333",
-  "identifier": "BP-8",
-  "title": "Production checkout flow returning 500s",
-  "priority": "critical",
-  "status": "todo",
-  "assigneeAgentId": "11111111-1111-1111-1111-111111111111"
-}
