@@ -291,37 +291,34 @@ const features = [
         resetAll();
         [writer, seo, social].forEach(a => a.el.classList.add('is-sleeping'));
 
-        // 0h: Writer, SEO, Social each wake
+        // Order all scheduled wakes by time, then top-to-bottom row order
+        // 0h: Writer, SEO, Social
         await wake(writer, 0);  if (!alive()) break;
         await wake(seo, 0);     if (!alive()) break;
-
-        // 4h: Writer dot 1
-        await wake(writer, 1);  if (!alive()) break;
-
-        // Social dot 0 at ~0h
         await wake(social, 0);  if (!alive()) break;
 
-        // 8h: Writer dot 2, SEO dot 1
-        await wake(writer, 2);  if (!alive()) break;
-        await wake(seo, 1);     if (!alive()) break;
-
-        // 12h: Writer dot 3
-        await wake(writer, 3);  if (!alive()) break;
+        // 4h: Writer
+        await wake(writer, 1);  if (!alive()) break;
 
         // ~6h equivalent: Ticket interrupt on Social
         await ticketInterrupt(); if (!alive()) break;
 
-        // 16h: Writer dot 4, SEO dot 2
+        // 8h: Writer, SEO
+        await wake(writer, 2);  if (!alive()) break;
+        await wake(seo, 1);     if (!alive()) break;
+
+        // 12h: Writer, Social
+        await wake(writer, 3);  if (!alive()) break;
+        await wake(social, 1);  if (!alive()) break;
+
+        // 16h: Writer, SEO
         await wake(writer, 4);  if (!alive()) break;
         await wake(seo, 2);     if (!alive()) break;
 
-        // Social dot 1 (12h scheduled)
-        await wake(social, 1);  if (!alive()) break;
-
-        // 20h: Writer dot 5
+        // 20h: Writer
         await wake(writer, 5);  if (!alive()) break;
 
-        // 24h: Writer dot 6, SEO dot 3, Social dot 2
+        // 24h: Writer, SEO, Social
         await wake(writer, 6);  if (!alive()) break;
         await wake(seo, 3);     if (!alive()) break;
         await wake(social, 2);  if (!alive()) break;
